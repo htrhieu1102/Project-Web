@@ -1,5 +1,14 @@
+<%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
+<%@ page import="vn.edu.hcmuaf.fit.Database.DBConnect" %>
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
+<%@ page import="vn.edu.hcmuaf.fit.Database.DbCon" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
+<%
+    ProductService ps = new ProductService(DbCon.getConnection());
+    List<Product> list = ps.getAllProducts();
+%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -85,15 +94,15 @@
                     <span class="title-dots"></span>
                     <p class="title-filter">Lọc theo sản phẩm</p>
                     <form action="">
-                        <input type="checkbox" name="" id="" checked>
+                        <input type="checkbox" name="" checked>
                         <label>Tất cả</label><br>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="">
                         <label>Windows</label><br>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="">
                         <label>Adobe</label><br>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="">
                         <label>Microsoft</label><br>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="">
                         <label>Anti Virus</label><br>
                     </form>
                 </div>
@@ -101,17 +110,17 @@
                     <span class="title-dots"></span>
                     <p class="title-filter">Lọc theo thời hạn</p>
                     <form action="">
-                        <input type="checkbox" name="" id="" checked>
+                        <input type="checkbox" name="" checked>
                         <label>Tất cả</label><br>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="" >
                         <label>30 Ngày</label><br>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="" >
                         <label>3 Tháng</label><br>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="">
                         <label>6 Tháng</label><br>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="">
                         <label>1 Năm</label><br>
-                        <input type="checkbox" name="" id="">
+                        <input type="checkbox" name="">
                         <label>Vĩnh viễn</label><br>
                     </form>
                 </div>
@@ -131,6 +140,414 @@
 
                 </form>
                 <div class="product-filter-container">
+                    <%
+                        if(!list.isEmpty()){
+                            for(Product l: list){%>
+                        <div class="product-item">
+                        <a href="detail.jsp">
+                            <img class="product-image" src="<%= l.getImg()%>" alt="">
+                        </a>
+                        <p class="product-type"><%= l.getBranch()%></p>
+                        <a href="detail.jsp"><p class="product-name"><%= l.getName()%></p></a>
+                        <div class="product-star text-center">
+                            <span class="number-of-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <del class="product-old-price">100.000<span class="currency">₫</span></del>
+                            <span class="product-new-price"><%=l.getPrice()%><span class="currency">₫</span></span>
+                        </div>
+                        <div class="product-choose">
+                            <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
+                            </button>
+                            </div>
+                    </div>
+                        <%}
+                        }
+                    %>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+                    <div class="product-item">
+                        <a href="detail.jsp">
+                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">
+                        </a>
+                        <p class="product-type">Windows</p>
+                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>
+                        <div class="product-star text-center">
+                            <span class="number-of-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <del class="product-old-price">100.000<span class="currency">₫</span></del>
+                            <span class="product-new-price">100.000<span class="currency">₫</span></span>
+                        </div>
+                        <div class="product-choose">
+                            <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
+                            </button>
+                        </div>
+                    </div>
+<<<<<<< HEAD
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="product-item">--%>
+<%--                        <a href="detail.jsp">--%>
+<%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
+<%--                        </a>--%>
+<%--                        <p class="product-type">Windows</p>--%>
+<%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
+<%--                        <div class="product-star text-center">--%>
+<%--                            <span class="number-of-stars">--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                                <i class="fa-solid fa-star"></i>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-price">--%>
+<%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
+<%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
+<%--                        </div>--%>
+<%--                        <div class="product-choose">--%>
+<%--                            <button class="add-to-cart">--%>
+<%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
+<%--                            </button>--%>
+<%--                            </div>--%>
+<%--                    </div>--%>
+=======
                     <div class="product-item">
                         <a href="detail.jsp">
                             <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">
@@ -481,31 +898,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product-item">
-                        <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">
-                        </a>
-                        <p class="product-type">Windows</p>
-                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>
-                        <div class="product-star text-center">
-                            <span class="number-of-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                        </div>
-                        <div class="product-price">
-                            <del class="product-old-price">100.000<span class="currency">₫</span></del>
-                            <span class="product-new-price">100.000<span class="currency">₫</span></span>
-                        </div>
-                        <div class="product-choose">
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
-                            </button>
-                        </div>
-                    </div>
+>>>>>>> 54edfaffa278e672ef0634d087c09f140300f98a
                 </div>
                 <div class="page-numbers mt-4">
                     <button class="btn-number-pages" aria-checked="">1</button>

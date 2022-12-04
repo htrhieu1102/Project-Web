@@ -21316,7 +21316,7 @@ code {
   margin-top: 0;
   z-index: 1;
   cursor: pointer;
-  opacity: 0;
+  opacity: 1;
   filter: alpha(opacity=0);
 }
 

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin</title>
+  <title>Majestic Admin</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../../../css/style.css">
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/logoShopKey.png" />
+  <link rel="shortcut icon" href="../../images/logoShopKey.png" />
 </head>
 
 <body>
@@ -24,12 +26,12 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex justify-content-center">
         <div style="padding-left: 40px" class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-          <a style="height: 40px; width: 50px;" class="navbar-brand brand-logo" href="../../../index.html"><img src="images/logoShopKey.png" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+          <a style="height: 40px; width: 50px;" class="navbar-brand brand-logo" href="../../index.jsp"><img src="../../images/logoShopKey.png" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-mini.svg" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-sort-variant"></span>
+            <span class="fas fa-bars"></span>
           </button>
-        </div>
+        </div>  
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <ul class="navbar-nav mr-lg-4 w-100">
@@ -54,7 +56,7 @@
               <p class="mb-0 font-weight-normal float-left dropdown-header">Tin nhắn</p>
               <a class="dropdown-item">
                 <div class="item-thumbnail">
-                  <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
+                    <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="item-content flex-grow">
                   <h6 class="ellipsis font-weight-normal">Hoàng Khải
@@ -66,7 +68,7 @@
               </a>
               <a class="dropdown-item">
                 <div class="item-thumbnail">
-                  <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
+                    <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="item-content flex-grow">
                   <h6 class="ellipsis font-weight-normal">Thảo Châu
@@ -78,7 +80,7 @@
               </a>
               <a class="dropdown-item">
                 <div class="item-thumbnail">
-                  <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
+                    <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="item-content flex-grow">
                   <h6 class="ellipsis font-weight-normal">Minh Tâm
@@ -141,8 +143,6 @@
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
               <img src="../../images/img-compressed.jpg" alt="profile"/>
-
-
               <span class="nav-profile-name">Nguyễn Trung Hiếu</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -168,24 +168,24 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="../../../index.html">
+            <a class="nav-link" href="../../index.jsp">
               <i class="mdi mdi-home menu-icon"></i>
               <span class="menu-title">Trang chính</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="../forms/basic_elements.jsp">
               <i class="mdi mdi-view-headline menu-icon"></i>
               <span class="menu-title">Mẫu điền thông tin</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="../tables/basic-table.jsp">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Thêm sản phẩm mới</span>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="mdi mdi-account menu-icon"></i>
               <span class="menu-title">Quản lý tài khoản</span>
@@ -198,9 +198,9 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Khóa màn hình </a></li>
               </ul>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="../../../index.html">
+            <a class="nav-link" href="../../../../index.jsp">
               <i style="padding-right: 20px" class="mdi mdi-keyboard-return"></i>
               <span class="menu-title">Trở về web bán hàng</span>
             </a>

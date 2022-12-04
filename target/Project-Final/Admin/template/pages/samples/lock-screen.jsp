@@ -1,21 +1,22 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin</title>
+  <title>Majestic Admin</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/logoShopKey.png" />
+  <link rel="shortcut icon" href="../../images/logoShopKey.png" />
 </head>
 
 <body>
@@ -32,7 +33,7 @@
 <!--                  <input type="password" class="form-control text-center" id="examplePassword1" placeholder="Password">-->
 <!--                </div>-->
                 <div class="mt-5">
-                  <a class="btn btn-block btn-success btn-lg font-weight-medium" href="../../../index.html">Mở khóa</a>
+                  <a class="btn btn-block btn-success btn-lg font-weight-medium" href="../../index.jsp">Mở khóa</a>
                 </div>
                 <div class="mt-3 text-center">
                   <a href="#" class="auth-link text-white">Đăng nhập vào tài khoản khác</a>
@@ -56,5 +57,6 @@
   <script src="js/template.js"></script>
   <!-- endinject -->
 </body>
+
 
 </html>

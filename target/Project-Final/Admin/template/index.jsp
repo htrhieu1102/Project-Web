@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
+
 <html lang="en">
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin</title>
+  <title>Majestic Admin</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
@@ -27,7 +30,7 @@
           <a style="height: 40px; width: 50px;" class="navbar-brand brand-logo" href="index.html"><img src="images/logoShopKey.png" alt="logo"/></a>
           <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-sort-variant"></span>
+            <span class="fas fa-bars"></span>
           </button>
         </div>  
       </div>
@@ -166,19 +169,19 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.jsp">
               <i class="mdi mdi-home menu-icon"></i>
               <span class="menu-title">Trang chính</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="pages/forms/basic_elements.jsp">
               <i class="mdi mdi-view-headline menu-icon"></i>
               <span class="menu-title">Mẫu điền thông tin</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="pages/tables/basic-table.jsp">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Thêm sản phẩm mới</span>
             </a>
@@ -191,14 +194,14 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Đăng nhập </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Đăng kí </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Khóa màn hình </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.jsp"> Đăng nhập </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.jsp"> Đăng kí </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.jsp"> Khóa màn hình </a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../index.html">
+            <a class="nav-link" href="../../index.jsp">
               <i style="padding-right: 20px" class="mdi mdi-keyboard-return"></i>
               <span class="menu-title">Trở về web bán hàng</span>
             </a>
