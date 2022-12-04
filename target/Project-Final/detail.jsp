@@ -58,8 +58,10 @@
                         </a>
                     </span>
                     <span class="icon-item">
-                        <span><i class="fa-regular fa-user" class="btn btn-primary" data-toggle="modal"
-                                 data-target="#exampleModal"></i>
+                        <span>
+                            <a href="login.jsp">
+                                <i class="fa-regular fa-user" class="btn btn-primary"></i>
+                            </a>
                         </span>
                     </span>
                 </div>
@@ -109,19 +111,30 @@
                     </div>
                 </div>
                 <div class="description">
-<!--                        <ul class="tab_list" role="tablist">-->
-<!--                            <li class="description_tab" id="description_title" role="tab" aria-controls="description_content"><a href="#description_content">Mô tả</a></li>-->
-<!--                            <li class="rated_tab" id="rated_title" role="tab" aria-controls="rated_content"><a href="#rated_content">Đánh giá</a></li>-->
-<!--                        </ul>-->
+                    <!--                        <ul class="tab_list" role="tablist">-->
+                    <!--                            <li class="description_tab" id="description_title" role="tab" aria-controls="description_content"><a href="#description_content">Mô tả</a></li>-->
+                    <!--                            <li class="rated_tab" id="rated_title" role="tab" aria-controls="rated_content"><a href="#rated_content">Đánh giá</a></li>-->
+                    <!--                        </ul>-->
                     <div class="tab">
                         <button class="tablinks" onclick="openSection(event, 'description_content')">Mô tả</button>
                         <button class="tablinks" onclick="openSection(event, 'rated_content')">Đánh giá</button>
                     </div>
-                    <div class="tabcontent" id="description_content" role="tabpanel" aria-labelledby="description_title">
+                    <div class="tabcontent" id="description_content" role="tabpanel"
+                         aria-labelledby="description_title">
                         <h3>Tổng quan về Windows 11</h3>
-                        <p>Phiên bản Windows 11 hiện đang là từ khóa hot nhất được tìm kiếm nhiều nhất hiện nay, mọi người đang sử dụng Windows đề đang đổ dồn sự chú ý về key Windows 11 mới nhất này. Mặc dù trước đây, Microsoft đã từng tuyên bố Windows 10 sẽ là phiên bản hệ điều hành cuối cùng  nhưng vào thời điểm hiện tại Microsoft đã cho ra mắt key Windows 11 bản quyền  với nhiều tính năng mới mẻ, thú vị mang tính cá nhân hóa cao.</p>
+                        <p>Phiên bản Windows 11 hiện đang là từ khóa hot nhất được tìm kiếm nhiều nhất hiện nay, mọi
+                            người đang sử dụng Windows đề đang đổ dồn sự chú ý về key Windows 11 mới nhất này. Mặc dù
+                            trước đây, Microsoft đã từng tuyên bố Windows 10 sẽ là phiên bản hệ điều hành cuối cùng
+                            nhưng vào thời điểm hiện tại Microsoft đã cho ra mắt key Windows 11 bản quyền với nhiều tính
+                            năng mới mẻ, thú vị mang tính cá nhân hóa cao.</p>
                         <img src="image/detail_image.jpg" alt="">
-                        <p>Phiên bản Key bản quyền Windows 11 có thiết kế giao diện hoàn toàn mới so với Windows 10, người dùng sẽ được trải nghiệm những tính năng mới, thông minh và tiện ích nhất mà Microsoft mang lại. Đồng thời, trong phiên bản này  có những điểm đặc biệt nổi bật như: Menu Start mới, nâng cấp bàn phím ảo, các biểu tượng hệ thống mới, giao diện Microsoft Store mới, thanh Taskbar mới, cải thiện tính năng nhập liệu bằng giọng nói, giao diện Action Center mới,… Thiết kế này khá tương đồng với Windows 10X, hứa hẹn sẽ cạnh tranh mạnh mẽ với Chrome OS.</p>
+                        <p>Phiên bản Key bản quyền Windows 11 có thiết kế giao diện hoàn toàn mới so với Windows 10,
+                            người dùng sẽ được trải nghiệm những tính năng mới, thông minh và tiện ích nhất mà Microsoft
+                            mang lại. Đồng thời, trong phiên bản này có những điểm đặc biệt nổi bật như: Menu Start mới,
+                            nâng cấp bàn phím ảo, các biểu tượng hệ thống mới, giao diện Microsoft Store mới, thanh
+                            Taskbar mới, cải thiện tính năng nhập liệu bằng giọng nói, giao diện Action Center mới,…
+                            Thiết kế này khá tương đồng với Windows 10X, hứa hẹn sẽ cạnh tranh mạnh mẽ với Chrome
+                            OS.</p>
                     </div>
                     <div class="tabcontent" id="rated_content" role="tabpanel" aria-labelledby="rated_title">
                         <div class="user_rate">
@@ -226,90 +239,12 @@
         <a class="link-btt" href="#main"><i class="fa-sharp fa-solid fa-arrow-up"></i></a>
     </div>
     <!--    End Back to top-->
-
-    <!--Begin Login-->
-    <div id="login">
-        <!-- Modal -->
-        <div class="modal fade pt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content pl-3 pr-3" style="background: #efefef">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Đăng nhập để tiếp tục</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="body-container">
-                            <div class="choose d-flex">
-                                <div class="sign-in-choose w-50 text-center">Đăng nhập</div>
-                                <div class="sign-up-choose w-50 text-center">Đăng kí</div>
-                            </div>
-                            <div class="sign-in-container">
-                                <form action="">
-                                    <div class="input-information">
-                                        <i class="fa-solid fa-user"></i>
-                                        <input type="text" name="uname" placeholder="Tài khoản hoặc Email">
-                                    </div>
-                                    <div class="input-information">
-                                        <i class="fa-solid fa-lock"></i>
-                                        <input type="password" name="pass" placeholder="Mật khẩu">
-                                    </div>
-                                </form>
-                                <div class="remember-forgot">
-                                    <div class="remember">
-                                        <input type="checkbox" name="check">Nhớ mật khẩu
-                                    </div>
-                                    <a href="#">Quên mật khẩu</a>
-                                </div>
-                                <div class="btn-login-container">
-                                    <button class="btn-login btn-sign-in" type="button">Đăng nhập</button>
-                                </div>
-                            </div>
-                            <div class="sign-up-container">
-                                <form action="">
-                                    <div class="input-information">
-                                        <i class="fa-solid fa-envelope"></i>
-                                        <input type="email" name="email-sign-up" placeholder="Email">
-                                    </div>
-                                    <div class="input-information">
-                                        <i class="fa-solid fa-phone"></i>
-                                        <input type="number" name="phone-sign-up" placeholder="Số điện thoại">
-                                    </div>
-                                    <div class="input-information">
-                                        <i class="fa-solid fa-lock"></i>
-                                        <input type="password" name="pass-sign-up" placeholder="Mật khẩu">
-                                    </div>
-                                    <div class="input-information">
-                                        <i class="fa-solid fa-lock"></i>
-                                        <input type="password" name="pass-sign-up" placeholder="Nhập lại mật khẩu">
-                                    </div>
-                                </form>
-                                <div class="btn-login-container">
-                                    <button class="btn-login btn-sign-up" type="button">Đăng ký</button>
-                                </div>
-                            </div>
-                            <p class="text-center">Hoặc</p>
-                            <div class="login-with">
-                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                                <a href="#"><i class="fa-brands fa-google"></i></a>
-                                <a href="#"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-    <!--End Login-->
-
-    <!--    Script-->
-    <script src="js/jquery-3.6.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/slideShow.js"></script>
+<!--    Script-->
+<script src="js/jquery-3.6.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/slideShow.js"></script>
 </div>
 </body>
 </html>

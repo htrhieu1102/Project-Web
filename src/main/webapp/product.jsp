@@ -58,8 +58,10 @@
                         </a>
                     </span>
                     <span class="icon-item">
-                        <span><i class="fa-regular fa-user" class="btn btn-primary" data-toggle="modal"
-                                 data-target="#exampleModal"></i>
+                        <span>
+                            <a href="login.jsp">
+                                <i class="fa-regular fa-user" class="btn btn-primary"></i>
+                            </a>
                         </span>
                     </span>
                 </div>
@@ -152,7 +154,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -177,7 +179,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -202,7 +204,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -227,7 +229,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -252,7 +254,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -277,7 +279,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -302,7 +304,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -327,7 +329,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -352,7 +354,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -377,7 +379,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -402,7 +404,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -427,7 +429,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -452,7 +454,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -477,7 +479,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
@@ -502,7 +504,7 @@
                             <button class="add-to-cart">
                                 <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                             </button>
-                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="page-numbers mt-4">
@@ -573,83 +575,6 @@
     </div>
     <!--    End Back to top-->
 </div>
-<!--Begin Login-->
-<div id="login">
-    <!-- Modal -->
-    <div class="modal fade pt-2" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content pl-3 pr-3" style="background: #efefef">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Đăng nhập để tiếp tục</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="body-container">
-                        <div class="choose d-flex">
-                            <div class="sign-in-choose w-50 text-center">Đăng nhập</div>
-                            <div class="sign-up-choose w-50 text-center">Đăng kí</div>
-                        </div>
-                        <div class="sign-in-container">
-                            <form action="">
-                                <div class="input-information">
-                                    <i class="fa-solid fa-user"></i>
-                                    <input type="text" name="uname" placeholder="Tài khoản hoặc Email">
-                                </div>
-                                <div class="input-information">
-                                    <i class="fa-solid fa-lock"></i>
-                                    <input type="password" name="pass" placeholder="Mật khẩu">
-                                </div>
-                            </form>
-                            <div class="remember-forgot">
-                                <div class="remember">
-                                    <input type="checkbox" name="check">Nhớ mật khẩu
-                                </div>
-                                <a href="#">Quên mật khẩu</a>
-                            </div>
-                            <div class="btn-login-container">
-                                <button class="btn-login btn-sign-in" type="button">Đăng nhập</button>
-                            </div>
-                        </div>
-                        <div class="sign-up-container">
-                            <form action="">
-                                <div class="input-information">
-                                    <i class="fa-solid fa-envelope"></i>
-                                    <input type="email" name="email-sign-up" placeholder="Email">
-                                </div>
-                                <div class="input-information">
-                                    <i class="fa-solid fa-phone"></i>
-                                    <input type="number" name="phone-sign-up" placeholder="Số điện thoại">
-                                </div>
-                                <div class="input-information">
-                                    <i class="fa-solid fa-lock"></i>
-                                    <input type="password" name="pass-sign-up" placeholder="Mật khẩu">
-                                </div>
-                                <div class="input-information">
-                                    <i class="fa-solid fa-lock"></i>
-                                    <input type="password" name="pass-sign-up" placeholder="Nhập lại mật khẩu">
-                                </div>
-                            </form>
-                            <div class="btn-login-container">
-                                <button class="btn-login btn-sign-up" type="button">Đăng ký</button>
-                            </div>
-                        </div>
-                        <p class="text-center">Hoặc</p>
-                        <div class="login-with">
-                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#"><i class="fa-brands fa-google"></i></a>
-                            <a href="#"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--End Login-->
-
-
 <!--    Script-->
 <script src="js/jquery-3.6.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
