@@ -108,14 +108,14 @@ gulp.task('replacePath', function(){
         .pipe(replace('="images/', '="../../images/'))
         .pipe(replace('href="pages/', 'href="../../pages/'))
         .pipe(replace('href="documentation/', 'href="../../documentation/'))
-        .pipe(replace('href="index.jsp"', 'href="../../index.jsp"'))
+        .pipe(replace('href="index.html"', 'href="../../index.html"'))
         .pipe(gulp.dest('.'));
     var replacePath2 = gulp.src(['./pages/*.html'], { base: "./" })
         .pipe(replace('="images/', '="../images/'))
         .pipe(replace('"pages/', '"../pages/'))
-        .pipe(replace('href="index.jsp"', 'href="../index.jsp"'))
+        .pipe(replace('href="index.html"', 'href="../index.html"'))
         .pipe(gulp.dest('.'));
-    var replacePath3 = gulp.src(['./index.jsp'], { base: "./" })
+    var replacePath3 = gulp.src(['./index.html'], { base: "./" })
         .pipe(replace('="images/', '="images/'))
         .pipe(gulp.dest('.'));
     return merge(replacePath1, replacePath2, replacePath3);

@@ -464,7 +464,7 @@
 }
 #content .product-filter .product-filter-container {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 2rem 1rem;
     grid-template-columns: repeat(3,1fr);
 }
 #content .woocommerce-ordering .order-by {
@@ -1519,7 +1519,7 @@
 }
 
 #checkout_content .container .checkout_cart .total_price .discount_code p{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
 }
 
@@ -1542,7 +1542,7 @@
 #checkout_content .container .checkout_cart .total_price .discount_code .discount_contain{
     padding-top: 20px;
     padding-left: 15px;
-    width: 200px;
+    width: 220px;
     height: 100px;
     border: 1px solid;
     border-radius: 8px;
@@ -1572,10 +1572,9 @@
 
 #checkout_content .container .checkout_cart .total_price .subtotal .total_contain{
     padding-right: 10px;
-    width: 200px;
+    width: 250px;
     border: 1px solid;
     border-radius: 8px;
-    width: 300px;
     font-weight: bold;
     box-shadow: 0px 4px 15px 6px #b4b4b4;
 }
