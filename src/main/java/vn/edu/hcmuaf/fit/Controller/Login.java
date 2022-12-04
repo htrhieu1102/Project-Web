@@ -22,7 +22,7 @@ public class Login extends HttpServlet {
         User u = loginService.login(user, pass);
         if (u == null) {
             request.setAttribute("error", "<div class=\"alert alert-danger\" role=\"alert\">\n" +
-                    "  Sai tài khoản hoặc mật khẩu!\n" +
+                    "  Tài khoản hoặc mật khẩu không đúng!\n" +
                     "</div>");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
