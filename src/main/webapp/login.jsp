@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
 </head>
 <body>
 <div id="main">
@@ -70,71 +69,48 @@
         </div>
     </div>
     <!--    End Header-->
-    <!--Content Begin-->
-    <div id="content">
-        <!--Contact area start-->
-        <div class="contact_area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="contact_message content">
-                            <h3>Liên hệ với chúng tôi</h3>
-                            <p>Nếu bạn có bất cứ vấn đề hoặc thắc mắc nào có thể phản hồi với chúng tôi qua các cách
-                                thức liên lạc bên dưới.</p>
-                            <p>Hoặc có thể điền vào biểu mẫu bên cạnh để mô tả sơ lược về vấn đề mà bạn gặp phải.</p>
-                            <ul>
-                                <li><i class="fa-solid fa-location-dot"></i> Địa chỉ liên hệ: Khu phố 6, phường Linh Trung, TP. Thủ
-                                    Đức, TP.HCM
-                                </li>
-                                <li><i class="fa-solid fa-envelope"></i> Email nhận phản hồi: 20130260@st.hcmuaf.edu.vn
-                                </li>
-                                <li><i class="fa fa-phone"></i> Số điện thoại liên lạc: 0852995378</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="contact_message form">
-                            <h3>Mô tả vấn đề của bạn</h3>
-                            <form id="contact-form" method="POST">
-                                <p>
-                                    <label> Họ và tên (bắt buộc)</label>
-                                    <input name="name" placeholder="Họ và tên*" type="text">
-                                </p>
-                                <p>
-                                    <label> Địa chỉ email (bắt buộc)</label>
-                                    <input name="email" placeholder="Địa chỉ email*" type="email">
-                                </p>
-                                <p>
-                                    <label> Số điện thoại</label>
-                                    <input name="subject" placeholder="Số điện thoại" type="text">
-                                </p>
-                                <div class="contact_textarea">
-                                    <label> Mô tả vấn đề (bắt buộc)</label>
-                                    <textarea placeholder="Mô tả*" name="message" class="form-control2"></textarea>
-                                </div>
-                                <button type="submit"> Gửi</button>
-                                <p class="form-messege"></p>
-                            </form>
 
+    <!--    Begin Content-->
+    <div id="content" class="login">
+        <div class="container d-flex justify-content-center">
+            <div class="body-container">
+                <div class="title-login"><h3>Đăng nhập</h3></div>
+                <div class="sign-in-container">
+                    <form action="login" method="post">
+                        <%String error = (String) request.getAttribute("error");%>
+                        <%=error == null ? "" : error%>
+                        <div class="input-information">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" name="uname" placeholder="Tài khoản hoặc Email">
                         </div>
-                    </div>
+                        <div class="input-information">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" name="pass" placeholder="Mật khẩu">
+                        </div>
+                        <div class="remember-forgot">
+                            <div class="remember">
+                                <input type="checkbox" name="check">Nhớ mật khẩu
+                            </div>
+                            <a href="#">Quên mật khẩu</a>
+                        </div>
+                        <div class="btn-login-container">
+                            <button class="btn-login btn-sign-in" type="submit">Đăng nhập</button>
+                        </div>
+                    </form>
+
                 </div>
+                <p class="text-center mb-1">Hoặc</p>
+                <div class="login-with">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <p class="text-center go-to-login-register"><a href="register.jsp">Đăng ký</a></p>
             </div>
         </div>
-        <!--Contact area end-->
-
-        <!--Map Location Begin-->
-        <div class="map">
-            <div class="map_location">
-                <h3>Vị trí trên bản đồ:</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.214525476974!2d106.78957301590339!3d10.87128166040572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175276398969f7b%3A0x9672b7efd0893fc4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBOw7RuZyBMw6JtIFRwLiBI4buTIENow60gTWluaA!5e0!3m2!1svi!2s!4v1666705870481!5m2!1svi!2s"
-                        width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-        <!--Map Location End-->
     </div>
     <!--    End Content-->
+
     <!--    Begin Footer-->
     <div id="footer">
         <div class="container footer-main">
@@ -192,7 +168,9 @@
         <a class="link-btt" href="#main"><i class="fa-sharp fa-solid fa-arrow-up"></i></a>
     </div>
     <!--    End Back to top-->
+
 </div>
+
 <!--    Script-->
 <script src="js/jquery-3.6.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

@@ -24,9 +24,9 @@ public class Login extends HttpServlet {
             request.setAttribute("error", "<div class=\"alert alert-danger\" role=\"alert\">\n" +
                     "  Sai tài khoản hoặc mật khẩu!\n" +
                     "</div>");
-            request.getRequestDispatcher(".").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
-            response.sendRedirect(".");
+            response.sendRedirect("index.jsp");
         }
     }
 }

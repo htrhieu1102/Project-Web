@@ -6,20 +6,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="fontawesome/css/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
-<%String error = (String) request.getAttribute("error");%>
-<body
-    <% if (error != null) {%>
-        class="modal-open" style="padding-right: 17px"
-    <%} else if (error == null) {%>
-
-    <%}%>
->
+<body>
 <div id="main">
     <!--    Begin Header-->
     <div id="header">
@@ -66,8 +59,10 @@
                         </a>
                     </span>
                     <span class="icon-item">
-                        <span><i class="fa-regular fa-user" class="btn btn-primary" data-toggle="modal"
-                                 data-target="#exampleModal"></i>
+                        <span>
+                            <a href="login.jsp">
+                                <i class="fa-regular fa-user" class="btn btn-primary"></i>
+                            </a>
                         </span>
                     </span>
                 </div>
@@ -78,9 +73,6 @@
     <!--    Begin SlideShow-->
     <div id="slideShow">
         <div class="position-relative">
-<!--            <img class="mySlides" src="image/slideshow/windows.png" alt="">-->
-<!--            <img class="mySlides" src="image/slideshow/raw.jpg" alt="">-->
-<!--            <img class="mySlides" src="image/slideshow/adobe.jpg" alt="">-->
             <img class="mySlides" src="image/slideshow/win11-2-compressed.jpg" alt="">
             <img class="mySlides" src="image/slideshow/office-365-1-compressed.jpg" alt="">
             <img class="mySlides" src="image/slideshow/adobe%201-compressed.jpg" alt="">
@@ -625,102 +617,10 @@
     </div>
     <!--    End Back to top-->
     <!--    End Content-->
-
 </div>
-
-<!--Begin Login-->
-<div id="login">
-    <!-- Modal -->
-    <% if (error != null) {%>
-        <div class="modal fade pt-2 show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: block; padding-right: 17px;" aria-modal="true" role="dialog">
-    <%} else if (error == null) { %>
-        <div class="modal fade pt-2" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">;
-    <%}%>
-        <div class="modal-dialog">
-            <div class="modal-content pl-3 pr-3" style="background: #efefef">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Đăng nhập để tiếp tục</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="body-container">
-                        <div class="choose d-flex">
-                            <div class="sign-in-choose w-50 text-center">Đăng nhập</div>
-                            <div class="sign-up-choose w-50 text-center">Đăng kí</div>
-                        </div>
-
-                        <div class="sign-in-container">
-                            <form action="login" method="post">
-                                <%=error == null ? "" : error%>
-                                <div class="input-information">
-                                    <i class="fa-solid fa-user"></i>
-                                    <input type="text" name="uname" placeholder="Tài khoản hoặc Email">
-                                </div>
-                                <div class="input-information">
-                                    <i class="fa-solid fa-lock"></i>
-                                    <input type="password" name="pass" placeholder="Mật khẩu">
-                                </div>
-                                <div class="remember-forgot">
-                                    <div class="remember">
-                                        <input type="checkbox" name="check">Nhớ mật khẩu
-                                    </div>
-                                    <a href="#">Quên mật khẩu</a>
-                                </div>
-                                <div class="btn-login-container">
-                                    <button class="btn-login btn-sign-in" type="submit">Đăng nhập</button>
-                                </div>
-                            </form>
-
-                        </div>
-                        <div class="sign-up-container">
-                            <form action="signup" method="post">
-                                <div class="input-information">
-                                    <i class="fa-solid fa-envelope"></i>
-                                    <input type="email" name="email-sign-up" placeholder="Email">
-                                </div>
-                                <div class="input-information">
-                                    <i class="fa-solid fa-phone"></i>
-                                    <input type="number" name="phone-sign-up" placeholder="Số điện thoại">
-                                </div>
-                                <div class="input-information">
-                                    <i class="fa-solid fa-lock"></i>
-                                    <input type="password" name="pass-sign-up" placeholder="Mật khẩu">
-                                </div>
-                                <div class="input-information">
-                                    <i class="fa-solid fa-lock"></i>
-                                    <input type="password" name="re-pass-sign-up" placeholder="Nhập lại mật khẩu">
-                                </div>
-                                <div class="btn-login-container">
-                                    <button class="btn-login btn-sign-up" type="submit">Đăng ký</button>
-                                </div>
-                            </form>
-
-                        </div>
-                        <p class="text-center">Hoặc</p>
-                        <div class="login-with">
-                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#"><i class="fa-brands fa-google"></i></a>
-                            <a href="#"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--End Login-->
-
-<!--    Script-->
 <script src="js/jquery-3.6.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/slideShow.js"></script>
-<% if (error !=null) {%>
-    <div class="modal-backdrop fade show"></div>
-<%} else if(error ==null){ %>
-
-<%} %>
 </body>
 </html>
