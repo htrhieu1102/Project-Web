@@ -140,13 +140,12 @@
                         List<Product> list = productService.getProduct();
                         for (Product p : list) {%>
                     <div class="product-item">
-                        <a href="detail.jsp">
+                        <a href="detail.jsp?pid=<%=p.getId()%>">
                             <img class="product-image" src="<%= p.getImg()%>" alt="">
                         </a>
                         <p class="product-type"><%= p.getBranch()%>
                         </p>
-                        <a href="detail.jsp"><p class="product-name"><%= p.getName()%>
-                        </p></a>
+                        <a href="detail.jsp?pid=<%=p.getId()%>"><p class="product-name"><%= p.getName()%></p></a>
                         <div class="product-star text-center">
                             <span class="number-of-stars">
                                 <i class="fa-solid fa-star"></i>

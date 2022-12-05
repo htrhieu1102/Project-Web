@@ -1,3 +1,5 @@
+<%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
+<%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -73,11 +75,14 @@
     <div id="content">
         <div class="container">
             <div class="row">
+                <% ProductService productService = new ProductService();
+                    String pid = (String) request.getParameter("pid");
+                    Product product = productService.getProductDetail(Integer.parseInt(pid));%>
                 <div class="col-lg-6 col-md-12 detail-img-product">
-                    <img src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">
+                    <img src="<%=product.getImg()%>" alt="">
                 </div>
                 <div class="col-lg-6 col-md-12 entry-summary">
-                    <h1 class="entry-title">Key Windows 11 Pro Mak</h1>
+                    <h1 class="entry-title"><%=product.getName()%>></h1>
                     <div class="entry-rating">
                         <span class="star-rating">
                             <i class="fa-solid fa-star"></i>
@@ -88,15 +93,15 @@
                         </span>
                         <span class="review-rating">(36 đánh giá từ khách hàng)</span>
                     </div>
-                    <p class="entry-price">1.200.000 <span class="entry-currency">VND</span></p>
+                    <p class="entry-price"><%=product.getPrice()%> <span class="entry-currency">VND</span></p>
                     <div class="product-details-short-description">
                         <h3>Thông tin chi tiết sản phẩm</h3>
                         <p>
-                            <b><span>Thương hiệu:</span></b><span>&nbsp;&nbsp;Windows</span><br>
-                            <b><span>Trình trạng:</span></b><span>&nbsp;&nbsp;Còn hàng</span><br>
+                            <b><span>Thương hiệu:</span></b><span>&nbsp;&nbsp;<%=product.getBranch()%></span><br>
+                            <b><span>Trình trạng:</span></b><span>&nbsp;&nbsp;<%=product.getStatus()%></span><br>
                             <b><span>Loại Phương tiện: </span></b><span>&nbsp;&nbsp;Key và Tải xuống – Hướng dẫn sẽ được gửi qua email cho bạn.</span><br>
                             <b><span>Thời hạn cấp phép:</span></b><span>&nbsp;&nbsp;1 Năm</span><br>
-                            <b><span>Số lượng thiết bị:</span></b><span>&nbsp;&nbsp;1</span><br>
+                            <b><span>Số lượng thiết bị:</span></b><span>&nbsp;&nbsp;<%=product.getDeviceNumber()%></span><br>
                         </p>
                         <div class="category-product">
                             <p class="mb-0">
