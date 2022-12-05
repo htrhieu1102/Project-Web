@@ -1,32 +1,40 @@
 package vn.edu.hcmuaf.fit.Model;
 
 public class Product {
-    private String product_id;
+    private int id;
     private String img;
-    private String branch;
     private String name;
     private int oldPrice;
     private int price;
+    private String branch;
+    private String status;
+    private String device;
+    private int deviceNumber;
+    private String description;
+    private int amount;
+    private String category;
 
-    public Product() {
-
-    }
-
-    public Product(String product_id, String img, String branch, String name, int oldPrice, int price) {
-        this.product_id = product_id;
+    public Product(int id, String img, String name, int oldPrice, int price, String branch, String status, String device, int deviceNumber, String description, int amount, String category) {
+        this.id = id;
         this.img = img;
-        this.branch = branch;
         this.name = name;
         this.oldPrice = oldPrice;
         this.price = price;
+        this.branch = branch;
+        this.status = status;
+        this.device = device;
+        this.deviceNumber = deviceNumber;
+        this.description = description;
+        this.amount = amount;
+        this.category = category;
     }
 
-    public String getId() {
-        return product_id;
+    public int getId() {
+        return id;
     }
 
-    public void setId(String product_id) {
-        this.product_id = product_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getImg() {
@@ -35,14 +43,6 @@ public class Product {
 
     public void setImg(String img) {
         this.img = img;
-    }
-
-    public String getBranch() {
-        return branch;
-    }
-
-    public void setBranch(String branch) {
-        this.branch = branch;
     }
 
     public String getName() {
@@ -69,25 +69,59 @@ public class Product {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "product_id='" + product_id + '\'' +
-                ", branch='" + branch + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
+    public String getBranch() {
+        return branch;
     }
 
-    //    @Override
-//    public String toString() {
-//        return "Product{" +
-//                "id=" + id +
-//                ", img='" + img + '\'' +
-//                ", branch='" + branch + '\'' +
-//                ", name='" + name + '\'' +
-//                ", oldPrice=" + oldPrice +
-//                ", price=" + price +
-//                '}';
-//    }
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDevice() {
+        return device;
+    }
+
+    public void setDevice(String device) {
+        this.device = device;
+    }
+
+    public int getDeviceNumber() {
+        return deviceNumber;
+    }
+
+    public void setDeviceNumber(int deviceNumber) {
+        this.deviceNumber = deviceNumber;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }

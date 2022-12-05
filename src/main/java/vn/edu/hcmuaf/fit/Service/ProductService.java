@@ -1,61 +1,44 @@
 package vn.edu.hcmuaf.fit.Service;
 
-import vn.edu.hcmuaf.fit.Database.DbCon;
+import vn.edu.hcmuaf.fit.Database.DBConnect;
 import vn.edu.hcmuaf.fit.Model.Product;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 public class ProductService {
-    private Connection con;
-    private String query;
-    private PreparedStatement pst;
-    private ResultSet rs;
+    Statement statement = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
 
-    public ProductService(Connection con) {
-        this.con = con;
-    }
-
-    public List<Product> getAllProducts(){
-        List<Product> list = new ArrayList<>();
-
-        try{
-            query = "select * from product";
-            pst =  this.con.prepareStatement(query);
-            rs = pst.executeQuery();
-            while (rs.next()){
-                Product row = new Product();
-                row.setId(rs.getString("product_id"));
-//                row.setImg(rs.getString("img"));
-                row.setBranch(rs.getString("product_branch"));
-                row.setName(rs.getString("product_name"));
-//                row.setOldPrice(rs.getInt("oldPrice"));
-                row.setImg(rs.getString("product_decsription"));
-                row.setPrice(rs.getInt("product_price"));
-
-                list.add(row);
-            }
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-
-    public static void main(String[] args) {
+    public List<Product> getProduct() {
+        List<Product> productList = new ArrayList<>();
+        String query = "SELECT product.pid, product.pimage, product.pname, product.pprice_old, product.pprice, product.pbranch, product.pstatus, product.pdevice, product.pnumber_device, product.pdesciption, product.pamount, category.cname\n" +
+                "FROM product JOIN category WHERE product.cid = category.cid";
         try {
-            ProductService pd = new ProductService(DbCon.getConnection());
-            System.out.println(pd.getAllProducts().toString());
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                productList.add(new Product(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getInt(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8),
+                        resultSet.getInt(9),
+                        resultSet.getString(10),
+                        resultSet.getInt(11),
+                        resultSet.getString(12)));
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return productList;
+
     }
 
 }

@@ -6,12 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Project-Final" />
         <module name="Project-Web" />
-<<<<<<< HEAD
-=======
-        <module name="Project-Web-4-14-2022" />
->>>>>>> 54edfaffa278e672ef0634d087c09f140300f98a
       </profile>
     </annotationProcessing>
   </component>
