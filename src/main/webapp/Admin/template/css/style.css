@@ -23317,10 +23317,9 @@ select::-ms-expand {
   border: 2px solid transparent;
   height: 46px;
   position: relative;
-  color: #fff;
   font-size: 16px;
   width: 100%;
-  color: #fff;
+  color: #000000;
   border-radius: 6px;
   padding: 0 20px;
 }
@@ -23339,7 +23338,7 @@ select::-ms-expand {
   padding: 15px 20px;
   resize: none;
   background-color: #dedede;
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 20px;
   border-radius: 6px;
 }

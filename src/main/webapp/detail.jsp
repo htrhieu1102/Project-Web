@@ -29,7 +29,7 @@
                     <img src="<%=product.getImg()%>" alt="">
                 </div>
                 <div class="col-lg-6 col-md-12 entry-summary">
-                    <h1 class="entry-title"><%=product.getName()%>></h1>
+                    <h1 class="entry-title"><%=product.getName()%></h1>
                     <div class="entry-rating">
                         <span class="star-rating">
                             <i class="fa-solid fa-star"></i>
@@ -45,10 +45,10 @@
                         <h3>Thông tin chi tiết sản phẩm</h3>
                         <p>
                             <b><span>Thương hiệu:</span></b><span>&nbsp;&nbsp;<%=product.getBranch()%></span><br>
-                            <b><span>Trình trạng:</span></b><span>&nbsp;&nbsp;<%=product.getStatus()%></span><br>
-                            <b><span>Loại Phương tiện: </span></b><span>&nbsp;&nbsp;Key và Tải xuống – Hướng dẫn sẽ được gửi qua email cho bạn.</span><br>
+                            <b><span>Trình trạng:</span></b><span>&nbsp;&nbsp;<%=(product.getAmount() >0) ? "Còn hàng" : "Hết hàng"%></span><br>
                             <b><span>Thời hạn cấp phép:</span></b><span>&nbsp;&nbsp;1 Năm</span><br>
                             <b><span>Số lượng thiết bị:</span></b><span>&nbsp;&nbsp;<%=product.getDeviceNumber()%></span><br>
+                            <b><span>Loại Phương tiện: </span></b><span>&nbsp;&nbsp;Key và Tải xuống – Hướng dẫn sẽ được gửi qua email cho bạn.</span><br>
                         </p>
                         <div class="category-product">
                             <p class="mb-0">
@@ -63,10 +63,6 @@
                     </div>
                 </div>
                 <div class="description">
-                    <!--                        <ul class="tab_list" role="tablist">-->
-                    <!--                            <li class="description_tab" id="description_title" role="tab" aria-controls="description_content"><a href="#description_content">Mô tả</a></li>-->
-                    <!--                            <li class="rated_tab" id="rated_title" role="tab" aria-controls="rated_content"><a href="#rated_content">Đánh giá</a></li>-->
-                    <!--                        </ul>-->
                     <div class="tab">
                         <button class="tablinks" onclick="openSection(event, 'description_content')">Mô tả</button>
                         <button class="tablinks" onclick="openSection(event, 'rated_content')">Đánh giá</button>

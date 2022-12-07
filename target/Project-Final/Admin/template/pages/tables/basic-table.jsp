@@ -244,8 +244,9 @@
                                                 <div class="form__img">
                                                     <label for="form__img-upload">Thêm ảnh</label>
                                                     <input id="form__img-upload" name="form__img-upload" type="file"
-                                                           accept=".png, .jpg, .jpeg">
-                                                    <img id="form__img" src="#" alt=" ">
+                                                           accept="image/*"
+                                                    onchange="document.getElementById('form__img').src = window.URL.createObjectURL(this.files[0])">
+                                                    <img id="form__img" src="#" alt="">
                                                 </div>
                                             </div>
                                         </div>
@@ -254,45 +255,46 @@
                                     <div class="col-12 col-md-7 form__content">
                                         <div class="row row--form">
                                             <div class="col-12">
-                                                <input type="text" class="form__input" placeholder="Tên sản phẩm">
+                                                <input id="name" type="text" class="form__input" placeholder="Tên sản phẩm" name="name">
                                             </div>
 
 
                                             <div class="col-12 ">
-                                                <input type="text" class="form__input" placeholder="Giá cũ">
+                                                <input id="old-price" type="text" class="form__input" placeholder="Giá cũ" name="old-price">
                                             </div>
 
                                             <div class="col-12">
-                                                <input type="text" class="form__input" placeholder="Giá hiện tại">
+                                                <input id="price" type="text" class="form__input" placeholder="Giá hiện tại" name="price">
                                             </div>
                                             <div class="col-12">
-                                                <input type="text" class="form__input" placeholder="Hãng">
+                                                <input id="branch" type="text" class="form__input" placeholder="Hãng" name="branch">
                                             </div>
                                             <div class="col-12">
-                                                <select style="margin-bottom: 20px; width: 30%; padding: 5px; text-align: center; border-radius: 5px">
+                                                <label style="padding: 0 20px">Loại sản phẩm:</label>
+                                                <select id="category" style="margin-bottom: 20px; width: 30%; padding: 10px 5px; text-align: center; border-radius: 5px">
                                                     <% CategoryService categoryService = new CategoryService();
                                                         List<Category> categoryList = categoryService.getAllCategory();
                                                         for (Category c : categoryList) {%>
-                                                            <option><%=c.getCname()%></option>
+                                                            <option value="<%=c.getCid()%>"><%=c.getCname()%></option>
                                                        <% }%>
                                                 </select>
                                             </div>
                                             <div class="col-12">
-                                                <input type="text" class="form__input" placeholder="Số lượng thiết bị">
+                                                <input id="device-number" type="text" class="form__input" placeholder="Số lượng thiết bị" name="device-number">
                                             </div>
                                             <div class="col-12">
-                                                <input type="text" class="form__input" placeholder="Số lượng">
+                                                <input id="amount" type="text" class="form__input" placeholder="Số lượng" name="amount">
                                             </div>
                                             <div class="col-12">
-                                                <textarea id="text" name="text" class="form__textarea"
+                                                <textarea id="description" name="description" class="form__textarea"
                                                           placeholder="Mô tả"></textarea>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="col-12">
-                                        <div class="row row--form">
-                                            <div class="col-12">
+                                        <div class="row row--form" >
+                                            <div class="col-12 d-flex justify-content-end">
                                                 <button type="button" class="form__btn mb-5">Thêm</button>
                                             </div>
                                         </div>
@@ -364,6 +366,10 @@
 <!-- End custom js for this page-->
 <script><%@include file="../../js/jquery-3.6.1.min.js"%></script>
 <script>
+    // $('#form__img-upload').change(function (e){
+    //     let img = $('#form__img');
+    //     img.src = URL.createObjectURL(e.target.files[0]);
+    // })
     function load() {
         const value = document.getElementsByClassName('delete-product');
         for (let i = 0; i < value.length; i++) {
@@ -388,6 +394,39 @@
     }
     $(document).ready(function () {
         load();
+    })
+    $('.form__btn').click(function () {
+        let img = $('#form__img-upload').val();
+        let name = $('#name').val();
+        let oldPrice = $('#old-price').val();
+        let price = $('#price').val();
+        let branch = $('#branch').val();
+        let category = $('#category option').filter(':selected').val();
+        let deviceNumber = $('#device-number').val();
+        let amount = $('#amount').val();
+        let description = $('#description').val();
+        $.ajax({
+            url: '/Project_Web_war/addProduct',
+            type: 'post',
+            data: {
+                img : img,
+                name : name,
+                oldPrice : oldPrice,
+                price : price,
+                branch : branch,
+                category : category,
+                deviceNumber : deviceNumber,
+                amount : amount,
+                description: description
+            },
+            success: function (response) {
+                $('#table-product').html(response)
+                load();
+            },
+            error: function () {
+                alert("Vui lòng nhập đủ các trường")
+            }
+        })
     })
 </script>
 </body>
