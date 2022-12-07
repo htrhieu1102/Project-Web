@@ -1,6 +1,8 @@
 <%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
+<%@ page import="vn.edu.hcmuaf.fit.Database.DbCon" %>
+<%@ page import="vn.edu.hcmuaf.fit.Controller.ListProduct" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -160,9 +162,15 @@
                             <span class="product-new-price"><%=p.getPrice()%><span class="currency">₫</span></span>
                         </div>
                         <div class="product-choose">
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
-                            </button>
+<%--                            <a href="AddToCart?id=<%= p.getId()%>">--%>
+<%--                                --%>
+<%--                            </a>--%>
+                                <button class="add-to-cart">
+<%--                                <a href="product.jsp?id=<%= p.getId()%>" >--%>
+                                <a href="AddToCart?id=<%= p.getId()%>">
+                                    <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
+                                </a>
+                                </button>
                         </div>
                     </div>
                     <%}%>
@@ -209,7 +217,7 @@
                         </div>
                         <div class="product-price">
                             <del class="product-old-price">100.000<span class="currency">₫</span></del>
-                            <span class="product-new-price">100.000<span class="currency">₫</span></span>
+                            <span class="product-new-price"><%= ListProduct.list.size()%>><span class="currency">₫</span></span>
                         </div>
                         <div class="product-choose">
                             <button class="add-to-cart">
