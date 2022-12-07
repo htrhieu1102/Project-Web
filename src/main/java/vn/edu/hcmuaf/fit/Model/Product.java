@@ -14,6 +14,10 @@ public class Product {
     private int amount;
     private String category;
 
+    public Product(){
+
+    }
+
     public Product(int id, String img, String name, int oldPrice, int price, String branch, String status, String device, int deviceNumber, String description, int amount, String category) {
         this.id = id;
         this.img = img;
@@ -123,5 +127,23 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", img='" + img + '\'' +
+                ", name='" + name + '\'' +
+                ", oldPrice=" + oldPrice +
+                ", price=" + price +
+                ", branch='" + branch + '\'' +
+                ", status='" + status + '\'' +
+                ", device='" + device + '\'' +
+                ", deviceNumber=" + deviceNumber +
+                ", description='" + description + '\'' +
+                ", amount=" + amount +
+                ", category='" + category + '\'' +
+                '}';
     }
 }
