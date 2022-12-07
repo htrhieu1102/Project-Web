@@ -67,5 +67,15 @@ public class ProductService {
         }
         return null;
     }
-
+    public void deleteProduct(int pid) {
+        String query = "DELETE FROM product WHERE product.pid = ?";
+        try {
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, pid);
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 }

@@ -23368,3 +23368,22 @@ select::-ms-expand {
   color: #ffffff;
   background: black;
 }
+.show-product table{
+  width: 100%;
+}
+.show-product h3 {
+  margin: 20px 0;
+}
+.show-product table img {
+  width: 70px;
+}
+.show-product table th {
+  padding: 11px 0;
+  background: #f8f8f8;
+}
+.show-product table td {
+  padding: 5px 0 10px;
+}
+.show-product table td i {
+  margin: 0 5px;
+}
