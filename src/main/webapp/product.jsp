@@ -142,13 +142,12 @@
                         List<Product> list = productService.getProduct();
                         for (Product p : list) {%>
                     <div class="product-item">
-                        <a href="detail.jsp">
+                        <a href="detail.jsp?pid=<%=p.getId()%>">
                             <img class="product-image" src="<%= p.getImg()%>" alt="">
                         </a>
                         <p class="product-type"><%= p.getBranch()%>
                         </p>
-                        <a href="detail.jsp"><p class="product-name"><%= p.getName()%>
-                        </p></a>
+                        <a href="detail.jsp?pid=<%=p.getId()%>"><p class="product-name"><%= p.getName()%></p></a>
                         <div class="product-star text-center">
                             <span class="number-of-stars">
                                 <i class="fa-solid fa-star"></i>
@@ -175,31 +174,6 @@
                         </div>
                     </div>
                     <%}%>
-                    <%--                    <div class="product-item">--%>
-                    <%--                        <a href="detail.jsp">--%>
-                    <%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
-                    <%--                        </a>--%>
-                    <%--                        <p class="product-type">Windows</p>--%>
-                    <%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
-                    <%--                        <div class="product-star text-center">--%>
-                    <%--                            <span class="number-of-stars">--%>
-                    <%--                                <i class="fa-solid fa-star"></i>--%>
-                    <%--                                <i class="fa-solid fa-star"></i>--%>
-                    <%--                                <i class="fa-solid fa-star"></i>--%>
-                    <%--                                <i class="fa-solid fa-star"></i>--%>
-                    <%--                                <i class="fa-solid fa-star"></i>--%>
-                    <%--                            </span>--%>
-                    <%--                        </div>--%>
-                    <%--                        <div class="product-price">--%>
-                    <%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
-                    <%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
-                    <%--                        </div>--%>
-                    <%--                        <div class="product-choose">--%>
-                    <%--                            <button class="add-to-cart">--%>
-                    <%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
-                    <%--                            </button>--%>
-                    <%--                            </div>--%>
-                    <%--                    </div>--%>
                     <div class="product-item">
                         <a href="detail.jsp">
                             <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png"

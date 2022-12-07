@@ -42,7 +42,34 @@ public class ProductService {
         }
 //        System.out.println(productList.size());
         return productList;
-
+    }
+    public Product getProductDetail(int pid) {
+        String query = "SELECT *\n" +
+                "FROM product\n" +
+                "WHERE product.pid = ?";
+        try {
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, pid);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                return new Product(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getInt(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8),
+                        resultSet.getInt(9),
+                        resultSet.getString(10),
+                        resultSet.getInt(11),
+                        resultSet.getString(12));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
     public Product findById(int id){
