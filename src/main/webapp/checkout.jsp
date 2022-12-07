@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
+<%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -161,42 +163,50 @@
         <div class="product_total"><p>Tổng cộng</p></div>
         <!--        <div class="remove_button">&nbsp;</div>-->
       </div>
+      <%
+        //				if (cart_list != null) {
+//					for (Cart c : cartProduct) {
+        for (int i = 0; i < AddToCart.carts.size(); i++) {
+          Cart c = AddToCart.carts.get(i);
+      %>
       <div class="product_contain">
         <div class="image">
-          <img src="image/product-image/windows/key-windows-11-pro-1-510x510.png">
+          <img src="<%= c.getPro().getImg()%>">
         </div>
         <div class="product_details">
-          <div class="name">Key bản quyền Win 11 Pro</div>
+          <div class="name"><%= c.getPro().getName()%></div>
         </div>
-        <div class="price"><p>400.000 VND</p></div>
+        <div class="price"><p><%= c.getPro().getPrice()%></p></div>
         <div class="quantity">
-          <input type="number" value="1" min="1">
+          <input type="number" value="<%= c.getQuantity()%>" min="1">
         </div>
         <div class="total">
-          <p>400.000 VND</p>
+          <p><%= c.getPro().getPrice() * c.getQuantity()%></p>
         </div>
         <!--        <div class="remove">-->
         <!--          <button><i class="fas fa-trash-alt"></i></button>-->
         <!--        </div>-->
       </div>
-      <div class="product_contain">
-        <div class="image">
-          <img src="image/product-image/design/autodesk-revit-ban-quyen.png">
-        </div>
-        <div class="product_details">
-          <div class="name">Key bản quyền Autodesk Revit</div>
-        </div>
-        <div class="price"><p>300.000 VND</p></div>
-        <div class="quantity">
-          <input type="number" value="2" min="1">
-        </div>
-        <div class="total">
-          <p>600.000 VND</p>
-        </div>
-        <!--        <div class="remove">-->
-        <!--          <button><i class="fas fa-trash-alt"></i></button>-->
-        <!--        </div>-->
-      </div>
+      <%}
+      %>
+<%--      <div class="product_contain">--%>
+<%--        <div class="image">--%>
+<%--          <img src="image/product-image/design/autodesk-revit-ban-quyen.png">--%>
+<%--        </div>--%>
+<%--        <div class="product_details">--%>
+<%--          <div class="name">Key bản quyền Autodesk Revit</div>--%>
+<%--        </div>--%>
+<%--        <div class="price"><p>300.000 VND</p></div>--%>
+<%--        <div class="quantity">--%>
+<%--          <input type="number" value="2" min="1">--%>
+<%--        </div>--%>
+<%--        <div class="total">--%>
+<%--          <p>600.000 VND</p>--%>
+<%--        </div>--%>
+<%--        <!--        <div class="remove">-->--%>
+<%--        <!--          <button><i class="fas fa-trash-alt"></i></button>-->--%>
+<%--        <!--        </div>-->--%>
+<%--      </div>--%>
       <div class="total_price">
         <div class="discount_code">
           <div class="discount_contain">
