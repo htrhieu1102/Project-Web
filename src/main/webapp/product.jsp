@@ -1,6 +1,13 @@
 <%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
+<<<<<<< HEAD
+=======
+<%@ page import="vn.edu.hcmuaf.fit.Database.DbCon" %>
+>>>>>>> a62ede6f5c0fa52f07e4441aebde1590cbf75588
+<%@ page import="vn.edu.hcmuaf.fit.Controller.ListProduct" %>
+<%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -17,6 +24,7 @@
 <body>
 <div id="main">
     <!--    Begin Header-->
+<<<<<<< HEAD
     <div id="header">
         <div class="config-top-banner">
             <p class="slogan">
@@ -56,7 +64,14 @@
                         <a href="cart.jsp">
                             <span class="icon-cart">
                             <i class="fa-solid fa-bag-shopping"></i>
-                            <span class="amount-cart">3</span>
+                            <%
+                                int number =0;
+                                for (int i=0; i<AddToCart.carts.size(); i++){
+                                    Cart c = AddToCart.carts.get(i);
+                                    number += c.getQuantity();
+                                }
+                            %>
+                            <span class="amount-cart"><%=number%></span>
                         </span>
                         </a>
                     </span>
@@ -71,6 +86,9 @@
             </div>
         </div>
     </div>
+=======
+    <jsp:include page="header.jsp"></jsp:include>
+>>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
     <!--    End Header-->
     <!--    Begin Content-->
     <div id="content">
@@ -140,13 +158,12 @@
                         List<Product> list = productService.getProduct();
                         for (Product p : list) {%>
                     <div class="product-item">
-                        <a href="detail.jsp">
+                        <a href="detail.jsp?pid=<%=p.getId()%>">
                             <img class="product-image" src="<%= p.getImg()%>" alt="">
                         </a>
                         <p class="product-type"><%= p.getBranch()%>
                         </p>
-                        <a href="detail.jsp"><p class="product-name"><%= p.getName()%>
-                        </p></a>
+                        <a href="detail.jsp?pid=<%=p.getId()%>"><p class="product-name"><%= p.getName()%></p></a>
                         <div class="product-star text-center">
                             <span class="number-of-stars">
                                 <i class="fa-solid fa-star"></i>
@@ -157,67 +174,43 @@
                             </span>
                         </div>
                         <div class="product-price">
-                            <del class="product-old-price"><%=p.getOldPrice()%><span class="currency">₫</span></del>
-                            <span class="product-new-price"><%=p.getPrice()%><span class="currency">₫</span></span>
+                            <%
+                            String oldPrice = null;
+                            String oldPriceDisplay = null;
+                            String price = null;
+                            String priceDisplay = null;
+
+                            oldPrice = String.valueOf(p.getOldPrice());
+                            price = String.valueOf(p.getPrice());
+
+                            if (oldPrice.length() > 6) {
+                                oldPriceDisplay = oldPrice.substring(0, oldPrice.length() - 6) + "." + oldPrice.substring(oldPrice.length() - 6, oldPrice.length() - 3) + "." + oldPrice.substring(oldPrice.length() - 3);
+                            } else {
+                                oldPriceDisplay = oldPrice.substring(0, oldPrice.length() - 6) + oldPrice.substring(oldPrice.length() - 6, oldPrice.length() - 3) + "." + oldPrice.substring(oldPrice.length() - 3);
+                            }
+
+                            if (price.length() > 6) {
+                                priceDisplay = price.substring(0, price.length() - 6) + "." + price.substring(price.length() - 6, price.length() - 3) + "." + price.substring(price.length() - 3);
+                            } else {
+                                priceDisplay = price.substring(0, price.length() - 6) + price.substring(price.length() - 6, price.length() - 3) + "." + price.substring(price.length() - 3);
+                            }
+
+
+                            %>
+                            <del class="product-old-price"><%=oldPriceDisplay%><span class="currency">₫</span></del>
+                            <span class="product-new-price"><%=priceDisplay%><span class="currency">₫</span></span>
                         </div>
                         <div class="product-choose">
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
-                            </button>
+                                <button class="add-to-cart">
+                                <a href="AddToCart?id=<%= p.getId()%>">
+                                    <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
+                                </a>
+                                </button>
                         </div>
                     </div>
-                    <%}%>
-                    <%--                    <div class="product-item">--%>
-                    <%--                        <a href="detail.jsp">--%>
-                    <%--                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">--%>
-                    <%--                        </a>--%>
-                    <%--                        <p class="product-type">Windows</p>--%>
-                    <%--                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>--%>
-                    <%--                        <div class="product-star text-center">--%>
-                    <%--                            <span class="number-of-stars">--%>
-                    <%--                                <i class="fa-solid fa-star"></i>--%>
-                    <%--                                <i class="fa-solid fa-star"></i>--%>
-                    <%--                                <i class="fa-solid fa-star"></i>--%>
-                    <%--                                <i class="fa-solid fa-star"></i>--%>
-                    <%--                                <i class="fa-solid fa-star"></i>--%>
-                    <%--                            </span>--%>
-                    <%--                        </div>--%>
-                    <%--                        <div class="product-price">--%>
-                    <%--                            <del class="product-old-price">100.000<span class="currency">₫</span></del>--%>
-                    <%--                            <span class="product-new-price">100.000<span class="currency">₫</span></span>--%>
-                    <%--                        </div>--%>
-                    <%--                        <div class="product-choose">--%>
-                    <%--                            <button class="add-to-cart">--%>
-                    <%--                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ--%>
-                    <%--                            </button>--%>
-                    <%--                            </div>--%>
-                    <%--                    </div>--%>
-                    <div class="product-item">
-                        <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png"
-                                 alt="">
-                        </a>
-                        <p class="product-type">Windows</p>
-                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>
-                        <div class="product-star text-center">
-                            <span class="number-of-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                        </div>
-                        <div class="product-price">
-                            <del class="product-old-price">100.000<span class="currency">₫</span></del>
-                            <span class="product-new-price">100.000<span class="currency">₫</span></span>
-                        </div>
-                        <div class="product-choose">
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
-                            </button>
-                        </div>
-                    </div>
+                    <%
+                        }
+                    %>
                 </div>
                 <div class="page-numbers mt-4">
                     <button class="btn-number-pages" aria-checked="">1</button>
@@ -230,56 +223,7 @@
     </div>
     <!--    End Content-->
     <!--    Begin Footer-->
-    <div id="footer">
-        <div class="container footer-main">
-            <div class="footer-left footer-column">
-                <div class="footer-logo ">
-                    <a href="index.jsp">
-                        <img src="image/logoShopKey.png" alt="">
-                    </a>
-                </div>
-                <div class="text-intro">
-                    <p>Đăng kí ngay để nhận được các thông tin ưu đãi,
-                        khuyến mãi đến từ cửa hàng và cũng như cập nhật các tin tức thông tin
-                        về sản phẩm.
-                    </p>
-                </div>
-                <div class="newsletter-sign-up">
-                    <h2 class="newsletter-title">Đăng kí bản tin</h2>
-                    <input class="newsletter-input" type="text" name="" id="" placeholder="Email">
-                    <button class="newsletter-button">Gửi</button>
-                </div>
-            </div>
-            <div class="footer-center footer-column">
-                <div class="footer-space"></div>
-                <h4 class="footer-title">Sản Phẩm</h4>
-                <div class="footer-list-product">
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Windows</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Office</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Adobe</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Anti Virus</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Google</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Khác</a>
-                </div>
-            </div>
-            <div class="footer-right footer-column">
-                <div class="footer-space"></div>
-                <h4 class="footer-title">Liên Hệ</h4>
-                <div class="footer-contact">
-                    <p class="footer-information"><i class="fa-solid fa-location-dot"></i>Đại học Nông Lâm TpHCM</p>
-                    <p class="footer-information"><i class="fa-solid fa-phone"></i>(+84) 852995378</p>
-                    <p class="footer-information"><i class="fa-solid fa-envelope"></i>20130260@st.hcmuaf.edu.vn</p>
-                </div>
-                <div class="footer-social">
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                    <a href=""><i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="footer.jsp"></jsp:include>
     <!--    End Footer-->
     <!--    Begin Back to top-->
     <div id="back-to-top">
