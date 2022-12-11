@@ -24,6 +24,7 @@ public class Product {
         this.deviceNumber = deviceNumber;
         this.description = description;
     }
+
     public Product(){
 
     }
@@ -122,4 +123,6 @@ public class Product {
                 ", category='" + category + '\'' +
                 '}';
     }
+
+
 }

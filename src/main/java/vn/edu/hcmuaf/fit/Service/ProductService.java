@@ -6,6 +6,7 @@ import vn.edu.hcmuaf.fit.Model.Product;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ProductService {
@@ -78,7 +79,6 @@ public class ProductService {
             throw new RuntimeException(ex);
         }
     }
-
     public void addProduct(int cid, String img, String name, int oldPrice, int price, int amount,
                            String branch, int deviceNumber, String description) {
         String query = "INSERT INTO product(cid,pimage,pname,pprice_old,pprice,pamount,pbranch,pnumber_device,pdesciption) VALUES\n" +
@@ -153,6 +153,7 @@ public class ProductService {
                 pro.setBranch(resultSet.getString(7));
                 pro.setDeviceNumber(resultSet.getInt(8));
                 pro.setDescription(resultSet.getString(9));
+
 
                 return pro;
             }

@@ -1,6 +1,10 @@
 <%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
+<<<<<<< HEAD
+=======
+<%@ page import="vn.edu.hcmuaf.fit.Database.DbCon" %>
+>>>>>>> a62ede6f5c0fa52f07e4441aebde1590cbf75588
 <%@ page import="vn.edu.hcmuaf.fit.Controller.ListProduct" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
