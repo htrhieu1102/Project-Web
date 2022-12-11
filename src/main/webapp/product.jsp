@@ -6,6 +6,8 @@
 <%@ page import="vn.edu.hcmuaf.fit.Database.DbCon" %>
 >>>>>>> a62ede6f5c0fa52f07e4441aebde1590cbf75588
 <%@ page import="vn.edu.hcmuaf.fit.Controller.ListProduct" %>
+<%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -22,7 +24,71 @@
 <body>
 <div id="main">
     <!--    Begin Header-->
+<<<<<<< HEAD
+    <div id="header">
+        <div class="config-top-banner">
+            <p class="slogan">
+                Xài Key bản quyền
+                <span class="icon-slogan mr-1 ml-1">
+                            <i class="fa-sharp fa-solid fa-key"></i>
+                        </span>, nói không với crack!
+            </p>
+        </div>
+        <div class="container pt-3">
+            <div class="menu row">
+                <div class="col-2">
+                    <img src="image/logoShopKey.png" alt="logo">
+                </div>
+                <div class="col-8">
+                    <ul class="drop-menu">
+                        <li class="menu-item"><a class="p-3" href="index.jsp">Trang Chủ</a></li>
+                        <li class="menu-item"><a class="p-3" href="product.jsp">Sản Phẩm</a></li>
+                        <li class="menu-item"><a class="p-3" href="about-us.jsp">Giới Thiệu</a></li>
+                        <li class="menu-item"><a class="p-3" href="contact.jsp">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="menu-right col-2">
+                    <span class="icon-item search">
+                        <span id="icon-search"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <div id="search-container">
+                            <div class="arrow-search"></div>
+                            <p class="title-in-search text-center">TÌM KIẾM</p>
+                            <div class="box-search d-flex">
+                                <input type="search" placeholder="Nhập tìm kiếm ở đây">
+                                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="icon-item">
+                        <a href="cart.jsp">
+                            <span class="icon-cart">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <%
+                                int number =0;
+                                for (int i=0; i<AddToCart.carts.size(); i++){
+                                    Cart c = AddToCart.carts.get(i);
+                                    number += c.getQuantity();
+                                }
+                            %>
+                            <span class="amount-cart"><%=number%></span>
+                        </span>
+                        </a>
+                    </span>
+                    <span class="icon-item">
+                        <span>
+                            <a href="login.jsp">
+                                <i class="fa-regular fa-user" class="btn btn-primary"></i>
+                            </a>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+=======
     <jsp:include page="header.jsp"></jsp:include>
+>>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
     <!--    End Header-->
     <!--    Begin Content-->
     <div id="content">
@@ -108,48 +174,43 @@
                             </span>
                         </div>
                         <div class="product-price">
-                            <del class="product-old-price"><%=p.getOldPrice()%><span class="currency">₫</span></del>
-                            <span class="product-new-price"><%=p.getPrice()%><span class="currency">₫</span></span>
+                            <%
+                            String oldPrice = null;
+                            String oldPriceDisplay = null;
+                            String price = null;
+                            String priceDisplay = null;
+
+                            oldPrice = String.valueOf(p.getOldPrice());
+                            price = String.valueOf(p.getPrice());
+
+                            if (oldPrice.length() > 6) {
+                                oldPriceDisplay = oldPrice.substring(0, oldPrice.length() - 6) + "." + oldPrice.substring(oldPrice.length() - 6, oldPrice.length() - 3) + "." + oldPrice.substring(oldPrice.length() - 3);
+                            } else {
+                                oldPriceDisplay = oldPrice.substring(0, oldPrice.length() - 6) + oldPrice.substring(oldPrice.length() - 6, oldPrice.length() - 3) + "." + oldPrice.substring(oldPrice.length() - 3);
+                            }
+
+                            if (price.length() > 6) {
+                                priceDisplay = price.substring(0, price.length() - 6) + "." + price.substring(price.length() - 6, price.length() - 3) + "." + price.substring(price.length() - 3);
+                            } else {
+                                priceDisplay = price.substring(0, price.length() - 6) + price.substring(price.length() - 6, price.length() - 3) + "." + price.substring(price.length() - 3);
+                            }
+
+
+                            %>
+                            <del class="product-old-price"><%=oldPriceDisplay%><span class="currency">₫</span></del>
+                            <span class="product-new-price"><%=priceDisplay%><span class="currency">₫</span></span>
                         </div>
                         <div class="product-choose">
-<%--                            <a href="AddToCart?id=<%= p.getId()%>">--%>
-<%--                                --%>
-<%--                            </a>--%>
                                 <button class="add-to-cart">
-<%--                                <a href="product.jsp?id=<%= p.getId()%>" >--%>
                                 <a href="AddToCart?id=<%= p.getId()%>">
                                     <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                                 </a>
                                 </button>
                         </div>
                     </div>
-                    <%}%>
-                    <div class="product-item">
-                        <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png"
-                                 alt="">
-                        </a>
-                        <p class="product-type">Windows</p>
-                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>
-                        <div class="product-star text-center">
-                            <span class="number-of-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                        </div>
-                        <div class="product-price">
-                            <del class="product-old-price">100.000<span class="currency">₫</span></del>
-                            <span class="product-new-price"><%= ListProduct.list.size()%>><span class="currency">₫</span></span>
-                        </div>
-                        <div class="product-choose">
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
-                            </button>
-                        </div>
-                    </div>
+                    <%
+                        }
+                    %>
                 </div>
                 <div class="page-numbers mt-4">
                     <button class="btn-number-pages" aria-checked="">1</button>

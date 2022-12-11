@@ -16,16 +16,21 @@ public class ProductService {
 
     public List<Product> getProduct() {
         List<Product> productList = new ArrayList<>();
+<<<<<<< HEAD
+        String query = "SELECT product.pid, category.cid, product.pimage, product.pname, product.pprice_old, product.pprice, product.pamount, product.pbranch, product.pnumber_device, product.pdesciption " +
+                "FROM product JOIN category ON product.pid = category.cid";
+=======
         String query = "SELECT product.pid, category.cname, product.pimage, product.pname, product.pprice_old, product.pprice, product.pamount, product.pbranch, product.pnumber_device, product.pdesciption\n" +
                 "FROM product JOIN category \n" +
                 "WHERE product.cid = category.cid";
+>>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
         try {
             statement = DBConnect.getInstall().get();
             preparedStatement = statement.getConnection().prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 productList.add(new Product(resultSet.getInt(1),
-                        resultSet.getString(2),
+                        resultSet.getInt(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getInt(5),
@@ -52,8 +57,8 @@ public class ProductService {
             preparedStatement.setInt(1, pid);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                return new Product(resultSet.getInt(1),
-                        resultSet.getString(2),
+                return (new Product(resultSet.getInt(1),
+                        resultSet.getInt(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getInt(5),
@@ -61,7 +66,11 @@ public class ProductService {
                         resultSet.getInt(7),
                         resultSet.getString(8),
                         resultSet.getInt(9),
+<<<<<<< HEAD
+                        resultSet.getString(10)));
+=======
                         resultSet.getString(10));
+>>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -144,6 +153,17 @@ public class ProductService {
             if (resultSet.next()){
                 pro = new Product();
                 pro.setId(resultSet.getInt(1));
+<<<<<<< HEAD
+                pro.setCate_id(resultSet.getInt(2));
+                pro.setImg(resultSet.getString(3));
+                pro.setName(resultSet.getString(4));
+                pro.setOldPrice(resultSet.getInt(5));
+                pro.setPrice(resultSet.getInt(6));
+                pro.setAmount(resultSet.getInt(7));
+                pro.setBranch(resultSet.getString(8));
+                pro.setDeviceNumber(resultSet.getInt(9));
+                pro.setDescription(resultSet.getString(10));
+=======
                 pro.setCategory(resultSet.getString(2));
                 pro.setImg(resultSet.getString(3));
                 pro.setName(resultSet.getString(4));
@@ -154,6 +174,7 @@ public class ProductService {
                 pro.setDeviceNumber(resultSet.getInt(8));
                 pro.setDescription(resultSet.getString(9));
 
+>>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
 
                 return pro;
             }
@@ -173,7 +194,7 @@ public class ProductService {
         ProductService ps = new ProductService();
         ArrayList<Cart> products = new ArrayList<Cart>();
 
-        System.out.println(ps.findById(1));
+        System.out.println(ps.getProduct().toString());
 //        System.out.println((ps.getProduct().toString()));
 //        System.out.println(ps.getCartProducts(products));
     }

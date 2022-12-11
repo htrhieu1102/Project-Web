@@ -75,7 +75,14 @@
                         <a href="cart.jsp">
                             <span class="icon-cart">
                             <i class="fa-solid fa-bag-shopping"></i>
-                            <span class="amount-cart">3</span>
+                                <%
+                                    int number =0;
+                                    for (int i=0; i<AddToCart.carts.size(); i++){
+                                        Cart c = AddToCart.carts.get(i);
+                                        number += c.getQuantity();
+                                    }
+                                %>
+                            <span class="amount-cart"><%=number%></span>
                         </span>
                         </a>
                     </span>
@@ -111,13 +118,16 @@
                 <div class="remove_button">&nbsp;</div>
             </div>
             <%
-                //				if (cart_list != null) {
-//					for (Cart c : cartProduct) {
+                String price = null;
+                String totalPrice = null;
+                String priceDisplay = null;
+                String totalPriceDisplay = null;
+                int total = 0;
+
                 for (int i = 0; i < AddToCart.carts.size(); i++) {
                     Cart c = AddToCart.carts.get(i);
             %>
             <div class="product_contain">
-                <%--				<input type="hidden" name="id" value="<%= c.getId()%>">--%>
                 <div class="image">
                     <img src="<%= c.getPro().getImg()%>">
                 </div>
@@ -126,12 +136,29 @@
                     </div>
                     <p>Key kích hoạt Windows 11 phiên bản professional</p>
                 </div>
-                <div class="price"><p><%= c.getPro().getPrice()%></p></div>
+                <div class="price"><p>
+                    <%  price = String.valueOf(c.getPro().getPrice());
+                        if (price.length() >6){
+                            priceDisplay = price.substring(0, price.length() - 6) + "." + price.substring(price.length() - 6, price.length() - 3) + "." + price.substring(price.length() - 3);
+                        }else {
+                            priceDisplay = price.substring(0, price.length() - 6)  + price.substring(price.length() - 6, price.length() - 3) + "." + price.substring(price.length() - 3);
+                        }
+                    %>
+                    <%=priceDisplay%>đ</p></div>
                 <div class="quantity">
                     <input type="number" value="<%= c.getQuantity()%>" min="1">
                 </div>
                 <div class="total">
-                    <p><%= c.getPro().getPrice() * c.getQuantity()%></p>
+                    <p>
+                        <%  total = c.getPro().getPrice() * c.getQuantity();
+                            totalPrice = String.valueOf(total);
+                            if (totalPrice.length() > 6){
+                                totalPriceDisplay = totalPrice.substring(0, totalPrice.length() - 6) + "." + totalPrice.substring(totalPrice.length() - 6, totalPrice.length() - 3) + "." + totalPrice.substring(totalPrice.length() - 3);
+                            } else {
+                                totalPriceDisplay = totalPrice.substring(0, totalPrice.length() - 6) + totalPrice.substring(totalPrice.length() - 6, totalPrice.length() - 3) + "." + totalPrice.substring(totalPrice.length() - 3);
+                            }
+                        %>
+                        <%=totalPriceDisplay%>đ</p>
                 </div>
                 <div class="remove">
                     <button><i class="fas fa-trash-alt"></i></button>
@@ -140,26 +167,6 @@
             <%
                 }
             %>
-
-            <%--			<div class="product_contain">--%>
-            <%--				<div class="image">--%>
-            <%--					<img src="image/product-image/design/autodesk-revit-ban-quyen.png">--%>
-            <%--				</div>--%>
-            <%--				<div class="product_details">--%>
-            <%--					<div class="name">Key bản quyền Autodesk Revit</div>--%>
-            <%--					<p>Key kích hoạt phần mềm Autodesk Revit</p>--%>
-            <%--				</div>--%>
-            <%--				<div class="price"><p>300.000 VND</p></div>--%>
-            <%--				<div class="quantity">--%>
-            <%--					<input type="number" value="2" min="1">--%>
-            <%--				</div>--%>
-            <%--				<div class="total">--%>
-            <%--					<p>600.000 VND</p>--%>
-            <%--				</div>--%>
-            <%--				<div class="remove">--%>
-            <%--					<button><i class="fas fa-trash-alt"></i></button>--%>
-            <%--				</div>--%>
-            <%--			</div>--%>
             <div class="total_price">
                 <div class="discount_code">
                     <div class="discount_contain">
@@ -172,14 +179,72 @@
                     <div class="total_contain">
                         <ul>
                             <li class="totalRow"><span class="label">Tổng cộng:</span><span
-                                    class="value">1.000.000 VND</span></li>
+                                    class="value">
+                                <%
+                                    String totalS = null;
+                                    String vatS = null;
+                                    String totalAllS = null;
+
+                                    String totalPDisplay = null;
+                                    String vatDisplay = null;
+                                    String totalAllDisplay = null;
+                                    int totalP = 0;
+                                    int vat = 0;
+                                    int totalAll = 0;
+                                    for (int i = 0; i < AddToCart.carts.size(); i++) {
+                                        Cart c = AddToCart.carts.get(i);
+
+                                        totalP = totalP + (c.getPro().getPrice() * c.getQuantity());
+                                        totalS = String.valueOf(totalP);
+                                        if (totalS.length() > 6) {
+                                            totalPDisplay = totalS.substring(0, totalS.length() - 6) + "." + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+                                        } else {
+                                            totalPDisplay = totalS.substring(0, totalS.length() - 6) + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+                                        }
+//                                    totalS = String.valueOf(totalP);
+////                                    if (totalS.length() > 6){
+////                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + "." + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+////                                    } else {
+////                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+////                                    }
+//
+//                                    if (totalS.length() > 6){
+//                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + "." + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+//                                    } else {
+//                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+//                                    }
+//
+                                        vat = (int) (totalP * 0.1);
+                                        vatS = String.valueOf(vat);
+                                        if (vatS.length() > 6) {
+                                            vatDisplay = vatS.substring(0, vatS.length() - 6) + "." + vatS.substring(vatS.length() - 6, vatS.length() - 3) + "." + vatS.substring(vatS.length() - 3);
+                                        } else {
+                                            vatDisplay = vatS.substring(0, vatS.length() - 6) + vatS.substring(vatS.length() - 6, vatS.length() - 3) + "." + vatS.substring(vatS.length() - 3);
+                                        }
+
+                                        totalAll = totalP + vat;
+                                        totalAllS = String.valueOf(totalAll);
+                                        if (totalAllS.length() > 6) {
+                                            totalAllDisplay = totalAllS.substring(0, totalAllS.length() - 6) + "." + totalAllS.substring(totalAllS.length() - 6, totalAllS.length() - 3) + "." + totalAllS.substring(totalAllS.length() - 3);
+                                        } else {
+                                            totalAllDisplay = totalAllS.substring(0, totalAllS.length() - 6) + totalAllS.substring(totalAllS.length() - 6, totalAllS.length() - 3) + "." + totalAllS.substring(totalAllS.length() - 3);
+                                        }
+
+                                    }
+                                %>
+                                <%=totalPDisplay%>đ
+                            </span></li>
                             <li class="totalRow"><span class="label">Chi phí vận chuyển:</span><span class="value">Miễn phí</span>
                             </li>
-                            <li class="totalRow"><span class="label">Thuế VAT (10%):</span><span class="value">100.000 VND</span>
+                            <li class="totalRow"><span class="label">Thuế VAT (10%):</span><span class="value"><%= vatDisplay%>đ</span>
                             </li>
-                            <li class="totalRow final"><span class="label">Thành tiền:</span><span class="value">1.100.000 VND</span>
+
+                            <li class="totalRow final"><span class="label">Thành tiền:</span><span class="value"><%=totalAllDisplay%>đ</span>
                             </li>
                             <li class="totalRow_button"><a href="checkout.jsp" class="btn_payment">Thanh toán</a></li>
+                            <%
+
+                            %>
                         </ul>
                     </div>
                 </div>
