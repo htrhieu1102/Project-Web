@@ -1,3 +1,5 @@
+<%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -54,7 +56,14 @@
                         <a href="cart.jsp">
                             <span class="icon-cart">
                             <i class="fa-solid fa-bag-shopping"></i>
-                            <span class="amount-cart">3</span>
+                            <%
+                                int number =0;
+                                for (int i=0; i<AddToCart.carts.size(); i++){
+                                    Cart c = AddToCart.carts.get(i);
+                                    number += c.getQuantity();
+                                }
+                            %>
+                            <span class="amount-cart"><%=number%></span>
                         </span>
                         </a>
                     </span>
