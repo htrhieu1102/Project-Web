@@ -18,6 +18,7 @@
 <body>
 <div id="main">
     <!--    Begin Header-->
+<<<<<<< HEAD
     <div id="header">
         <div class="config-top-banner">
             <p class="slogan">
@@ -79,6 +80,9 @@
             </div>
         </div>
     </div>
+=======
+    <jsp:include page="header.jsp"></jsp:include>
+>>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
     <!--    End Header-->
     <!--    Begin Content-->
     <div id="content">
@@ -91,7 +95,7 @@
                     <img src="<%=product.getImg()%>" alt="">
                 </div>
                 <div class="col-lg-6 col-md-12 entry-summary">
-                    <h1 class="entry-title"><%=product.getName()%>></h1>
+                    <h1 class="entry-title"><%=product.getName()%></h1>
                     <div class="entry-rating">
                         <span class="star-rating">
                             <i class="fa-solid fa-star"></i>
@@ -107,10 +111,10 @@
                         <h3>Thông tin chi tiết sản phẩm</h3>
                         <p>
                             <b><span>Thương hiệu:</span></b><span>&nbsp;&nbsp;<%=product.getBranch()%></span><br>
-                            <b><span>Trình trạng:</span></b><span>&nbsp;&nbsp;<%=product.getStatus()%></span><br>
-                            <b><span>Loại Phương tiện: </span></b><span>&nbsp;&nbsp;Key và Tải xuống – Hướng dẫn sẽ được gửi qua email cho bạn.</span><br>
+                            <b><span>Trình trạng:</span></b><span>&nbsp;&nbsp;<%=(product.getAmount() >0) ? "Còn hàng" : "Hết hàng"%></span><br>
                             <b><span>Thời hạn cấp phép:</span></b><span>&nbsp;&nbsp;1 Năm</span><br>
                             <b><span>Số lượng thiết bị:</span></b><span>&nbsp;&nbsp;<%=product.getDeviceNumber()%></span><br>
+                            <b><span>Loại Phương tiện: </span></b><span>&nbsp;&nbsp;Key và Tải xuống – Hướng dẫn sẽ được gửi qua email cho bạn.</span><br>
                         </p>
                         <div class="category-product">
                             <p class="mb-0">
@@ -125,10 +129,6 @@
                     </div>
                 </div>
                 <div class="description">
-                    <!--                        <ul class="tab_list" role="tablist">-->
-                    <!--                            <li class="description_tab" id="description_title" role="tab" aria-controls="description_content"><a href="#description_content">Mô tả</a></li>-->
-                    <!--                            <li class="rated_tab" id="rated_title" role="tab" aria-controls="rated_content"><a href="#rated_content">Đánh giá</a></li>-->
-                    <!--                        </ul>-->
                     <div class="tab">
                         <button class="tablinks" onclick="openSection(event, 'description_content')">Mô tả</button>
                         <button class="tablinks" onclick="openSection(event, 'rated_content')">Đánh giá</button>
@@ -197,56 +197,7 @@
     </div>
     <!--  End Content-->
     <!--    Begin Footer-->
-    <div id="footer">
-        <div class="container footer-main">
-            <div class="footer-left footer-column">
-                <div class="footer-logo ">
-                    <a href="index.jsp">
-                        <img src="image/logoShopKey.png" alt="">
-                    </a>
-                </div>
-                <div class="text-intro">
-                    <p>Đăng kí ngay để nhận được các thông tin ưu đãi,
-                        khuyến mãi đến từ cửa hàng và cũng như cập nhật các tin tức thông tin
-                        về sản phẩm.
-                    </p>
-                </div>
-                <div class="newsletter-sign-up">
-                    <h2 class="newsletter-title">Đăng kí bản tin</h2>
-                    <input class="newsletter-input" type="text" name="" id="" placeholder="Email">
-                    <button class="newsletter-button">Gửi</button>
-                </div>
-            </div>
-            <div class="footer-center footer-column">
-                <div class="footer-space"></div>
-                <h4 class="footer-title">Sản Phẩm</h4>
-                <div class="footer-list-product">
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Windows</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Office</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Adobe</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Anti Virus</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Google</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Khác</a>
-                </div>
-            </div>
-            <div class="footer-right footer-column">
-                <div class="footer-space"></div>
-                <h4 class="footer-title">Liên Hệ</h4>
-                <div class="footer-contact">
-                    <p class="footer-information"><i class="fa-solid fa-location-dot"></i>Đại học Nông Lâm TpHCM</p>
-                    <p class="footer-information"><i class="fa-solid fa-phone"></i>(+84) 852995378</p>
-                    <p class="footer-information"><i class="fa-solid fa-envelope"></i>20130260@st.hcmuaf.edu.vn</p>
-                </div>
-                <div class="footer-social">
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                    <a href=""><i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="footer.jsp"></jsp:include>
     <!--    End Footer-->
     <!--    Begin Back to top-->
     <div id="back-to-top">
