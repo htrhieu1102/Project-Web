@@ -23317,10 +23317,9 @@ select::-ms-expand {
   border: 2px solid transparent;
   height: 46px;
   position: relative;
-  color: #fff;
   font-size: 16px;
   width: 100%;
-  color: #fff;
+  color: #000000;
   border-radius: 6px;
   padding: 0 20px;
 }
@@ -23339,7 +23338,7 @@ select::-ms-expand {
   padding: 15px 20px;
   resize: none;
   background-color: #dedede;
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 20px;
   border-radius: 6px;
 }
@@ -23367,4 +23366,23 @@ select::-ms-expand {
 .form__btn:hover {
   color: #ffffff;
   background: black;
+}
+.show-product table{
+  width: 100%;
+}
+.show-product h3 {
+  margin: 20px 0;
+}
+.show-product table img {
+  width: 70px;
+}
+.show-product table th {
+  padding: 11px 0;
+  background: #f8f8f8;
+}
+.show-product table td {
+  padding: 5px 0 10px;
+}
+.show-product table td i {
+  margin: 0 5px;
 }

@@ -33,6 +33,9 @@
 </head>
 <body>
 <!--    Begin Header-->
+<<<<<<< HEAD
+<jsp:include page="header.jsp"></jsp:include>
+=======
 <div id="header">
     <div class="config-top-banner">
         <p class="slogan">
@@ -87,6 +90,7 @@
         </div>
     </div>
 </div>
+>>>>>>> a62ede6f5c0fa52f07e4441aebde1590cbf75588
 <!--    End Header-->
 
 <!--Begin Content-->
@@ -186,6 +190,9 @@
 <!--End Content-->
 
 <!--    Begin Footer-->
+<<<<<<< HEAD
+<jsp:include page="footer.jsp"></jsp:include>
+=======
 <div id="footer">
     <div class="container footer-main">
         <div class="footer-left footer-column">
@@ -236,6 +243,7 @@
         </div>
     </div>
 </div>
+>>>>>>> a62ede6f5c0fa52f07e4441aebde1590cbf75588
 
 <!--    End Footer-->
 <!--    Begin Back to top-->
