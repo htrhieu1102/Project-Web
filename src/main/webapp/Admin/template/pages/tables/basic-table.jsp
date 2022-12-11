@@ -18,8 +18,8 @@
     <!-- endinject -->
     <!-- inject:css -->
     <link rel="stylesheet" href="../../css/style.css">
-<%--    <style><%@include file="../../css/style.css"%></style>--%>
-    
+    <%--    <style><%@include file="../../css/style.css"%></style>--%>
+
     <!-- endinject -->
     <link rel="shortcut icon" href="../../images/logoShopKey.png"/>
 </head>
@@ -224,19 +224,17 @@
         <div class="main-panel">
             <main class="main">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row" id="form__box">
                         <!-- tittle -->
                         <div class="col-12">
                             <div class="main__title">
                                 <h2>Thêm sản phẩm mới</h2>
                             </div>
                         </div>
-
                         <!-- content -->
                         <div class="col-12">
                             <form action="" class="form">
                                 <div class="row row--form">
-
                                     <!-- image upload -->
                                     <div class="col-12 col-md-5 form__cover">
                                         <div class="row row--form">
@@ -245,45 +243,52 @@
                                                     <label for="form__img-upload">Thêm ảnh</label>
                                                     <input id="form__img-upload" name="form__img-upload" type="file"
                                                            accept="image/*"
-                                                    onchange="document.getElementById('form__img').src = window.URL.createObjectURL(this.files[0])">
+                                                           onchange="document.getElementById('form__img').src = window.URL.createObjectURL(this.files[0])">
                                                     <img id="form__img" src="#" alt="">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="col-12 col-md-7 form__content">
                                         <div class="row row--form">
                                             <div class="col-12">
-                                                <input id="name" type="text" class="form__input" placeholder="Tên sản phẩm" name="name">
+                                                <input id="name" type="text" class="form__input"
+                                                       placeholder="Tên sản phẩm" name="name">
                                             </div>
 
 
                                             <div class="col-12 ">
-                                                <input id="old-price" type="text" class="form__input" placeholder="Giá cũ" name="old-price">
+                                                <input id="old-price" type="text" class="form__input"
+                                                       placeholder="Giá cũ" name="old-price">
                                             </div>
 
                                             <div class="col-12">
-                                                <input id="price" type="text" class="form__input" placeholder="Giá hiện tại" name="price">
+                                                <input id="price" type="text" class="form__input"
+                                                       placeholder="Giá hiện tại" name="price">
                                             </div>
                                             <div class="col-12">
-                                                <input id="branch" type="text" class="form__input" placeholder="Hãng" name="branch">
+                                                <input id="branch" type="text" class="form__input" placeholder="Hãng"
+                                                       name="branch">
                                             </div>
                                             <div class="col-12">
                                                 <label style="padding: 0 20px">Loại sản phẩm:</label>
-                                                <select id="category" style="margin-bottom: 20px; width: 30%; padding: 10px 5px; text-align: center; border-radius: 5px">
+                                                <select id="category"
+                                                        style="margin-bottom: 20px; width: 30%; padding: 10px 5px; text-align: center; border-radius: 5px">
                                                     <% CategoryService categoryService = new CategoryService();
                                                         List<Category> categoryList = categoryService.getAllCategory();
                                                         for (Category c : categoryList) {%>
-                                                            <option value="<%=c.getCid()%>"><%=c.getCname()%></option>
-                                                       <% }%>
+                                                    <option value="<%=c.getCid()%>"><%=c.getCname()%>
+                                                    </option>
+                                                    <% }%>
                                                 </select>
                                             </div>
                                             <div class="col-12">
-                                                <input id="device-number" type="text" class="form__input" placeholder="Số lượng thiết bị" name="device-number">
+                                                <input id="device-number" type="text" class="form__input"
+                                                       placeholder="Số lượng thiết bị" name="device-number">
                                             </div>
                                             <div class="col-12">
-                                                <input id="amount" type="text" class="form__input" placeholder="Số lượng" name="amount">
+                                                <input id="amount" type="text" class="form__input"
+                                                       placeholder="Số lượng" name="amount">
                                             </div>
                                             <div class="col-12">
                                                 <textarea id="description" name="description" class="form__textarea"
@@ -293,9 +298,9 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <div class="row row--form" >
+                                        <div class="row row--form">
                                             <div class="col-12 d-flex justify-content-end">
-                                                <button type="button" class="form__btn mb-5">Thêm</button>
+                                                <button id="btn__add" type="button" class="form__btn mb-5">Thêm</button>
                                             </div>
                                         </div>
                                     </div>
@@ -323,17 +328,24 @@
                                 List<Product> list = productService.getProduct();
                                 for (Product p : list) {%>
                             <tr>
-                                <td><%=p.getId()%></td>
-                                <td><%=p.getName()%></td>
+                                <td><%=p.getId()%>
+                                </td>
+                                <td><%=p.getName()%>
+                                </td>
                                 <td>
                                     <img src="<%=p.getImg()%>">
                                 </td>
-                                <td><%=p.getAmount()%></td>
-                                <td><%=p.getPrice()%></td>
-                                <td><%=p.getBranch()%></td>
+                                <td><%=p.getAmount()%>
+                                </td>
+                                <td><%=p.getPrice()%>
+                                </td>
+                                <td><%=p.getBranch()%>
+                                </td>
                                 <td>
-                                    <a class="delete-product" id="delete<%=p.getId()%>"><i class="mdi mdi-delete "></i></a>
-                                    <a><i class="mdi mdi-grease-pencil"></i></a>
+                                    <a class="delete-product" id="delete<%=p.getId()%>"><i
+                                            class="mdi mdi-delete"></i></a>
+                                    <a class="edit-product" id="edit<%=p.getId()%>"><i
+                                            class="mdi mdi-grease-pencil"></i></a>
                                 </td>
                             </tr>
                             <%}%>
@@ -364,12 +376,84 @@
 <script src="../../js/jquery.dataTables.js"></script>
 <script src="../../js/dataTables.bootstrap4.js"></script>
 <!-- End custom js for this page-->
-<script><%@include file="../../js/jquery-3.6.1.min.js"%></script>
 <script>
-    // $('#form__img-upload').change(function (e){
-    //     let img = $('#form__img');
-    //     img.src = URL.createObjectURL(e.target.files[0]);
-    // })
+    <%@include file="../../js/jquery-3.6.1.min.js" %>
+</script>
+<script>
+    $(document).ready(function () {
+        load();
+        loadProductDetailToForm();
+        edit();
+        add();
+    })
+    function loadProductDetailToForm() {
+        $('.edit-product').each(function (i, val) {
+            $(val).click(function (e) {
+                e.preventDefault();
+                $('html, body').animate({scrollTop: '0px'}, 100);
+                let pid = $(this).attr("id");
+                $.ajax({
+                    url: '/Project_Web_war/loadFormEdit',
+                    type: 'post',
+                    data: {
+                        pid: pid
+                    },
+                    success: function (response) {
+                        $('#form__box').html(response);
+                        load();
+                        loadProductDetailToForm();
+                        add();
+                        edit();
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                })
+            })
+        })
+    }
+    function edit() {
+        $('#btn__edit').click(function () {
+            let id = $('#id').val();
+            let img = $('#form__img').attr('src');
+            let name = $('#name').val();
+            let oldPrice = $('#old-price').val();
+            let price = $('#price').val();
+            let branch = $('#branch').val();
+            let category = $('#category option').filter(':selected').val();
+            let deviceNumber = $('#device-number').val();
+            let amount = $('#amount').val();
+            let description = $('#description').val();
+            console.log(img)
+            $.ajax({
+                url: '/Project_Web_war/editProduct',
+                type: 'post',
+                data: {
+                    id: id,
+                    img: img,
+                    name: name,
+                    oldPrice: oldPrice,
+                    price: price,
+                    branch: branch,
+                    category: category,
+                    deviceNumber: deviceNumber,
+                    amount: amount,
+                    description: description
+                },
+                success: function (response) {
+                    $('#table-product').html(response)
+                    load();
+                    loadProductDetailToForm();
+                    add();
+                    edit();
+                },
+                error: function () {
+                    alert("Lỗi")
+                }
+            })
+        })
+    }
+
     function load() {
         const value = document.getElementsByClassName('delete-product');
         for (let i = 0; i < value.length; i++) {
@@ -380,11 +464,14 @@
                     url: '/Project_Web_war/delete',
                     type: 'post',
                     data: {
-                        pid : pid
+                        pid: pid
                     },
                     success: function (response) {
                         $('#table-product').html(response)
                         load();
+                        loadProductDetailToForm();
+                        add();
+                        edit();
                     },
                     error: function () {
                     }
@@ -392,42 +479,46 @@
             })
         }
     }
-    $(document).ready(function () {
-        load();
-    })
-    $('.form__btn').click(function () {
-        let img = $('#form__img-upload').val();
-        let name = $('#name').val();
-        let oldPrice = $('#old-price').val();
-        let price = $('#price').val();
-        let branch = $('#branch').val();
-        let category = $('#category option').filter(':selected').val();
-        let deviceNumber = $('#device-number').val();
-        let amount = $('#amount').val();
-        let description = $('#description').val();
-        $.ajax({
-            url: '/Project_Web_war/addProduct',
-            type: 'post',
-            data: {
-                img : img,
-                name : name,
-                oldPrice : oldPrice,
-                price : price,
-                branch : branch,
-                category : category,
-                deviceNumber : deviceNumber,
-                amount : amount,
-                description: description
-            },
-            success: function (response) {
-                $('#table-product').html(response)
-                load();
-            },
-            error: function () {
-                alert("Vui lòng nhập đủ các trường")
-            }
+    function add() {
+        $('#btn__add').click(function () {
+            let img = $('#form__img-upload').val();
+            let name = $('#name').val();
+            let oldPrice = $('#old-price').val();
+            let price = $('#price').val();
+            let branch = $('#branch').val();
+            let category = $('#category option').filter(':selected').val();
+            let deviceNumber = $('#device-number').val();
+            let amount = $('#amount').val();
+            let description = $('#description').val();
+            console.log(img)
+            $.ajax({
+                url: '/Project_Web_war/addProduct',
+                type: 'post',
+                data: {
+                    img: img,
+                    name: name,
+                    oldPrice: oldPrice,
+                    price: price,
+                    branch: branch,
+                    category: category,
+                    deviceNumber: deviceNumber,
+                    amount: amount,
+                    description: description
+                },
+                success: function (response) {
+                    $('#table-product').html(response)
+                    load();
+                    loadProductDetailToForm();
+                    add();
+                    edit();
+                },
+                error: function () {
+                    alert("Vui lòng nhập đủ các trường")
+                }
+            })
         })
-    })
+    }
+
 </script>
 </body>
 

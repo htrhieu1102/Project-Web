@@ -38,6 +38,7 @@ public class ProductService {
         }
         return productList;
     }
+
     public Product getProductDetail(int pid) {
         String query = "SELECT *\n" +
                 "FROM product\n" +
@@ -64,6 +65,7 @@ public class ProductService {
         }
         return null;
     }
+
     public void deleteProduct(int pid) {
         String query = "DELETE FROM product WHERE product.pid = ?";
         try {
@@ -75,22 +77,55 @@ public class ProductService {
             throw new RuntimeException(ex);
         }
     }
-    public void addProduct(int cid,String img,String name, int oldPrice, int price, int amount,
-                           String branch, int deviceNumber, String description){
+
+    public void addProduct(int cid, String img, String name, int oldPrice, int price, int amount,
+                           String branch, int deviceNumber, String description) {
         String query = "INSERT INTO product(cid,pimage,pname,pprice_old,pprice,pamount,pbranch,pnumber_device,pdesciption) VALUES\n" +
                 "(?,?,?,?,?,?,?,?,?)";
         try {
             statement = DBConnect.getInstall().get();
             preparedStatement = statement.getConnection().prepareStatement(query);
             preparedStatement.setInt(1, cid);
-            preparedStatement.setString(2,img);
-            preparedStatement.setString(3,name);
-            preparedStatement.setInt(4,oldPrice);
-            preparedStatement.setInt(5,price);
-            preparedStatement.setInt(6,amount);
-            preparedStatement.setString(7,branch);
-            preparedStatement.setInt(8,deviceNumber);
-            preparedStatement.setString(9,description);
+            preparedStatement.setString(2, img);
+            preparedStatement.setString(3, name);
+            preparedStatement.setInt(4, oldPrice);
+            preparedStatement.setInt(5, price);
+            preparedStatement.setInt(6, amount);
+            preparedStatement.setString(7, branch);
+            preparedStatement.setInt(8, deviceNumber);
+            preparedStatement.setString(9, description);
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public void editProduct(int cid, String img, String name, int oldPrice, int price, int amount,
+                            String branch, int deviceNumber, String description, int pid) {
+        String query = "UPDATE product SET\n" +
+                "cid = ?,\n" +
+                "pimage = ?,\n" +
+                "pname = ?,\n" +
+                "pprice_old = ?,\n" +
+                "pprice = ?,\n" +
+                "pamount = ?,\n" +
+                "pbranch = ?,\n" +
+                "pnumber_device = ?,\n" +
+                "pdesciption = ?\n" +
+                "WHERE pid = ?";
+        try {
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, cid);
+            preparedStatement.setString(2, img);
+            preparedStatement.setString(3, name);
+            preparedStatement.setInt(4, oldPrice);
+            preparedStatement.setInt(5, price);
+            preparedStatement.setInt(6, amount);
+            preparedStatement.setString(7, branch);
+            preparedStatement.setInt(8, deviceNumber);
+            preparedStatement.setString(9, description);
+            preparedStatement.setInt(10, pid);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
