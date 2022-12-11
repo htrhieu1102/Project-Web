@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.Service;
 
 import vn.edu.hcmuaf.fit.Database.DBConnect;
+import vn.edu.hcmuaf.fit.Model.Cart;
 import vn.edu.hcmuaf.fit.Model.Product;
 
 import java.sql.*;
@@ -36,6 +37,7 @@ public class ProductService {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+//        System.out.println(productList.size());
         return productList;
     }
 
@@ -65,7 +67,6 @@ public class ProductService {
         }
         return null;
     }
-
     public void deleteProduct(int pid) {
         String query = "DELETE FROM product WHERE product.pid = ?";
         try {
@@ -130,5 +131,49 @@ public class ProductService {
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
+    }
+    public Product findById(int id){
+        Product pro = null;
+        try {
+            String query1 = "select * from product where product.pid = ?";
+
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(query1);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()){
+                pro = new Product();
+                pro.setId(resultSet.getInt(1));
+                pro.setCategory(resultSet.getString(2));
+                pro.setImg(resultSet.getString(3));
+                pro.setName(resultSet.getString(4));
+                pro.setOldPrice(resultSet.getInt(5));
+                pro.setPrice(resultSet.getInt(5));
+                pro.setAmount(resultSet.getInt(6));
+                pro.setBranch(resultSet.getString(7));
+                pro.setDeviceNumber(resultSet.getInt(8));
+                pro.setDescription(resultSet.getString(9));
+
+                return pro;
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                preparedStatement.close();
+            } catch (Exception e){
+
+            }
+        }
+        return pro;
+    }
+
+    public static void main(String[] args) {
+        ProductService ps = new ProductService();
+        ArrayList<Cart> products = new ArrayList<Cart>();
+
+        System.out.println(ps.findById(1));
+//        System.out.println((ps.getProduct().toString()));
+//        System.out.println(ps.getCartProducts(products));
     }
 }

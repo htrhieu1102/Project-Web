@@ -20,7 +20,6 @@ public class EditProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int category = Integer.parseInt(request.getParameter("category"));
         String img = request.getParameter("img");
-        String link = "http://localhost:8080/Project_Web_war/image/product-image/windows/" + img.substring(img.lastIndexOf('/'));
         String name = request.getParameter("name");
         int oldPrice = Integer.parseInt(request.getParameter("oldPrice"));
         int price = Integer.parseInt(request.getParameter("price"));

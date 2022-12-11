@@ -352,7 +352,7 @@
     transform: translateY(0);
     opacity: 1;
 }
-#content .product-item .product-choose>button {
+#content .product-item .product-choose >button {
     width: 100%;
     margin-left: 50%;
     transform: translateX(-50%);
@@ -364,10 +364,12 @@
     color: #ffffff;
     transition: all .3s linear;
 }
-#content .product-item .product-choose>button:hover {
+#content .product-item .product-choose >button:hover {
     background: linear-gradient(to left,#00c10c 0%,#fff200 50%,#00c10c 100%) right;
     background-size: 300%, 1px;
-
+}
+#content .product-item .product-choose button a{
+    color: white;
 }
 #content .product-item .product-choose .detail {
     margin-left: 0px;

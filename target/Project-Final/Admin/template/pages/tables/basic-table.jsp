@@ -481,7 +481,7 @@
     }
     function add() {
         $('#btn__add').click(function () {
-            let img = $('#form__img-upload').val();
+            let img = $('#form__img').attr('src');
             let name = $('#name').val();
             let oldPrice = $('#old-price').val();
             let price = $('#price').val();

@@ -24,6 +24,9 @@ public class Product {
         this.deviceNumber = deviceNumber;
         this.description = description;
     }
+    public Product(){
+
+    }
 
     public int getId() {
         return id;
@@ -103,5 +106,20 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", img='" + img + '\'' +
+                ", name='" + name + '\'' +
+                ", oldPrice=" + oldPrice +
+                ", price=" + price +
+                ", branch='" + branch + '\'' +
+                ", deviceNumber=" + deviceNumber +
+                ", description='" + description + '\'' +
+                ", amount=" + amount +
+                ", category='" + category + '\'' +
+                '}';
     }
 }
