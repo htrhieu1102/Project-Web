@@ -1,10 +1,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
-<<<<<<< HEAD
-=======
 <%@ page import="vn.edu.hcmuaf.fit.Database.DbCon" %>
->>>>>>> a62ede6f5c0fa52f07e4441aebde1590cbf75588
 <%@ page import="vn.edu.hcmuaf.fit.Controller.ListProduct" %>
 <%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
@@ -24,7 +21,6 @@
 <body>
 <div id="main">
     <!--    Begin Header-->
-<<<<<<< HEAD
     <div id="header">
         <div class="config-top-banner">
             <p class="slogan">
@@ -86,9 +82,7 @@
             </div>
         </div>
     </div>
-=======
     <jsp:include page="header.jsp"></jsp:include>
->>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
     <!--    End Header-->
     <!--    Begin Content-->
     <div id="content">
@@ -208,39 +202,9 @@
                                 </button>
                         </div>
                     </div>
-<<<<<<< HEAD
                     <%
                         }
                     %>
-=======
-                    <%}%>
-                    <div class="product-item">
-                        <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png"
-                                 alt="">
-                        </a>
-                        <p class="product-type">Windows</p>
-                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>
-                        <div class="product-star text-center">
-                            <span class="number-of-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                        </div>
-                        <div class="product-price">
-                            <del class="product-old-price">100.000<span class="currency">₫</span></del>
-                            <span class="product-new-price"><%= ListProduct.list.size()%>><span class="currency">₫</span></span>
-                        </div>
-                        <div class="product-choose">
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
-                            </button>
-                        </div>
-                    </div>
->>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
                 </div>
                 <div class="page-numbers mt-4">
                     <button class="btn-number-pages" aria-checked="">1</button>

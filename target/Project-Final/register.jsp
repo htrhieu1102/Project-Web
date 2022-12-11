@@ -78,9 +78,7 @@
             </div>
         </div>
     </div>
-=======
     <jsp:include page="header.jsp"></jsp:include>
->>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
     <!--    End Header-->
     <!--    Begin Content-->
     <div id="content" class="login">
