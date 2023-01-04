@@ -42,14 +42,7 @@
                         <a href="cart.jsp">
                             <span class="icon-cart">
                             <i class="fa-solid fa-bag-shopping"></i>
-                            <%
-                                int number =0;
-                                for (int i=0; i<AddToCart.carts.size(); i++){
-                                    Cart c = AddToCart.carts.get(i);
-                                    number += c.getQuantity();
-                                }
-                            %>
-                            <span class="amount-cart"><%=number%></span>
+                             <span class="amount-cart"><%=AddToCart.carts.size()%></span>
                         </span>
                         </a>
                     </span>
