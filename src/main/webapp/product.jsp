@@ -87,18 +87,29 @@
                 </div>
                 <div class="filter-branch filter-container">
                     <span class="title-dots"></span>
+                    <c:set var="checkId" value="${requestScope.checkId}"/>
                     <p class="title-filter">Lọc theo sản phẩm</p>
-                    <form action="">
-                        <input type="checkbox" name="" checked>
-                        <label>Tất cả</label><br>
-                        <input type="checkbox" name="">
-                        <label>Windows</label><br>
-                        <input type="checkbox" name="">
-                        <label>Adobe</label><br>
-                        <input type="checkbox" name="">
-                        <label>Microsoft</label><br>
-                        <input type="checkbox" name="">
-                        <label>Anti Virus</label><br>
+                    <form id="f1" action="home1">
+                        <input type="checkbox" id="c0" name="cid"
+                        ${checkId[0]?"checked":""}
+                        value="${0}" onclick="setCheck(this)"/>Tất cả<br/>
+                        <c:forEach begin="0" end="${cat.size()-1}" var="i">
+                            <input type="checkbox" id="cm" name="cid"
+                                ${cat.get(i).getId()==cid?"checked":""}
+                                value="${cat.get(i).getId()}"
+                                ${checkId[i+1]?"checked":""}  onclick="setCheck(this)"/>
+                                ${cat.get(i).getName()}
+                            <br/>
+                        </c:forEach>
+<%--                        <label>Tất cả</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>Windows</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>Adobe</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>Microsoft</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>Anti Virus</label><br>--%>
                     </form>
                 </div>
                 <div class="filter-duration filter-container">
@@ -266,6 +277,22 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/range-filter.js"></script>
-
+<script>type="text/javascript"
+    function setCheck(obj) {
+        var fries = document.getElementsByName('cid');
+        if ((obj.id == 'c0') && (fries[0].checked == true)) {
+            for (var i = 1; i < fries.length; i++)
+                fries[i].check = false;
+        } else {
+            for (var i = 1; i < fries.length; i++) {
+                if (fries[i].checked == true) {
+                    fries[0].check = false;
+                    break;
+                }
+            }
+        }
+        document.getElementById('f1').submit();
+    }
+</script>
 </body>
 </html>
