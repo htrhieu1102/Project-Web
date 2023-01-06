@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="main">
-<<<<<<< HEAD
+
     <!--    Begin Header-->
     <div id="header">
         <div class="config-top-banner">
@@ -57,14 +57,7 @@
                         <a href="cart.jsp">
                             <span class="icon-cart">
                             <i class="fa-solid fa-bag-shopping"></i>
-                            <%
-                                int number =0;
-                                for (int i=0; i<AddToCart.carts.size(); i++){
-                                    Cart c = AddToCart.carts.get(i);
-                                    number += c.getQuantity();
-                                }
-                            %>
-                            <span class="amount-cart"><%=number%></span>
+                                <span class="amount-cart"><%=AddToCart.carts.size()%></span>
                         </span>
                         </a>
                     </span>
@@ -80,11 +73,11 @@
         </div>
     </div>
     <!--    End Header-->
-=======
+
     <!-- Begin Header-->
     <jsp:include page="header.jsp"></jsp:include>
     <!-- End Header-->
->>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
+
     <!--    Begin SlideShow-->
     <div id="slideShow">
         <div class="position-relative">
@@ -143,7 +136,8 @@
                 <div class="products">
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png" alt="">
+                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png"
+                                 alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Windows 11 Pro Mak</p></a>
@@ -169,7 +163,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/windows/Windows-11-Home-510x510.png" alt="">
+                            <img class="product-image" src="image/product-image/windows/Windows-11-Home-510x510.png"
+                                 alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Windows 11 Home</p></a>
@@ -195,7 +190,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/windows/windows-11-enterprise-510x510.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/windows/windows-11-enterprise-510x510.png" alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Windows 11 Enterprise</p></a>
@@ -222,7 +218,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/office/office-365-gia-re-min-510x510.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/office/office-365-gia-re-min-510x510.png" alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Office 365 Peronal (5 Thiết bị)</p></a>
@@ -248,7 +245,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/office/office-2021-professional-plus-510x510.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/office/office-2021-professional-plus-510x510.png" alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Office 2021 Professional Plus</p></a>
@@ -274,7 +272,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/office/outlook-2021-ban-quyen-min-510x510.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/office/outlook-2021-ban-quyen-min-510x510.png" alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Outlock 2021</p></a>
@@ -300,7 +299,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/design/affinity-designer-min-1-510x510.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/design/affinity-designer-min-1-510x510.png" alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Affinity Designer</p></a>
@@ -326,7 +326,9 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/other(entertainment)/youtube-premium-gia-re-510x510.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/other(entertainment)/youtube-premium-gia-re-510x510.png"
+                                 alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Youtube Premium</p></a>
@@ -361,7 +363,8 @@
                 <div class="products">
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/windows/windows-10-eduction-510x510.png" alt="">
+                            <img class="product-image" src="image/product-image/windows/windows-10-eduction-510x510.png"
+                                 alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Windows 10 Education</p></a>
@@ -388,7 +391,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/windows/windows-10-pro-1-510x510.png" alt="">
+                            <img class="product-image" src="image/product-image/windows/windows-10-pro-1-510x510.png"
+                                 alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Windows 10 Pro</p></a>
@@ -414,7 +418,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/office/Office-2019-Home-And-Business-win-600x600.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/office/Office-2019-Home-And-Business-win-600x600.png" alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Office Home & Business</p></a>
@@ -441,7 +446,9 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/office/offcie-2019-home-student-gia-re-min-510x510.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/office/offcie-2019-home-student-gia-re-min-510x510.png"
+                                 alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Office 2019 Home & Student</p></a>
@@ -467,7 +474,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/antivirus/5819_bkav_pro_internet_security_1.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/antivirus/5819_bkav_pro_internet_security_1.png" alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Bkav Professsional</p></a>
@@ -493,7 +501,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/antivirus/McAfee-Internet-Security-2018.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/antivirus/McAfee-Internet-Security-2018.png" alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">McAfee Internet Security</p></a>
@@ -519,7 +528,8 @@
                     </div>
                     <div class="product-item">
                         <a href="detail.jsp">
-                            <img class="product-image" src="image/product-image/office/office-2016-pro-plus-1-510x510.png" alt="">
+                            <img class="product-image"
+                                 src="image/product-image/office/office-2016-pro-plus-1-510x510.png" alt="">
                         </a>
                         <p class="product-type">Windows</p>
                         <a href="detail.jsp"><p class="product-name">Office 2016 Professional Plus</p></a>

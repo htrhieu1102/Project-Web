@@ -16,7 +16,6 @@
 <body>
 <div id="main">
     <!--    Begin Header-->
-<<<<<<< HEAD
     <div id="header">
         <div class="config-top-banner">
             <p class="slogan">
@@ -56,14 +55,7 @@
                         <a href="cart.jsp">
                             <span class="icon-cart">
                             <i class="fa-solid fa-bag-shopping"></i>
-                            <%
-                                int number =0;
-                                for (int i=0; i<AddToCart.carts.size(); i++){
-                                    Cart c = AddToCart.carts.get(i);
-                                    number += c.getQuantity();
-                                }
-                            %>
-                            <span class="amount-cart"><%=number%></span>
+                             <span class="amount-cart"><%=AddToCart.carts.size()%></span>
                         </span>
                         </a>
                     </span>
@@ -78,9 +70,7 @@
             </div>
         </div>
     </div>
-=======
     <jsp:include page="header.jsp"></jsp:include>
->>>>>>> 2f725d8ab6521540bdf93557d513e5e09ad58ea3
     <!--    End Header-->
     <div id="content">
         <!--    Begin About-us-->
