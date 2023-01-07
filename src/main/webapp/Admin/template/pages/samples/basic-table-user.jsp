@@ -1,6 +1,3 @@
-<%@ page import="vn.edu.hcmuaf.fit.Service.CategoryService" %>
-<%@ page import="vn.edu.hcmuaf.fit.Model.Category" %>
-<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -14,11 +11,10 @@
     <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../vendors/base/vendor.bundle.base.css">
     <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
     <!-- inject:css -->
     <link rel="stylesheet" href="../../css/style.css">
+    <%--    <style><%@include file="../../css/style.css"%></style>--%>
+
     <!-- endinject -->
     <link rel="shortcut icon" href="../../images/logoShopKey.png"/>
 </head>
@@ -32,10 +28,10 @@
                  class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
                 <a style="height: 40px; width: 50px;" class="navbar-brand brand-logo" href="../../index.jsp"><img
                         src="../../images/logoShopKey.png" alt="logo"/></a>
-                <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../images/logo-mini.svg"
-                                                                                     alt="logo"/></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../../images/logo-mini.svg"
+                                                                               alt="logo"/></a>
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-                    <span class="fas fa-bars"></span>
+                    <span class="mdi mdi-sort-variant"></span>
                 </button>
             </div>
         </div>
@@ -153,6 +149,7 @@
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
                         <img src="../../images/img-compressed.jpg" alt="profile"/>
+
                         <span class="nav-profile-name">Nguyễn Trung Hiếu</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -179,192 +176,165 @@
         <jsp:include page="/Admin/template/menu-admin.jsp"></jsp:include>
         <!-- partial -->
         <div class="main-panel">
-            <div class="content-wrapper">
-                <div class="row">
-                    <div class="col-12 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Thêm danh mục mới</h4>
-                                <form class="forms-sample mb-5">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="exampleInputName1"
-                                               placeholder="Tên danh mục mới">
-                                    </div>
-                                    <button type="button" class="btn btn-primary me-2">Thêm</button>
-                                </form>
-                                <h4 class="card-title">Danh sách các danh mục</h4>
-                                <div class="show-product">
-                                    <table class="text-center" id="table-cat">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Tên danh mục</th>
-                                            <th>Chức năng</th>
-                                        </tr>
-                                        <% CategoryService categoryService = new CategoryService();
-                                            List<Category> list = categoryService.getAllCategory();
-                                            for (Category category : list) {%>
-                                        <tr>
-                                            <td><%=category.getCid()%></td>
-                                            <td><%=category.getCname()%></td>
-                                            <td>
-                                                <a class="delete-category" id="delete<%=category.getCid()%>" style="color: red"><i
-                                                        class="mdi mdi-delete"></i></a>
-                                                <a class="edit-category" id="edit<%=category.getCid()%>"><i
-                                                        class="mdi mdi-grease-pencil"></i></a>
-                                            </td>
-                                        </tr>
-                                        <%}%>
+            <main class="main">
+                <div class="container-fluid">
+<%--                    <div class="row" id="form__box">--%>
+<%--                        <!-- tittle -->--%>
+<%--                        <div class="col-12">--%>
+<%--                            <div class="main__title">--%>
+<%--                                <h2>Thêm sản phẩm mới</h2>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <!-- content -->--%>
+<%--                        <div class="col-12">--%>
+<%--                            <form action="" class="form">--%>
+<%--                                <div class="row row--form">--%>
+<%--                                    <!-- image upload -->--%>
+<%--                                    <div class="col-12 col-md-5 form__cover">--%>
+<%--                                        <div class="row row--form">--%>
+<%--                                            <div class="col-12 col-sm-6 col-md-12">--%>
+<%--                                                <div class="form__img">--%>
+<%--                                                    <label for="form__img-upload">Thêm ảnh</label>--%>
+<%--                                                    <input id="form__img-upload" name="form__img-upload" type="file"--%>
+<%--                                                           accept="image/*"--%>
+<%--                                                           onchange="document.getElementById('form__img').src = window.URL.createObjectURL(this.files[0])">--%>
+<%--                                                    <img id="form__img" src="#" alt="">--%>
+<%--                                                </div>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+<%--                                    <div class="col-12 col-md-7 form__content">--%>
+<%--                                        <div class="row row--form">--%>
+<%--                                            <div class="col-12">--%>
+<%--                                                <input id="name" type="text" class="form__input"--%>
+<%--                                                       placeholder="Tên sản phẩm" name="name">--%>
+<%--                                            </div>--%>
 
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+<%--                                            <div class="col-12 ">--%>
+<%--                                                <input id="old-price" type="text" class="form__input"--%>
+<%--                                                       placeholder="Giá cũ" name="old-price">--%>
+<%--                                            </div>--%>
+
+<%--                                            <div class="col-12">--%>
+<%--                                                <input id="price" type="text" class="form__input"--%>
+<%--                                                       placeholder="Giá hiện tại" name="price">--%>
+<%--                                            </div>--%>
+<%--                                            <div class="col-12">--%>
+<%--                                                <input id="branch" type="text" class="form__input" placeholder="Hãng"--%>
+<%--                                                       name="branch">--%>
+<%--                                            </div>--%>
+<%--                                            <div class="col-12">--%>
+<%--                                                <label style="padding: 0 20px">Loại sản phẩm:</label>--%>
+<%--                                                <select id="category"--%>
+<%--                                                        style="margin-bottom: 20px; width: 30%; padding: 10px 5px; text-align: center; border-radius: 5px">--%>
+<%--                                                    <% CategoryService categoryService = new CategoryService();--%>
+<%--                                                        List<Category> categoryList = categoryService.getAllCategory();--%>
+<%--                                                        for (Category c : categoryList) {%>--%>
+<%--                                                    <option value="<%=c.getCid()%>"><%=c.getCname()%>--%>
+<%--                                                    </option>--%>
+<%--                                                    <% }%>--%>
+<%--                                                </select>--%>
+<%--                                            </div>--%>
+<%--                                            <div class="col-12">--%>
+<%--                                                <input id="device-number" type="text" class="form__input"--%>
+<%--                                                       placeholder="Số lượng thiết bị" name="device-number">--%>
+<%--                                            </div>--%>
+<%--                                            <div class="col-12">--%>
+<%--                                                <input id="amount" type="text" class="form__input"--%>
+<%--                                                       placeholder="Số lượng" name="amount">--%>
+<%--                                            </div>--%>
+<%--                                            <div class="col-12">--%>
+<%--                                                <textarea id="description" name="description" class="form__textarea"--%>
+<%--                                                          placeholder="Mô tả"></textarea>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+
+<%--                                    <div class="col-12">--%>
+<%--                                        <div class="row row--form">--%>
+<%--                                            <div class="col-12 d-flex justify-content-end">--%>
+<%--                                                <button id="btn__add" type="button" class="form__btn mb-5">Thêm</button>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
+<%--                                    </div>--%>
+
+<%--                                </div>--%>
+<%--                            </form>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="show-product">--%>
+<%--                        <div class="main__title">--%>
+<%--                            <h2>Sản phẩm trong kho</h2>--%>
+<%--                        </div>--%>
+
+<%--                        <table id="table-product">--%>
+<%--                            <tr>--%>
+<%--                                <th>ID</th>--%>
+<%--                                <th>Tên</th>--%>
+<%--                                <th>Ảnh</th>--%>
+<%--                                <th>Số lượng</th>--%>
+<%--                                <th>Giá</th>--%>
+<%--                                <th>Loại key</th>--%>
+<%--                                <th>Chức năng</th>--%>
+<%--                            </tr>--%>
+<%--                            <% ProductService productService = new ProductService();--%>
+<%--                                List<Product> list = productService.getProduct();--%>
+<%--                                for (Product p : list) {%>--%>
+<%--                            <tr>--%>
+<%--                                <td><%=p.getId()%>--%>
+<%--                                </td>--%>
+<%--                                <td><%=p.getName()%>--%>
+<%--                                </td>--%>
+<%--                                <td>--%>
+<%--                                    <img src="<%=p.getImg()%>">--%>
+<%--                                </td>--%>
+<%--                                <td><%=p.getAmount()%>--%>
+<%--                                </td>--%>
+<%--                                <td><%=p.getPrice()%>--%>
+<%--                                </td>--%>
+<%--                                <td><%=p.getBranch()%>--%>
+<%--                                </td>--%>
+<%--                                <td>--%>
+<%--                                    <a class="delete-product" id="delete<%=p.getId()%>"style="color: red"><i--%>
+<%--                                            class="mdi mdi-delete"></i></a>--%>
+<%--                                    <a class="edit-product" id="edit<%=p.getId()%>"><i--%>
+<%--                                            class="mdi mdi-grease-pencil"></i></a>--%>
+<%--                                </td>--%>
+<%--                            </tr>--%>
+<%--                            <%}%>--%>
+
+<%--                        </table>--%>
+<%--                    </div>--%>
                 </div>
-            </div>
-            <!-- content-wrapper ends -->
-            <!-- partial:../../partials/_footer.html -->
-            <!--        <footer class="footer">-->
-            <!--        <div class="d-sm-flex justify-content-center justify-content-sm-between">-->
-            <!--          <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com </a>2021</span>-->
-            <!--          <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Only the best <a href="https://www.bootstrapdash.com/" target="_blank"> Bootstrap dashboard  </a> templates</span>-->
-            <!--        </div>-->
-            <!--        </footer>-->
-            <!-- partial -->
+            </main>
         </div>
-        <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
+    <!-- main-panel ends -->
+</div>
+<!-- page-body-wrapper ends -->
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->
 <script src="../../vendors/base/vendor.bundle.base.js"></script>
 <!-- endinject -->
+<!-- Plugin js for this page-->
+<!-- End plugin js for this page-->
 <!-- inject:js -->
 <script src="../../js/off-canvas.js"></script>
 <script src="../../js/hoverable-collapse.js"></script>
-<script src="../../js/template.js"></script>
+<script src="../../js/temp late.js"></script>
 <!-- endinject -->
 <!-- Custom js for this page-->
-<script src="../../js/file-upload.js"></script>
+<script src="../../js/dashboard.js"></script>
+<script src="../../js/data-table.js"></script>
+<script src="../../js/jquery.dataTables.js"></script>
+<script src="../../js/dataTables.bootstrap4.js"></script>
 <!-- End custom js for this page-->
 <script>
     <%@include file="../../js/jquery-3.6.1.min.js" %>
 </script>
-<script>
-    $(document).ready(function () {
-        addCategory();
-        deleteCategory();
-        loadEditCategory();
-        editCategory();
-    })
-    function deleteCategory() {
-        $('.delete-category').each(function () {
-            $(this).click(function (e) {
-                e.preventDefault();
-                let cid = $(this).attr('id');
-                console.log(cid)
-                $.ajax({
-                    url: '/Project_Web_war/deleteCategory',
-                    type: 'post',
-                    data: {
-                        cid : cid
-                    },
-                    success: function (response) {
-                        $('#table-cat').html(response);
-                        deleteCategory();
-                    },
-                    error: function () {
-                        alert("Lỗi")
-                    }
-                })
-            })
-        })
-    }
-    function addCategory() {
-        $('.btn-primary').click(function () {
-            let name = $('#exampleInputName1').val();
-            $.ajax({
-                url: '/Project_Web_war/addCategory',
-                type: 'post',
-                data: {
-                    name : name
-                },
-                success: function (response) {
-                    $('#table-cat').html(response);
-                    deleteCategory();
-                    editCategory();
-                },
-                error: function () {
-                    alert("Lỗi")
-                }
-            })
-        })
-    }
-    function loadEditCategory() {
-        $('.edit-category').each(function (i, val) {
-            $(val).click(function (e) {
-                e.preventDefault();
-                let cid = $(this).attr('id');
-                $.ajax({
-                    url: '/Project_Web_war/loadFormEditCategory',
-                    typ: 'get',
-                    data: {
-                        cid : cid
-                    },
-                    success: function (response) {
-                        $('.forms-sample').html(response);
-                        editCategory();
-                        cancelFormEdit();
-                    },
-                    error: function () {
-                        alert("Lỗi");
-                    }
-                })
-            })
-        })
-    }
-    function editCategory() {
-        $('#btn-edit-cat').click(function () {
-            let cid = $('#id-category').text();
-            let cname = $('#exampleInputName1').val();
-            console.log(cid)
-            $.ajax({
-                url: '/Project_Web_war/editCategory',
-                type: 'post',
-                data: {
-                    cid : cid,
-                    cname : cname
-                },
-                success: function (response) {
-                    $('#table-cat').html(response);
-                    deleteCategory();
-                    loadEditCategory();
-                },
-                error: function () {
-                    alert("Lỗi Chỉnh Sửa");
-                }
-            })
-        })
-    }
 
-    function cancelFormEdit() {
-        $('#btn-cancel').click(function () {
-            $.ajax({
-                url: '/Project_Web_war/loadFormAddCat',
-                type: 'get',
-                success: function (response) {
-                    $('.forms-sample').html(response);
-                    addCategory();
-                },
-                error: function () {
-                    alert("Lỗi");
-                }
-            })
-        })
-    }
-
-</script>
 </body>
 
 </html>

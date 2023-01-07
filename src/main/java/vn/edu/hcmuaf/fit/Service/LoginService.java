@@ -27,8 +27,9 @@ public class LoginService {
                 return new User(resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
-                        resultSet.getInt(4),
-                        resultSet.getDate(5));
+                        resultSet.getString(4),
+                        resultSet.getInt(5),
+                        resultSet.getDate(6));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

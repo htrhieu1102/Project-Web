@@ -35,7 +35,7 @@
     <td><%=p.getBranch()%>
     </td>
     <td>
-        <a class="delete-product" id="delete<%=p.getId()%>"><i class="mdi mdi-delete "></i></a>
+        <a class="delete-product" id="delete<%=p.getId()%>"style="color: red"><i class="mdi mdi-delete "></i></a>
         <a class="edit-product" id="edit<%=p.getId()%>"><i
                 class="mdi mdi-grease-pencil"></i></a>
     </td>

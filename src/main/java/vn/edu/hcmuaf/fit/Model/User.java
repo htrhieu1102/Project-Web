@@ -6,13 +6,15 @@ public class User {
     private int id;
     private String email;
     private String pass;
+    private String name;
     private int phone;
     private Date createdAt;
 
-    public User(int id, String email, String pass, int phone, Date createdAt) {
+    public User(int id, String email, String pass, String name, int phone, Date createdAt) {
         this.id = id;
         this.email = email;
         this.pass = pass;
+        this.name = name;
         this.phone = phone;
         this.createdAt = createdAt;
     }
@@ -39,6 +41,14 @@ public class User {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getPhone() {

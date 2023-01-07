@@ -27,6 +27,7 @@ public class AddProduct extends HttpServlet {
         String branch = request.getParameter("branch");
         int deviceNumber = Integer.parseInt(request.getParameter("deviceNumber"));
         String description = request.getParameter("description");
+        System.out.println(description);
         ProductService productService = new ProductService();
         productService.addProduct(category,img,name,oldPrice,price,amount,branch,deviceNumber,description);
         List<Product> list = productService.getProduct();

@@ -16,16 +16,18 @@ public class Login extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String user = request.getParameter("uname");
+        String email = request.getParameter("uname");
         String pass = request.getParameter("pass");
         LoginService loginService = new LoginService();
-        User u = loginService.login(user, pass);
+        User u = loginService.login(email, pass);
         if (u == null) {
             request.setAttribute("error", "<div class=\"alert alert-danger\" role=\"alert\">\n" +
                     "  Tài khoản hoặc mật khẩu không đúng!\n" +
                     "</div>");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", u);
             response.sendRedirect("index.jsp");
         }
     }
