@@ -23229,7 +23229,7 @@ select::-ms-expand {
   flex-wrap: wrap;
   margin-bottom: 20px;
   border-bottom: 3px solid #69a335;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .main__title h2 {

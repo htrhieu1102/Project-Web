@@ -28,7 +28,8 @@ public class RegisterService {
                         resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getInt(5),
-                        resultSet.getDate(6));
+                        resultSet.getDate(6),
+                        resultSet.getInt(7));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -36,8 +37,8 @@ public class RegisterService {
         return null;
     }
     public void register(String email, String pass, String name, String phone) {
-        String query = "INSERT into USER(user_email, user_password,user_name,user_phone,user_createdAt) VALUES\n" +
-                "(?, ?, ?, ?, CURRENT_DATE)";
+        String query = "INSERT into USER(user_email, user_password,user_name,user_phone,user_createdAt,isAdmin) VALUES\n" +
+                "(?, ?, ?, ?, CURRENT_DATE,0)";
         try {
             statement = DBConnect.getInstall().get();
             preparedStatement = statement.getConnection().prepareStatement(query);

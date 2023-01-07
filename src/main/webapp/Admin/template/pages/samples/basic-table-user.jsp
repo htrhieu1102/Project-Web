@@ -1,3 +1,8 @@
+<%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.Service.LoginService" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.User" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -178,134 +183,50 @@
         <div class="main-panel">
             <main class="main">
                 <div class="container-fluid">
-<%--                    <div class="row" id="form__box">--%>
-<%--                        <!-- tittle -->--%>
-<%--                        <div class="col-12">--%>
-<%--                            <div class="main__title">--%>
-<%--                                <h2>Thêm sản phẩm mới</h2>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <!-- content -->--%>
-<%--                        <div class="col-12">--%>
-<%--                            <form action="" class="form">--%>
-<%--                                <div class="row row--form">--%>
-<%--                                    <!-- image upload -->--%>
-<%--                                    <div class="col-12 col-md-5 form__cover">--%>
-<%--                                        <div class="row row--form">--%>
-<%--                                            <div class="col-12 col-sm-6 col-md-12">--%>
-<%--                                                <div class="form__img">--%>
-<%--                                                    <label for="form__img-upload">Thêm ảnh</label>--%>
-<%--                                                    <input id="form__img-upload" name="form__img-upload" type="file"--%>
-<%--                                                           accept="image/*"--%>
-<%--                                                           onchange="document.getElementById('form__img').src = window.URL.createObjectURL(this.files[0])">--%>
-<%--                                                    <img id="form__img" src="#" alt="">--%>
-<%--                                                </div>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                    <div class="col-12 col-md-7 form__content">--%>
-<%--                                        <div class="row row--form">--%>
-<%--                                            <div class="col-12">--%>
-<%--                                                <input id="name" type="text" class="form__input"--%>
-<%--                                                       placeholder="Tên sản phẩm" name="name">--%>
-<%--                                            </div>--%>
+                    <div class="show-product">
+                        <div class="main__title">
+                            <h4>Danh sách người dùng</h4>
+                        </div>
 
+                        <table id="table-product">
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Tên</th>
+                                <th>Số điện thoại</th>
+                                <th>Ngày đăng ký</th>
+                                <th>Phân loại</th>
+                                <th style="text-align: center">Phân quyền</th>
+                            </tr>
+                            <% LoginService loginService = new LoginService();
+                                List<User> list = loginService.getAllUser();
+                                for (User u : list) {%>
+                            <tr>
+                                <td><%=u.getId()%>
+                                </td>
+                                <td><%=u.getEmail()%>
+                                </td>
+                                <td><%=u.getName()%>
+                                </td>
+                                <td><%=u.getPhone()%>
+                                </td>
+                                <td><%=u.getCreatedAt()%>
+                                </td>
+                                <% if(u.getIsAdmin() == 0) {%>
+                                    <td style="color: #0db20d">Người dùng</td>
+                                <%} else if(u.getIsAdmin() == 1){%>
+                                    <td style="color: red">Quản lý</td>
+                                <%}%>
+                                <td style="text-align: center">
+                                    <a class="edit-admin" id="<%=u.getId()%>">
+                                        <i class="mdi mdi-table-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <%}%>
 
-<%--                                            <div class="col-12 ">--%>
-<%--                                                <input id="old-price" type="text" class="form__input"--%>
-<%--                                                       placeholder="Giá cũ" name="old-price">--%>
-<%--                                            </div>--%>
-
-<%--                                            <div class="col-12">--%>
-<%--                                                <input id="price" type="text" class="form__input"--%>
-<%--                                                       placeholder="Giá hiện tại" name="price">--%>
-<%--                                            </div>--%>
-<%--                                            <div class="col-12">--%>
-<%--                                                <input id="branch" type="text" class="form__input" placeholder="Hãng"--%>
-<%--                                                       name="branch">--%>
-<%--                                            </div>--%>
-<%--                                            <div class="col-12">--%>
-<%--                                                <label style="padding: 0 20px">Loại sản phẩm:</label>--%>
-<%--                                                <select id="category"--%>
-<%--                                                        style="margin-bottom: 20px; width: 30%; padding: 10px 5px; text-align: center; border-radius: 5px">--%>
-<%--                                                    <% CategoryService categoryService = new CategoryService();--%>
-<%--                                                        List<Category> categoryList = categoryService.getAllCategory();--%>
-<%--                                                        for (Category c : categoryList) {%>--%>
-<%--                                                    <option value="<%=c.getCid()%>"><%=c.getCname()%>--%>
-<%--                                                    </option>--%>
-<%--                                                    <% }%>--%>
-<%--                                                </select>--%>
-<%--                                            </div>--%>
-<%--                                            <div class="col-12">--%>
-<%--                                                <input id="device-number" type="text" class="form__input"--%>
-<%--                                                       placeholder="Số lượng thiết bị" name="device-number">--%>
-<%--                                            </div>--%>
-<%--                                            <div class="col-12">--%>
-<%--                                                <input id="amount" type="text" class="form__input"--%>
-<%--                                                       placeholder="Số lượng" name="amount">--%>
-<%--                                            </div>--%>
-<%--                                            <div class="col-12">--%>
-<%--                                                <textarea id="description" name="description" class="form__textarea"--%>
-<%--                                                          placeholder="Mô tả"></textarea>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-
-<%--                                    <div class="col-12">--%>
-<%--                                        <div class="row row--form">--%>
-<%--                                            <div class="col-12 d-flex justify-content-end">--%>
-<%--                                                <button id="btn__add" type="button" class="form__btn mb-5">Thêm</button>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-
-<%--                                </div>--%>
-<%--                            </form>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                    <div class="show-product">--%>
-<%--                        <div class="main__title">--%>
-<%--                            <h2>Sản phẩm trong kho</h2>--%>
-<%--                        </div>--%>
-
-<%--                        <table id="table-product">--%>
-<%--                            <tr>--%>
-<%--                                <th>ID</th>--%>
-<%--                                <th>Tên</th>--%>
-<%--                                <th>Ảnh</th>--%>
-<%--                                <th>Số lượng</th>--%>
-<%--                                <th>Giá</th>--%>
-<%--                                <th>Loại key</th>--%>
-<%--                                <th>Chức năng</th>--%>
-<%--                            </tr>--%>
-<%--                            <% ProductService productService = new ProductService();--%>
-<%--                                List<Product> list = productService.getProduct();--%>
-<%--                                for (Product p : list) {%>--%>
-<%--                            <tr>--%>
-<%--                                <td><%=p.getId()%>--%>
-<%--                                </td>--%>
-<%--                                <td><%=p.getName()%>--%>
-<%--                                </td>--%>
-<%--                                <td>--%>
-<%--                                    <img src="<%=p.getImg()%>">--%>
-<%--                                </td>--%>
-<%--                                <td><%=p.getAmount()%>--%>
-<%--                                </td>--%>
-<%--                                <td><%=p.getPrice()%>--%>
-<%--                                </td>--%>
-<%--                                <td><%=p.getBranch()%>--%>
-<%--                                </td>--%>
-<%--                                <td>--%>
-<%--                                    <a class="delete-product" id="delete<%=p.getId()%>"style="color: red"><i--%>
-<%--                                            class="mdi mdi-delete"></i></a>--%>
-<%--                                    <a class="edit-product" id="edit<%=p.getId()%>"><i--%>
-<%--                                            class="mdi mdi-grease-pencil"></i></a>--%>
-<%--                                </td>--%>
-<%--                            </tr>--%>
-<%--                            <%}%>--%>
-
-<%--                        </table>--%>
-<%--                    </div>--%>
+                        </table>
+                    </div>
                 </div>
             </main>
         </div>
@@ -334,7 +255,33 @@
 <script>
     <%@include file="../../js/jquery-3.6.1.min.js" %>
 </script>
-
+<script>
+    $(document).ready(function () {
+        permission();
+    })
+    function permission() {
+        $('.edit-admin').each(function () {
+            $(this).click(function (e) {
+                e.preventDefault();
+                let id = $(this).attr("id");
+                $.ajax({
+                    url: '/Project_Web_war/permission',
+                    type: 'post',
+                    data: {
+                        id: id
+                    },
+                    success: function (response) {
+                        $('#table-product').html(response)
+                        permission();
+                    },
+                    error: function () {
+                        alert("Lỗi");
+                    }
+                })
+            })
+        })
+    }
+</script>
 </body>
 
 </html>

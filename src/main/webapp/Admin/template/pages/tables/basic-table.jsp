@@ -188,7 +188,7 @@
                         <!-- tittle -->
                         <div class="col-12">
                             <div class="main__title">
-                                <h2>Thêm sản phẩm mới</h2>
+                                <h4>Thêm sản phẩm mới</h4>
                             </div>
                         </div>
                         <!-- content -->
@@ -274,7 +274,7 @@
                     </div>
                     <div class="show-product">
                         <div class="main__title">
-                            <h2>Sản phẩm trong kho</h2>
+                            <h4>Sản phẩm trong kho</h4>
                         </div>
 
                         <table id="table-product">

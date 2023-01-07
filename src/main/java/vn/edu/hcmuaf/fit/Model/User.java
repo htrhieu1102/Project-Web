@@ -9,14 +9,16 @@ public class User {
     private String name;
     private int phone;
     private Date createdAt;
+    private int isAdmin;
 
-    public User(int id, String email, String pass, String name, int phone, Date createdAt) {
+    public User(int id, String email, String pass, String name, int phone, Date createdAt, int isAdmin) {
         this.id = id;
         this.email = email;
         this.pass = pass;
         this.name = name;
         this.phone = phone;
         this.createdAt = createdAt;
+        this.isAdmin = isAdmin;
     }
 
     public int getId() {
@@ -65,5 +67,13 @@ public class User {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }
