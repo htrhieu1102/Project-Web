@@ -1,4 +1,4 @@
-<%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
+
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
 <%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.

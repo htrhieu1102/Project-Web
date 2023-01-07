@@ -194,6 +194,8 @@
                                 </form>
                                 <h4 class="card-title">Danh sách các danh mục</h4>
                                 <div class="show-product">
+                                    <input class="form-control mb-4 w-25" placeholder="Tìm kiếm danh mục"
+                                           oninput="searchNameCategory(this)">
                                     <table class="text-center" id="table-cat">
                                         <tr>
                                             <th>ID</th>
@@ -362,6 +364,25 @@
                 }
             })
         })
+    }
+    function searchNameCategory(para) {
+        let text = $(para).val();
+        $.ajax({
+            url: '/Project_Web_war/searchByNameCategory',
+            type: 'post',
+            data: {
+                text : text
+            },
+            success: function (response) {
+                $('#table-cat').html(response);
+                deleteCategory();
+                loadEditCategory();
+            },
+            error: function () {
+                alert("Lỗi")
+            }
+        })
+
     }
 
 </script>

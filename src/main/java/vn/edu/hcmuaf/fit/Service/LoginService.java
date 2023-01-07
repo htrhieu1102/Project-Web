@@ -74,4 +74,26 @@ public class LoginService {
             throw new RuntimeException(ex);
         }
     }
+    public List<User> searchNameUser(String text) {
+        List<User> list = new ArrayList<>();
+        String query = "SELECT * FROM user WHERE user_name like ?";
+        try {
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, "%"+text+"%");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                list.add(new User(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getInt(5),
+                        resultSet.getDate(6),
+                        resultSet.getInt(7)));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
 }

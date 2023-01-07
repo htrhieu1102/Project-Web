@@ -187,7 +187,8 @@
                         <div class="main__title">
                             <h4>Danh sách người dùng</h4>
                         </div>
-
+                        <input class="form-control mb-4 w-25" placeholder="Tìm kiếm người dùng"
+                               oninput="searchNameUser(this)">
                         <table id="table-product">
                             <tr>
                                 <th>ID</th>
@@ -279,6 +280,23 @@
                     }
                 })
             })
+        })
+    }
+    function searchNameUser(para){
+        let text = $(para).val();
+        $.ajax({
+            url: '/Project_Web_war/searchByNameUser',
+            type: 'post',
+            data: {
+                text : text
+            },
+            success: function (response) {
+                $('#table-product').html(response)
+                permission();
+            },
+            error: function () {
+                alert("Lỗi");
+            }
         })
     }
 </script>

@@ -81,4 +81,21 @@ public class CategoryService {
             throw new RuntimeException(ex);
         }
     }
+    public List<Category> searchNameCategory(String textSearch) {
+        List<Category> list = new ArrayList<>();
+        String query ="SELECT * FROM category WHERE cname LIKE ?";
+        try {
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, "%" +textSearch + "%");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                list.add(new Category(resultSet.getInt(1),
+                        resultSet.getString(2)));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
 }

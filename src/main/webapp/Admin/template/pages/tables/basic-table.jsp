@@ -276,7 +276,8 @@
                         <div class="main__title">
                             <h4>Sản phẩm trong kho</h4>
                         </div>
-
+                        <input class="form-control mb-4 w-25" placeholder="Tìm kiếm sản phẩm"
+                               oninput="searchNameProduct(this)">
                         <table id="table-product">
                             <tr>
                                 <th>ID</th>
@@ -416,7 +417,6 @@
             })
         })
     }
-
     function load() {
         const value = document.getElementsByClassName('delete-product');
         for (let i = 0; i < value.length; i++) {
@@ -479,6 +479,24 @@
                     alert("Vui lòng nhập đủ các trường")
                 }
             })
+        })
+    }
+    function searchNameProduct(para) {
+        let text = $(para).val();
+        $.ajax({
+            url: '/Project_Web_war/searchByNameProduct',
+            type: 'post',
+            data: {
+                text : text
+            },
+            success: function (response) {
+                $('#table-product').html(response)
+                load();
+                edit();
+            },
+            error: function () {
+                alert("Lỗi");
+            }
         })
     }
 
