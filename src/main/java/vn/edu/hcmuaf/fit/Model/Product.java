@@ -12,9 +12,9 @@ public class Product {
     private int deviceNumber;
     private String description;
     private int amount;
-    private Category category;
+    private String category;
     public Product(){}
-    public Product(int id, String img, String name, int oldPrice, int price, String branch, String status, String device, int deviceNumber, String description, int amount, Category category) {
+    public Product(int id, String img, String name, int oldPrice, int price, String branch, String status, String device, int deviceNumber, String description, int amount, String category) {
         this.id = id;
         this.img = img;
         this.name = name;
@@ -117,11 +117,11 @@ public class Product {
         this.amount = amount;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 }

@@ -76,60 +76,62 @@
     <div id="content">
         <div class="container d-flex">
             <div class="filter w-25">
-                <div class="price-filter filter-container">
+                <div class="filter-duration filter-container">
                     <span class="title-dots"></span>
+<%--                <div class="price-filter filter-container">--%>
+<%--                    <span class="title-dots"></span>--%>
                     <p class="title-filter">Lọc theo giá</p>
+<%--                    <form action="">--%>
+<%--                        <input type="range" class="range-filter" min="100000" max="10000000" step="100000"--%>
+<%--                               value="100000">--%>
+<%--                        <label>Giá: <span class="show-range-value"></span>₫</label>--%>
+<%--                    </form>--%>
                     <form action="">
-                        <input type="range" class="range-filter" min="100000" max="10000000" step="100000"
-                               value="100000">
-                        <label>Giá: <span class="show-range-value"></span>₫</label>
+                        <input type="checkbox" name="" checked>
+                        <label>Dưới 1 triệu</label><br>
+                        <input type="checkbox" name="">
+                        <label>Từ 1-3 triệu</label><br>
+                        <input type="checkbox" name="">
+                        <label>Từ 3-5 triệu</label><br>
+                        <input type="checkbox" name="">
+                        <label>Trên 5 triệu</label><br>
                     </form>
                 </div>
                 <div class="filter-branch filter-container">
                     <span class="title-dots"></span>
                     <c:set var="checkId" value="${requestScope.checkId}"/>
                     <p class="title-filter">Lọc theo sản phẩm</p>
-                    <form id="f1" action="home1">
-                        <input type="checkbox" id="c0" name="cid"
-                        ${checkId[0]?"checked":""}
-                        value="${0}" onclick="setCheck(this)"/>Tất cả<br/>
-                        <c:forEach begin="0" end="${cat.size()-1}" var="i">
-                            <input type="checkbox" id="cm" name="cid"
-                                ${cat.get(i).getId()==cid?"checked":""}
-                                value="${cat.get(i).getId()}"
-                                ${checkId[i+1]?"checked":""}  onclick="setCheck(this)"/>
-                                ${cat.get(i).getName()}
-                            <br/>
-                        </c:forEach>
-<%--                        <label>Tất cả</label><br>--%>
-<%--                        <input type="checkbox" name="">--%>
-<%--                        <label>Windows</label><br>--%>
-<%--                        <input type="checkbox" name="">--%>
-<%--                        <label>Adobe</label><br>--%>
-<%--                        <input type="checkbox" name="">--%>
-<%--                        <label>Microsoft</label><br>--%>
-<%--                        <input type="checkbox" name="">--%>
-<%--                        <label>Anti Virus</label><br>--%>
-                    </form>
-                </div>
-                <div class="filter-duration filter-container">
-                    <span class="title-dots"></span>
-                    <p class="title-filter">Lọc theo thời hạn</p>
                     <form action="">
                         <input type="checkbox" name="" checked>
                         <label>Tất cả</label><br>
                         <input type="checkbox" name="">
-                        <label>30 Ngày</label><br>
+                        <label>Windows</label><br>
                         <input type="checkbox" name="">
-                        <label>3 Tháng</label><br>
+                        <label>Adobe</label><br>
                         <input type="checkbox" name="">
-                        <label>6 Tháng</label><br>
+                        <label>Microsoft</label><br>
                         <input type="checkbox" name="">
-                        <label>1 Năm</label><br>
-                        <input type="checkbox" name="">
-                        <label>Vĩnh viễn</label><br>
+                        <label>Anti Virus</label><br>
                     </form>
                 </div>
+<%--                <div class="filter-duration filter-container">--%>
+<%--                    <span class="title-dots"></span>--%>
+<%--                    <p class="title-filter">Lọc theo thời hạn</p>--%>
+<%--                    <form action="">--%>
+<%--                        <input type="checkbox" name="" checked>--%>
+<%--                        <label>Tất cả</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>30 Ngày</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>3 Tháng</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>6 Tháng</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>1 Năm</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>Vĩnh viễn</label><br>--%>
+<%--                    </form>--%>
+<%--                </div>--%>
                 <div class="container-btn-filter">
                     <button class="btn-filter">LỌC</button>
                 </div>

@@ -76,17 +76,30 @@
     <div id="content">
         <div class="container d-flex">
             <div class="filter w-25">
-                <div class="price-filter filter-container">
+                <div class="filter-duration filter-container">
                     <span class="title-dots"></span>
+<%--                <div class="price-filter filter-container">--%>
+<%--                    <span class="title-dots"></span>--%>
                     <p class="title-filter">Lọc theo giá</p>
+<%--                    <form action="">--%>
+<%--                        <input type="range" class="range-filter" min="100000" max="10000000" step="100000"--%>
+<%--                               value="100000">--%>
+<%--                        <label>Giá: <span class="show-range-value"></span>₫</label>--%>
+<%--                    </form>--%>
                     <form action="">
-                        <input type="range" class="range-filter" min="100000" max="10000000" step="100000"
-                               value="100000">
-                        <label>Giá: <span class="show-range-value"></span>₫</label>
+                        <input type="checkbox" name="" checked>
+                        <label>Dưới 1 triệu</label><br>
+                        <input type="checkbox" name="">
+                        <label>Từ 1-3 triệu</label><br>
+                        <input type="checkbox" name="">
+                        <label>Từ 3-5 triệu</label><br>
+                        <input type="checkbox" name="">
+                        <label>Trên 5 triệu</label><br>
                     </form>
                 </div>
                 <div class="filter-branch filter-container">
                     <span class="title-dots"></span>
+                    <c:set var="checkId" value="${requestScope.checkId}"/>
                     <p class="title-filter">Lọc theo sản phẩm</p>
                     <form action="">
                         <input type="checkbox" name="" checked>
@@ -266,6 +279,22 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/range-filter.js"></script>
-
+<script>type="text/javascript"
+    function setCheck(obj) {
+        var fries = document.getElementsByName('cid');
+        if ((obj.id == 'c0') && (fries[0].checked == true)) {
+            for (var i = 1; i < fries.length; i++)
+                fries[i].check = false;
+        } else {
+            for (var i = 1; i < fries.length; i++) {
+                if (fries[i].checked == true) {
+                    fries[0].check = false;
+                    break;
+                }
+            }
+        }
+        document.getElementById('f1').submit();
+    }
+</script>
 </body>
 </html>
