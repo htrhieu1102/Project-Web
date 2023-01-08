@@ -51,4 +51,16 @@ public class RegisterService {
             throw new RuntimeException(ex);
         }
     }
+    public void changePassword(String email, String password) {
+        String query = "UPDATE user SET user_password = ? WHERE user_email = ?";
+        try {
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, password);
+            preparedStatement.setString(2, email);
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 }

@@ -38,7 +38,7 @@
                             <div class="remember">
                                 <input type="checkbox" name="check">Nhớ mật khẩu
                             </div>
-                            <a href="#">Quên mật khẩu</a>
+                            <a href="forgotPassword.jsp">Quên mật khẩu</a>
                         </div>
                         <div class="btn-login-container">
                             <button class="btn-login btn-sign-in" type="submit">Đăng nhập</button>
