@@ -1,4 +1,4 @@
-<%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
+
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
 <%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
@@ -35,7 +35,7 @@
     <td><%=p.getBranch()%>
     </td>
     <td>
-        <a class="delete-product" id="delete<%=p.getId()%>"><i class="mdi mdi-delete "></i></a>
+        <a class="delete-product" id="delete<%=p.getId()%>"style="color: red"><i class="mdi mdi-delete "></i></a>
         <a class="edit-product" id="edit<%=p.getId()%>"><i
                 class="mdi mdi-grease-pencil"></i></a>
     </td>

@@ -34,6 +34,9 @@
 </head>
 <body>
 <!--    Begin Header-->
+<<<<<<< HEAD
+<jsp:include page="header.jsp"></jsp:include>
+=======
 
 <jsp:include page="header.jsp"></jsp:include>
 
@@ -91,6 +94,7 @@
         </div>
     </div>
 </div>
+>>>>>>> 6c46f449f722194b2e5270bc008db56e54741ecf
 <!--    End Header-->
 
 <!--Begin Content-->
@@ -150,6 +154,8 @@
 
 <!--    Begin Footer-->
 <jsp:include page="footer.jsp"></jsp:include>
+<<<<<<< HEAD
+=======
 <%--<div id="footer">--%>
 <%--    <div class="container footer-main">--%>
 <%--        <div class="footer-left footer-column">--%>
@@ -201,6 +207,7 @@
 <%--    </div>--%>
 <%--</div>--%>
 
+>>>>>>> 6c46f449f722194b2e5270bc008db56e54741ecf
 <!--    End Footer-->
 <!--    Begin Back to top-->
 <div id="back-to-top">
