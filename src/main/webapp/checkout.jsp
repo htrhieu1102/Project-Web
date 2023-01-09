@@ -16,6 +16,68 @@
 </head>
 <body>
 <!--    Begin Header-->
+<<<<<<< HEAD
+<div id="header">
+  <div class="config-top-banner">
+    <p class="slogan">
+      Xài Key bản quyền
+      <span class="icon-slogan mr-1 ml-1">
+                            <i class="fa-sharp fa-solid fa-key"></i>
+                        </span>, nói không với crack!
+    </p>
+  </div>
+  <div class="container pt-3">
+    <div class="menu row">
+      <div class="col-2">
+        <img src="image/logoShopKey.png" alt="logo">
+      </div>
+      <div class="col-8">
+        <ul class="drop-menu">
+          <li class="menu-item"><a class="p-3" href="index.jsp">Trang Chủ</a></li>
+          <li class="menu-item"><a class="p-3" href="product.jsp">Sản Phẩm</a></li>
+          <li class="menu-item"><a class="p-3" href="about-us.jsp">Giới Thiệu</a></li>
+          <li class="menu-item"><a class="p-3" href="contact.jsp">Liên Hệ</a></li>
+        </ul>
+      </div>
+      <div class="menu-right col-2">
+                    <span class="icon-item search">
+                        <span id="icon-search"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <div id="search-container">
+                            <div class="arrow-search"></div>
+                            <p class="title-in-search text-center">TÌM KIẾM</p>
+                            <div class="box-search d-flex">
+                                <input type="search" placeholder="Nhập tìm kiếm ở đây">
+                                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                        </div>
+                    </span>
+        <span class="icon-item">
+                        <a href="cart.jsp">
+                            <span class="icon-cart">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <%
+                              int number =0;
+                              for (int i=0; i<AddToCart.carts.size(); i++){
+                                Cart c = AddToCart.carts.get(i);
+                                number += c.getQuantity();
+                              }
+                            %>
+                            <span class="amount-cart"><%=number%></span>
+                        </span>
+                        </a>
+                    </span>
+        <span class="icon-item">
+                        <span>
+                            <a href="login.jsp">
+                                <i class="fa-regular fa-user" class="btn btn-primary"></i>
+                            </a>
+                        </span>
+                    </span>
+      </div>
+    </div>
+  </div>
+</div>
 <jsp:include page="header.jsp"></jsp:include>
 <!--    End Header-->
 
@@ -111,8 +173,12 @@
         <!--        <div class="remove_button">&nbsp;</div>-->
       </div>
       <%
-        //				if (cart_list != null) {
-//					for (Cart c : cartProduct) {
+        String price = null;
+        String totalPrice = null;
+        String priceDisplay = null;
+        String totalPriceDisplay = null;
+        int total = 0;
+
         for (int i = 0; i < AddToCart.carts.size(); i++) {
           Cart c = AddToCart.carts.get(i);
       %>
@@ -121,14 +187,58 @@
           <img src="<%= c.getPro().getImg()%>">
         </div>
         <div class="product_details">
-          <div class="name"><%= c.getPro().getName()%></div>
+          <div class="name"><%= c.getPro().getName()%>
+          </div>
         </div>
-        <div class="price"><p><%= c.getPro().getPrice()%></p></div>
+        <div class="price"><p>
+          <%  price = String.valueOf(c.getPro().getPrice());
+            if (price.length() >6){
+              priceDisplay = price.substring(0, price.length() - 6) + "." + price.substring(price.length() - 6, price.length() - 3) + "." + price.substring(price.length() - 3);
+            }else {
+              priceDisplay = price.substring(0, price.length() - 6)  + price.substring(price.length() - 6, price.length() - 3) + "." + price.substring(price.length() - 3);
+            }
+          %>
+          <%=priceDisplay%>đ</p></div>
         <div class="quantity">
+          <a href="" class="dec_button"><i class="fa-solid fa-minus"></i></a>
           <input type="number" value="<%= c.getQuantity()%>" min="1">
+          <a href="" class="inc_button"><i class="fa-solid fa-plus"></i></a>
+          <style>
+            #checkout_content .container .checkout_cart{
+              height: auto;
+            }
+            #checkout_content .container .checkout_cart .product_contain .price {
+              margin-left: 70px;
+            }
+            #checkout_content .container .checkout_cart .product_contain .quantity{
+              padding-left: 0px;
+            }
+            #checkout_content .container .checkout_cart .product_contain .quantity .dec_button{
+              color: black;
+              font-size: 15px;
+              padding: 5px 5px;
+            }
+            #checkout_content .container .checkout_cart .product_contain .quantity .inc_button{
+              color: black;
+              font-size: 15px;
+              padding: 5px 5px;
+            }
+            #checkout_content .container .checkout_cart .product_contain .total p{
+              padding-left: 20px;
+            }
+          </style>
         </div>
         <div class="total">
-          <p><%= c.getPro().getPrice() * c.getQuantity()%></p>
+          <p>
+            <%  total = c.getPro().getPrice() * c.getQuantity();
+              totalPrice = String.valueOf(total);
+              if (totalPrice.length() > 6){
+                totalPriceDisplay = totalPrice.substring(0, totalPrice.length() - 6) + "." + totalPrice.substring(totalPrice.length() - 6, totalPrice.length() - 3) + "." + totalPrice.substring(totalPrice.length() - 3);
+              } else {
+                totalPriceDisplay = totalPrice.substring(0, totalPrice.length() - 6) + totalPrice.substring(totalPrice.length() - 6, totalPrice.length() - 3) + "." + totalPrice.substring(totalPrice.length() - 3);
+              }
+            %>
+            <%=totalPriceDisplay%>đ</p>
         </div>
         <!--        <div class="remove">-->
         <!--          <button><i class="fas fa-trash-alt"></i></button>-->
@@ -165,10 +275,65 @@
         <div class="subtotal cf">
           <div class="total_contain">
             <ul>
-              <li class="totalRow"><span class="label">Tổng cộng:</span><span class="value">1.000.000 VND</span></li>
+              <li class="totalRow"><span class="label">Tổng cộng:</span><span
+                      class="value">
+                                <%
+                                  String totalS = null;
+                                  String vatS = null;
+                                  String totalAllS = null;
+
+                                  String totalPDisplay = null;
+                                  String vatDisplay = null;
+                                  String totalAllDisplay = null;
+                                  int totalP = 0;
+                                  int vat = 0;
+                                  int totalAll = 0;
+                                  for (int i = 0; i < AddToCart.carts.size(); i++) {
+                                    Cart c = AddToCart.carts.get(i);
+
+                                    totalP = totalP + (c.getPro().getPrice() * c.getQuantity());
+                                    totalS = String.valueOf(totalP);
+                                    if (totalS.length() > 6) {
+                                      totalPDisplay = totalS.substring(0, totalS.length() - 6) + "." + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+                                    } else {
+                                      totalPDisplay = totalS.substring(0, totalS.length() - 6) + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+                                    }
+//                                    totalS = String.valueOf(totalP);
+////                                    if (totalS.length() > 6){
+////                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + "." + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+////                                    } else {
+////                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+////                                    }
+//
+//                                    if (totalS.length() > 6){
+//                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + "." + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+//                                    } else {
+//                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
+//                                    }
+//
+                                    vat = (int) (totalP * 0.1);
+                                    vatS = String.valueOf(vat);
+                                    if (vatS.length() > 6) {
+                                      vatDisplay = vatS.substring(0, vatS.length() - 6) + "." + vatS.substring(vatS.length() - 6, vatS.length() - 3) + "." + vatS.substring(vatS.length() - 3);
+                                    } else {
+                                      vatDisplay = vatS.substring(0, vatS.length() - 6) + vatS.substring(vatS.length() - 6, vatS.length() - 3) + "." + vatS.substring(vatS.length() - 3);
+                                    }
+
+                                    totalAll = totalP + vat;
+                                    totalAllS = String.valueOf(totalAll);
+                                    if (totalAllS.length() > 6) {
+                                      totalAllDisplay = totalAllS.substring(0, totalAllS.length() - 6) + "." + totalAllS.substring(totalAllS.length() - 6, totalAllS.length() - 3) + "." + totalAllS.substring(totalAllS.length() - 3);
+                                    } else {
+                                      totalAllDisplay = totalAllS.substring(0, totalAllS.length() - 6) + totalAllS.substring(totalAllS.length() - 6, totalAllS.length() - 3) + "." + totalAllS.substring(totalAllS.length() - 3);
+                                    }
+
+                                  }
+                                %>
+                                <%=totalPDisplay%>đ
+                            </span></li>
               <li class="totalRow"><span class="label">Chi phí vận chuyển:</span><span class="value">Miễn phí</span></li>
-              <li class="totalRow"><span class="label">Thuế VAT (10%):</span><span class="value">100.000 VND</span></li>
-              <li class="totalRow final"><span class="label">Thành tiền:</span><span class="value">1.100.000 VND</span></li>
+              <li class="totalRow"><span class="label">Thuế VAT (10%):</span><span class="value"><%= vatDisplay%>đ</span></li>
+              <li class="totalRow final"><span class="label">Thành tiền:</span><span class="value"><%=totalAllDisplay%>đ</span></li>
             </ul>
           </div>
         </div>

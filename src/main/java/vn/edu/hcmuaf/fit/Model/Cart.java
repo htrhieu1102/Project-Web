@@ -25,6 +25,11 @@ public class Cart{
         this.quantity = quantity;
     }
 
+    @Override
+    public String toString() {
+        return  pro +"-"+ quantity ;
+    }
+
     public static void main(String[] args) {
         Cart c = new Cart();
     }

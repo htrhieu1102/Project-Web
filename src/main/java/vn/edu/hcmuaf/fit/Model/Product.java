@@ -2,7 +2,7 @@ package vn.edu.hcmuaf.fit.Model;
 
 public class Product {
     private int id;
-    private String category;
+    private int cate_id;
     private String img;
     private String name;
     private int oldPrice;
@@ -12,9 +12,13 @@ public class Product {
     private int deviceNumber;
     private String description;
 
-    public Product(int id, String category, String img, String name, int oldPrice, int price, int amount, String branch, int deviceNumber, String description) {
+    public Product(){
+
+    }
+
+    public Product(int id, int cate_id, String img, String name, int oldPrice, int price, int amount, String branch, int deviceNumber, String description) {
         this.id = id;
-        this.category = category;
+        this.cate_id = cate_id;
         this.img = img;
         this.name = name;
         this.oldPrice = oldPrice;
@@ -23,11 +27,10 @@ public class Product {
         this.branch = branch;
         this.deviceNumber = deviceNumber;
         this.description = description;
-    }
-
-    public Product(){
 
     }
+
+
 
     public int getId() {
         return id;
@@ -37,12 +40,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getCategory() {
-        return category;
+    public int getCate_id() {
+        return cate_id;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCate_id(int cate_id) {
+        this.cate_id = cate_id;
     }
 
     public String getImg() {
@@ -108,19 +111,20 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
+                ", cate_id=" + cate_id +
                 ", img='" + img + '\'' +
                 ", name='" + name + '\'' +
                 ", oldPrice=" + oldPrice +
                 ", price=" + price +
+                ", amount=" + amount +
                 ", branch='" + branch + '\'' +
                 ", deviceNumber=" + deviceNumber +
                 ", description='" + description + '\'' +
-                ", amount=" + amount +
-                ", category='" + category + '\'' +
                 '}';
     }
 

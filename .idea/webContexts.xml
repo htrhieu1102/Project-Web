@@ -4,7 +4,11 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/Admin/template/index.html" value="file://$PROJECT_DIR$/src/main/webapp/Admin/template" />
+<<<<<<< HEAD
         <entry key="file://$PROJECT_DIR$/src/main/webapp/Admin/template/pages/tables/basic-table.jsp" value="file://$PROJECT_DIR$/src/main/webapp/Admin/template/pages/tables" />
+=======
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/cart.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+>>>>>>> 6c46f449f722194b2e5270bc008db56e54741ecf
         <entry key="file://$PROJECT_DIR$/src/main/webapp/product.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>

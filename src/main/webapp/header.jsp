@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <%@ page import="vn.edu.hcmuaf.fit.Model.User" %>
+=======
+<%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
+>>>>>>> 6c46f449f722194b2e5270bc008db56e54741ecf
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!-- Begin Header-->
@@ -52,9 +57,16 @@
                     </div>
                 </span>
                 <span class="icon-item">
+<<<<<<< HEAD
                     <a href="cart.jsp">
                         <span class="icon-cart"><i class="fa-solid fa-bag-shopping"></i>
                             <span class="amount-cart">3</span>
+=======
+                        <a href="cart.jsp">
+                            <span class="icon-cart">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                             <span class="amount-cart"><%=AddToCart.carts.size()%></span>
+>>>>>>> 6c46f449f722194b2e5270bc008db56e54741ecf
                         </span>
                     </a>
                 </span>
