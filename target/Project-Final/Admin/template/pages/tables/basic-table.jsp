@@ -22,6 +22,7 @@
 
     <!-- endinject -->
     <link rel="shortcut icon" href="../../images/logoShopKey.png"/>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/libraries/ckeditor/ckeditor.js"></script>
 </head>
 
 <body>
@@ -178,48 +179,7 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="../../index.jsp">
-                        <i class="mdi mdi-home menu-icon"></i>
-                        <span class="menu-title">Trang chính</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../forms/basic_elements.jsp">
-                        <i class="mdi mdi-view-headline menu-icon"></i>
-                        <span class="menu-title">Mẫu điền thông tin</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../tables/basic-table.jsp">
-                        <i class="mdi mdi-grid-large menu-icon"></i>
-                        <span class="menu-title">Thêm sản phẩm mới</span>
-                    </a>
-                </li>
-                <!-- <li class="nav-item">
-                  <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                    <i class="mdi mdi-account menu-icon"></i>
-                    <span class="menu-title">Quản lý tài khoản</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-                  <div class="collapse" id="auth">
-                    <ul class="nav flex-column sub-menu">
-                      <li class="nav-item"> <a class="nav-link" href="../samples/login.html"> Đăng nhập </a></li>
-                      <li class="nav-item"> <a class="nav-link" href="../samples/register.html"> Đăng kí </a></li>
-                      <li class="nav-item"> <a class="nav-link" href="../samples/lock-screen.html"> Khóa màn hình </a></li>
-                    </ul>
-                  </div>
-                </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="../../../../index.jsp">
-                        <i style="padding-right: 20px" class="mdi mdi-keyboard-return"></i>
-                        <span class="menu-title">Trở về web bán hàng</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <jsp:include page="/Admin/template/menu-admin.jsp"></jsp:include>
         <!-- partial -->
         <div class="main-panel">
             <main class="main">
@@ -228,7 +188,7 @@
                         <!-- tittle -->
                         <div class="col-12">
                             <div class="main__title">
-                                <h2>Thêm sản phẩm mới</h2>
+                                <h4>Thêm sản phẩm mới</h4>
                             </div>
                         </div>
                         <!-- content -->
@@ -293,6 +253,9 @@
                                             <div class="col-12">
                                                 <textarea id="description" name="description" class="form__textarea"
                                                           placeholder="Mô tả"></textarea>
+                                                <script>
+                                                    CKEDITOR.replace('description');
+                                                </script>
                                             </div>
                                         </div>
                                     </div>
@@ -311,9 +274,10 @@
                     </div>
                     <div class="show-product">
                         <div class="main__title">
-                            <h2>Sản phẩm trong kho</h2>
+                            <h4>Sản phẩm trong kho</h4>
                         </div>
-
+                        <input class="form-control mb-4 w-25" placeholder="Tìm kiếm sản phẩm"
+                               oninput="searchNameProduct(this)">
                         <table id="table-product">
                             <tr>
                                 <th>ID</th>
@@ -342,7 +306,7 @@
                                 <td><%=p.getBranch()%>
                                 </td>
                                 <td>
-                                    <a class="delete-product" id="delete<%=p.getId()%>"><i
+                                    <a class="delete-product" id="delete<%=p.getId()%>"style="color: red"><i
                                             class="mdi mdi-delete"></i></a>
                                     <a class="edit-product" id="edit<%=p.getId()%>"><i
                                             class="mdi mdi-grease-pencil"></i></a>
@@ -362,6 +326,7 @@
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->
+<script src="../../vendors/base/vendor.bundle.base.js"></script>
 <!-- endinject -->
 <!-- Plugin js for this page-->
 <!-- End plugin js for this page-->
@@ -424,7 +389,6 @@
             let deviceNumber = $('#device-number').val();
             let amount = $('#amount').val();
             let description = $('#description').val();
-            console.log(img)
             $.ajax({
                 url: '/Project_Web_war/editProduct',
                 type: 'post',
@@ -453,7 +417,6 @@
             })
         })
     }
-
     function load() {
         const value = document.getElementsByClassName('delete-product');
         for (let i = 0; i < value.length; i++) {
@@ -489,8 +452,8 @@
             let category = $('#category option').filter(':selected').val();
             let deviceNumber = $('#device-number').val();
             let amount = $('#amount').val();
-            let description = $('#description').val();
-            console.log(img)
+            let description =  CKEDITOR.instances.description.getData();
+            console.log(description)
             $.ajax({
                 url: '/Project_Web_war/addProduct',
                 type: 'post',
@@ -516,6 +479,24 @@
                     alert("Vui lòng nhập đủ các trường")
                 }
             })
+        })
+    }
+    function searchNameProduct(para) {
+        let text = $(para).val();
+        $.ajax({
+            url: '/Project_Web_war/searchByNameProduct',
+            type: 'post',
+            data: {
+                text : text
+            },
+            success: function (response) {
+                $('#table-product').html(response)
+                load();
+                edit();
+            },
+            error: function () {
+                alert("Lỗi");
+            }
         })
     }
 

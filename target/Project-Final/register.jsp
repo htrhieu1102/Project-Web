@@ -87,6 +87,10 @@
                             <input type="email" name="email-sign-up" placeholder="Email">
                         </div>
                         <div class="input-information">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="name" name="name-sign-up" placeholder="Họ và Tên">
+                        </div>
+                        <div class="input-information">
                             <i class="fa-solid fa-phone"></i>
                             <input type="number" name="phone-sign-up" placeholder="Số điện thoại">
                         </div>

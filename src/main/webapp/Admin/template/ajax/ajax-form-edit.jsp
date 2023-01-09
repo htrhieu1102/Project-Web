@@ -82,6 +82,9 @@
                     <div class="col-12">
                         <textarea id="description" name="description" class="form__textarea"
                                   placeholder="Mô tả"><%=p.getDescription()%></textarea>
+                        <script>
+                            CKEDITOR.replace('description');
+                        </script>
                     </div>
                 </div>
             </div>
