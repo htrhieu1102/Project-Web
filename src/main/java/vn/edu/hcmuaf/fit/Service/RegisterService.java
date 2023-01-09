@@ -44,7 +44,7 @@ public class RegisterService {
             preparedStatement = statement.getConnection().prepareStatement(query);
             preparedStatement.setString(1, email);
             preparedStatement.setString(2, pass);
-            preparedStatement.setString(3, name);
+            preparedStatement.setString(3," " + name);
             preparedStatement.setString(4, phone);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {

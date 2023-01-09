@@ -1,5 +1,6 @@
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
 <%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.User" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -69,33 +70,25 @@
                     </div>
                     <div class="tabcontent" id="description_content" role="tabpanel"
                          aria-labelledby="description_title">
-                        <h3>Tổng quan về Windows 11</h3>
-                        <p>Phiên bản Windows 11 hiện đang là từ khóa hot nhất được tìm kiếm nhiều nhất hiện nay, mọi
-                            người đang sử dụng Windows đề đang đổ dồn sự chú ý về key Windows 11 mới nhất này. Mặc dù
-                            trước đây, Microsoft đã từng tuyên bố Windows 10 sẽ là phiên bản hệ điều hành cuối cùng
-                            nhưng vào thời điểm hiện tại Microsoft đã cho ra mắt key Windows 11 bản quyền với nhiều tính
-                            năng mới mẻ, thú vị mang tính cá nhân hóa cao.</p>
-                        <img src="image/detail_image.jpg" alt="">
-                        <p>Phiên bản Key bản quyền Windows 11 có thiết kế giao diện hoàn toàn mới so với Windows 10,
-                            người dùng sẽ được trải nghiệm những tính năng mới, thông minh và tiện ích nhất mà Microsoft
-                            mang lại. Đồng thời, trong phiên bản này có những điểm đặc biệt nổi bật như: Menu Start mới,
-                            nâng cấp bàn phím ảo, các biểu tượng hệ thống mới, giao diện Microsoft Store mới, thanh
-                            Taskbar mới, cải thiện tính năng nhập liệu bằng giọng nói, giao diện Action Center mới,…
-                            Thiết kế này khá tương đồng với Windows 10X, hứa hẹn sẽ cạnh tranh mạnh mẽ với Chrome
-                            OS.</p>
+                        <%=product.getDescription()%>
                     </div>
-                    <div class="tabcontent" id="rated_content" role="tabpanel" aria-labelledby="rated_title">
+                    <div class="tabcontent" id="rated_content" role="tabpanel" aria-labelledby="rated_title" style="display: none">
+                        <% User user = (User) request.getSession().getAttribute("user");
+                            if (user!= null) {%>
+                        <form>
+                            <h3>Đánh giá sản phẩm</h3>
+                            <textarea class="rate_input" placeholder="Nội dung"></textarea>
+                            <button type="button">Gửi</button>
+                        </form>
+                        <%} else {}%>
                         <div class="user_rate">
                             <div class="image_rate">
                                 <img src="Admin/template/images/faces/face1.jpg" alt="">
                             </div>
                             <div class="info_rate">
-                                <h3>Ngô Công Dũng</h3>
+                                <h4>Ngô Công Dũng</h4>
                                 <p>Đã đánh giá: 25/10/2022</p>
                                 <p>Bộ office kích hoạt rất nhanh chóng và sử dụng ổn định.</p>
-                            </div>
-                            <div class="star">
-                                <img src="image/5-gold-star.png" alt="">
                             </div>
                         </div>
                         <div class="user_rate">
@@ -107,9 +100,6 @@
                                 <p>Đã đánh giá: 12/10/2022</p>
                                 <p>Key adobe photoshop rất dễ kích hoạt và sử dụng.</p>
                             </div>
-                            <div class="star">
-                                <img src="image/5-gold-star.png" alt="">
-                            </div>
                         </div>
                         <div class="user_rate">
                             <div class="image_rate">
@@ -119,9 +109,6 @@
                                 <h3>Trần Thanh Hải</h3>
                                 <p>Đã đánh giá: 30/09/2022</p>
                                 <p>Bộ key windows 5 thiết bị dùng cho gia đình quá là tiết kiệm.</p>
-                            </div>
-                            <div class="star">
-                                <img src="image/5-gold-star.png" alt="">
                             </div>
                         </div>
                     </div>

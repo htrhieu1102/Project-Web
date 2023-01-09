@@ -22,6 +22,16 @@
                     <li class="menu-item"><a class="p-3" href="product.jsp">Sản Phẩm</a></li>
                     <li class="menu-item"><a class="p-3" href="about-us.jsp">Giới Thiệu</a></li>
                     <li class="menu-item"><a class="p-3" href="contact.jsp">Liên Hệ</a></li>
+                    <% User user = (User) request.getSession().getAttribute("user");
+                        if (user!= null && user.getIsAdmin() == 1) {%>
+                    <li class="menu-item"><a class="p-3" href="Admin/template">Admin</a></li>
+                    <%} else if ( user!= null && user.getIsAdmin() == 0){
+                    }%>
+                    <% if(user!=null) {%>
+                    <li class="menu-item"><a class="p-3" href="signOut" id="sign-out">Đăng xuất</a></li>
+                    <%} else {
+
+                    }%>
                 </ul>
             </div>
             <div class="menu-right col-2 p-0">
@@ -32,12 +42,14 @@
                     <div id="search-container">
                         <div class="arrow-search"></div>
                         <p class="title-in-search text-center">TÌM KIẾM</p>
-                        <div class="box-search d-flex">
+                        <form action="" method="post">
+                            <div class="box-search d-flex">
                             <input type="search" placeholder="Nhập tìm kiếm ở đây">
-                            <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button class="btn-search" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
                             <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
-                        </div>
+                        </form>
+                    </div>
                 </span>
                 <span class="icon-item">
                     <a href="cart.jsp">
@@ -48,13 +60,13 @@
                 </span>
                 <span class="icon-item">
                     <span>
-                        <% User user = (User) session.getAttribute("user");
+                        <%
                             if (user == null) {%>
                         <a href="login.jsp">
                             <i class="fa-regular fa-user" class="btn btn-primary"></i>
                         </a>
                         <%} else if (user != null) {%>
-                        Chào, <%=user.getName().substring(user.getName().lastIndexOf(" "))%>
+                        <a href="userProfile.jsp">Chào, <%=user.getName().substring(user.getName().lastIndexOf(" "))%></a>
                         <%}%>
 
                     </span>

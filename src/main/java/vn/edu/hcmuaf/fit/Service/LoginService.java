@@ -96,4 +96,17 @@ public class LoginService {
         }
         return list;
     }
+    public void changeInformation(int id,String name, int number) {
+        String query = "UPDATE user SET user_name = ?, user_phone = ? WHERE user_id = ?";
+        try {
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, number);
+            preparedStatement.setInt(3, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 }
