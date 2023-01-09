@@ -85,73 +85,96 @@
 <div id="checkout_content">
   <div class="container">
     <div class="form_checkout">
-      <form action="" class="payment_form">
+      <form action="Checkout" method="post" class="payment_form">
+<%--        <div class="form_title">--%>
+<%--          <h3>Thông tin vận chuyển</h3>--%>
+<%--        </div>--%>
+<%--        <div class="form_element">--%>
+<%--          <label for="form_username">Họ và tên:</label>--%>
+<%--          <input type="text" id="form_username" name="name">--%>
+<%--        </div>--%>
+<%--        <div class="form_element">--%>
+<%--          <label for="form_phone">Số điện thoại:</label>--%>
+<%--          <input type="text" id="form_phone" name="phone">--%>
+<%--        </div>--%>
+<%--        <div class="form_element">--%>
+<%--          <label for="form_email">Email:</label>--%>
+<%--          <input type="text" id="form_email" name="email">--%>
+<%--        </div>--%>
+<%--        <div class="form_address">--%>
+<%--          <div class="street">--%>
+<%--            <label for="street_address">Số nhà & tên đường:</label>--%>
+<%--            <input type="text" id="street_address" name="street">--%>
+<%--          </div>--%>
+<%--          <div class="district">--%>
+<%--            <label for="district_address">Quận/Huyện:</label>--%>
+<%--            <input type="text" id="district_address" name="district">--%>
+<%--          </div>--%>
+<%--          <div class="city">--%>
+<%--            <label for="city_address">Thành phố/Tỉnh:</label>--%>
+<%--            <input type="text" id="city_address" name="city">--%>
+<%--          </div>--%>
+<%--        </div>--%>
         <div class="form_title">
-          <h3>Thông tin vận chuyển</h3>
+          <h3>Thông tin thanh toán</h3>
         </div>
+<%--        <div class="payment_option">--%>
+<%--          <div class="radio_select">--%>
+<%--            <input type="radio" id="radio1" name="payment">--%>
+<%--            <label for="radio2"><i class="fas fa-money-bill-wave"></i> Tiền mặt</label>--%>
+<%--          </div>--%>
+<%--          <div class="radio_select">--%>
+<%--            <input type="radio" id="radio2" name="payment">--%>
+<%--            <label for="radio2"><i class="fas fa-credit-card"></i> Thẻ ngân hàng</label>--%>
+<%--          </div>--%>
+<%--          <div class="radio_select">--%>
+<%--            <input type="radio" id="radio3" name="payment">--%>
+<%--            <label for="radio3"><i class="fab fa-cc-visa"></i> Thẻ tín dụng</label>--%>
+<%--          </div>--%>
+<%--        </div>--%>
         <div class="form_element">
-          <label for="form_username">Họ và tên:</label>
-          <input type="text" id="form_username">
-        </div>
-        <div class="form_element">
-          <label for="form_phone">Số điện thoại:</label>
-          <input type="text" id="form_phone">
-        </div>
-        <div class="form_element">
-          <label for="form_email">Email:</label>
-          <input type="text" id="form_email">
-        </div>
-        <div class="form_address">
-          <div class="street">
-            <label for="street_address">Số nhà & tên đường:</label>
-            <input type="text" id="street_address">
-          </div>
-          <div class="district">
-            <label for="district_address">Quận/Huyện:</label>
-            <input type="text" id="district_address">
-          </div>
-          <div class="city">
-            <label for="city_address">Thành phố/Tỉnh:</label>
-            <input type="text" id="city_address">
-          </div>
-        </div>
-        <div class="form_title">
-          <h3>Phương thức thanh toán</h3>
-        </div>
-        <div class="payment_option">
-          <div class="radio_select">
-            <input type="radio" id="radio1" name="payment">
-            <label for="radio2"><i class="fas fa-money-bill-wave"></i> Tiền mặt</label>
-          </div>
-          <div class="radio_select">
-            <input type="radio" id="radio2" name="payment">
-            <label for="radio2"><i class="fas fa-credit-card"></i> Thẻ ngân hàng</label>
-          </div>
-          <div class="radio_select">
-            <input type="radio" id="radio3" name="payment">
-            <label for="radio3"><i class="fab fa-cc-visa"></i> Thẻ tín dụng</label>
-          </div>
-        </div>
-        <div class="form_element">
-          <label for="form_card">Mã số thẻ (đối với thẻ ngân hàng/tín dụng):</label>
-          <input type="text" id="form_card">
+          <label for="form_card">Mã số thẻ ngân hàng:</label>
+          <input type="text" id="form_card" name="card">
         </div>
         <div class="card_details">
           <div class="details">
-            <label for="start_date">Ngày cấp:</label>
-            <input type="text" id="start_date">
+            <label for="bank_name">Tên ngân hàng:</label>
+            <input type="text" id="bank_name" name="bank">
           </div>
-          <div class="details">
-            <label for="start_date">Ngày hết hạn:</label>
-            <input type="text" id="expire_date">
-          </div>
+<%--          <div class="details">--%>
+<%--            <label for="start_date">Ngày hết hạn:</label>--%>
+<%--            <input type="text" id="expire_date" name="enddate">--%>
+<%--          </div>--%>
         </div>
+        <style>
+          #checkout_content .container .form_checkout .card_details .details input{
+            width: 300px;
+          }
+        </style>
         <div class="button_section">
           <ul>
-            <li><a href="" class="payment_button">Thanh toán</a></li>
+            <li><a href="Checkout" class="payment_button">Thanh toán</a></li>
             <li><a href="cart.jsp" class="return_cart">Quay lại giỏ hàng</a></li>
           </ul>
         </div>
+          <%String message = (String) request.getAttribute("message");%>
+          <%=message == null ? "" : message%>
+<%--        <div class="message">--%>
+<%--          <p>Message:</p>--%>
+<%--        </div>--%>
+        <style>
+          #checkout_content .container .form_checkout .message{
+            /*margin-left: 30px;*/
+            /*padding: 10px 20px;*/
+          }
+
+          #checkout_content .container .form_checkout .message p{
+            color: red;
+            text-align: center;
+          }
+
+        </style>
+
       </form>
     </div>
   </div>
