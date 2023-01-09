@@ -83,9 +83,7 @@
 
                 </form>
                 <div class="product-filter-container">
-<%--                    <% List<Product> list = (List<Product>) request.getAttribute("listP");--%>
-                    <% ProductService productService = new ProductService();
-                        List<Product> list = productService.getProduct();
+                    <% List<Product> list = (List<Product>) request.getAttribute("searchProduct");
                         for (Product p : list) {%>
                     <div class="product-item">
                         <a href="detail.jsp?pid=<%=p.getId()%>">
@@ -93,7 +91,8 @@
                         </a>
                         <p class="product-type"><%= p.getBranch()%>
                         </p>
-                        <a href="detail.jsp?pid=<%=p.getId()%>"><p class="product-name"><%= p.getName()%></p></a>
+                        <a href="detail.jsp?pid=<%=p.getId()%>"><p class="product-name"><%= p.getName()%>
+                        </p></a>
                         <div class="product-star text-center">
                             <span class="number-of-stars">
                                 <i class="fa-solid fa-star"></i>
@@ -108,15 +107,15 @@
                             <span class="product-new-price"><%=p.getPrice()%><span class="currency">₫</span></span>
                         </div>
                         <div class="product-choose">
-<%--                            <a href="AddToCart?id=<%= p.getId()%>">--%>
-<%--                                --%>
-<%--                            </a>--%>
-                                <button class="add-to-cart">
-<%--                                <a href="product.jsp?id=<%= p.getId()%>" >--%>
+                            <%--                            <a href="AddToCart?id=<%= p.getId()%>">--%>
+                            <%--                                --%>
+                            <%--                            </a>--%>
+                            <button class="add-to-cart">
+                                <%--                                <a href="product.jsp?id=<%= p.getId()%>" >--%>
                                 <a href="AddToCart?id=<%= p.getId()%>">
                                     <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
                                 </a>
-                                </button>
+                            </button>
                         </div>
                     </div>
                     <%}%>
@@ -138,7 +137,8 @@
                         </div>
                         <div class="product-price">
                             <del class="product-old-price">100.000<span class="currency">₫</span></del>
-                            <span class="product-new-price"><%= ListProduct.list.size()%>><span class="currency">₫</span></span>
+                            <span class="product-new-price"><%= ListProduct.list.size()%>><span
+                                    class="currency">₫</span></span>
                         </div>
                         <div class="product-choose">
                             <button class="add-to-cart">

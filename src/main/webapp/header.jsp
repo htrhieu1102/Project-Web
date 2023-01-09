@@ -42,10 +42,10 @@
                     <div id="search-container">
                         <div class="arrow-search"></div>
                         <p class="title-in-search text-center">TÌM KIẾM</p>
-                        <form action="" method="post">
+                        <form action="searchProduct" method="post">
                             <div class="box-search d-flex">
-                            <input type="search" placeholder="Nhập tìm kiếm ở đây">
-                            <button class="btn-search" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <input type="search" name="search" placeholder="Nhập tìm kiếm ở đây">
+                            <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                             <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
                         </form>
