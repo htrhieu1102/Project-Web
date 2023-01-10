@@ -352,7 +352,7 @@
     transform: translateY(0);
     opacity: 1;
 }
-#content .product-item .product-choose>button {
+#content .product-item .product-choose >button {
     width: 100%;
     margin-left: 50%;
     transform: translateX(-50%);
@@ -364,10 +364,12 @@
     color: #ffffff;
     transition: all .3s linear;
 }
-#content .product-item .product-choose>button:hover {
+#content .product-item .product-choose >button:hover {
     background: linear-gradient(to left,#00c10c 0%,#fff200 50%,#00c10c 100%) right;
     background-size: 300%, 1px;
-
+}
+#content .product-item .product-choose button a{
+    color: white;
 }
 #content .product-item .product-choose .detail {
     margin-left: 0px;
@@ -1233,6 +1235,7 @@
 
 #content .container .row .description .tab{
     padding-left: 80px;
+    margin-bottom: 20px;
 }
 
 #content .container .row .description .tab button{
@@ -1254,37 +1257,46 @@
     padding: 30px 10px;
 }
 
-#content .container .row .description #description_content h3{
-    font-size: 25px;
-    font-weight: bold;
-}
+/*#content .container .row .description #description_content h3{*/
+/*    font-size: 25px;*/
+/*    font-weight: bold;*/
+/*}*/
 
-#content .container .row .description #description_content p{
-    font-size: 20px;
-    padding: 20px 0px;
-    justify-content: center;
-}
+/*#content .container .row .description #description_content p{*/
+/*    font-size: 20px;*/
+/*    padding: 20px 0px;*/
+/*    justify-content: center;*/
+/*}*/
 
 #content .container .row .description #description_content img{
     padding-bottom: 20px;
 }
-
-#content .container .row .description #rated_content{
-    padding-bottom: 50px;
+#content .container .row .description #rated_content form {
+    margin-left: 80px;
 }
 
+#content .container .row .description #rated_content form textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #D9D9D9;
+    height: 142px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+#content .container .row .description #rated_content form button {
+    padding: 5px 20px;
+    border-radius: 5px;
+}
 #content .container .row .description #rated_content .user_rate{
     display: flex;
     margin-left: 80px;
     border-bottom: 1px solid #c0c0c0;
-    height: 200px;
     width: 100%;
 }
 
 #content .container .row .description #rated_content .user_rate .image_rate{
     flex-basis: 20%;
-    padding-top: 50px;
-    padding-left: 30px;
+    padding: 20px   ;
 }
 
 #content .container .row .description #rated_content .user_rate .image_rate img{
@@ -1292,12 +1304,12 @@
 }
 
 #content .container .row .description #rated_content .user_rate .info_rate{
-    flex-basis: 60%;
-    padding-top: 50px;
+    flex-basis: 80%;
+    padding-top: 20px;
 }
 
 #content .container .row .description #rated_content .user_rate .info_rate p{
-    font-size: 20px;
+    font-size: 16px;
 }
 
 #content .container .row .description #rated_content .user_rate .star{

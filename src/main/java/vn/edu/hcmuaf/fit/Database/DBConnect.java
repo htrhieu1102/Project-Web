@@ -37,12 +37,22 @@ public class DBConnect {
         Statement statement = DBConnect.getInstall().get();
         if (statement != null)
             try {
+<<<<<<< HEAD
                 ResultSet rs = statement.executeQuery("select * from product");
                 rs.last();
                 System.out.println(rs.getRow());
                 rs.beforeFirst();
                 while (rs.next()){
                     System.out.println(rs.getString(1)+ " -- "+ rs.getString(2));
+=======
+                ResultSet resultSet = statement.executeQuery("select  * from product");
+//                resultSet.last();
+//                System.out.println(resultSet.getRow());
+                while (resultSet.next()){
+                    System.out.print(resultSet.getString(1) + "--");
+                    System.out.print(resultSet.getString(2) + "  ");
+                    System.out.println(resultSet.getString(3));
+>>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);

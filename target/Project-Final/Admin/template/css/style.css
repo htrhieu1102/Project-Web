@@ -21614,7 +21614,8 @@ code {
 }
 
 .form-control, .dataTables_wrapper select {
-  border: 1px solid #f3f3f3;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
   font-weight: 400;
   font-size: 0.875rem;
 }
@@ -23229,7 +23230,7 @@ select::-ms-expand {
   flex-wrap: wrap;
   margin-bottom: 20px;
   border-bottom: 3px solid #69a335;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .main__title h2 {
@@ -23317,10 +23318,9 @@ select::-ms-expand {
   border: 2px solid transparent;
   height: 46px;
   position: relative;
-  color: #fff;
   font-size: 16px;
   width: 100%;
-  color: #fff;
+  color: #000000;
   border-radius: 6px;
   padding: 0 20px;
 }
@@ -23339,7 +23339,7 @@ select::-ms-expand {
   padding: 15px 20px;
   resize: none;
   background-color: #dedede;
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 20px;
   border-radius: 6px;
 }
@@ -23367,4 +23367,23 @@ select::-ms-expand {
 .form__btn:hover {
   color: #ffffff;
   background: black;
+}
+.show-product table{
+  width: 100%;
+}
+.show-product h3 {
+  margin: 20px 0;
+}
+.show-product table img {
+  width: 70px;
+}
+.show-product table th {
+  padding: 11px 0;
+  background: #f8f8f8;
+}
+.show-product table td {
+  padding: 5px 0 10px;
+}
+.show-product table td i {
+  margin: 0 5px;
 }

@@ -1,6 +1,11 @@
 <%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
+<%@ page import="vn.edu.hcmuaf.fit.Controller.ListProduct" %>
+<%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
+<%@ page import="vn.edu.hcmuaf.fit.Service.CategoryService" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.Category" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -13,64 +18,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        .list-category:hover,
+        #get-all-product:hover{
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .list-category:hover p,
+        #get-all-product:hover p{
+            color: #2dd100;
+        }
+        #search-by-name {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #c0c0c0;
+        }
+    </style>
 </head>
 <body>
 <div id="main">
     <!--    Begin Header-->
-    <div id="header">
-        <div class="config-top-banner">
-            <p class="slogan">
-                Xài Key bản quyền
-                <span class="icon-slogan mr-1 ml-1">
-                            <i class="fa-sharp fa-solid fa-key"></i>
-                        </span>, nói không với crack!
-            </p>
-        </div>
-        <div class="container pt-3">
-            <div class="menu row">
-                <div class="col-2">
-                    <img src="image/logoShopKey.png" alt="logo">
-                </div>
-                <div class="col-8">
-                    <ul class="drop-menu">
-                        <li class="menu-item"><a class="p-3" href="index.jsp">Trang Chủ</a></li>
-                        <li class="menu-item"><a class="p-3" href="product.jsp">Sản Phẩm</a></li>
-                        <li class="menu-item"><a class="p-3" href="about-us.jsp">Giới Thiệu</a></li>
-                        <li class="menu-item"><a class="p-3" href="contact.jsp">Liên Hệ</a></li>
-                    </ul>
-                </div>
-                <div class="menu-right col-2">
-                    <span class="icon-item search">
-                        <span id="icon-search"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <div id="search-container">
-                            <div class="arrow-search"></div>
-                            <p class="title-in-search text-center">TÌM KIẾM</p>
-                            <div class="box-search d-flex">
-                                <input type="search" placeholder="Nhập tìm kiếm ở đây">
-                                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
-                            </div>
-                        </div>
-                    </span>
-                    <span class="icon-item">
-                        <a href="cart.jsp">
-                            <span class="icon-cart">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                            <span class="amount-cart">3</span>
-                        </span>
-                        </a>
-                    </span>
-                    <span class="icon-item">
-                        <span>
-                            <a href="login.jsp">
-                                <i class="fa-regular fa-user" class="btn btn-primary"></i>
-                            </a>
-                        </span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="header.jsp"></jsp:include>
     <!--    End Header-->
     <!--    Begin Content-->
     <div id="content">
@@ -87,6 +56,7 @@
 <%--                        <label>Giá: <span class="show-range-value"></span>₫</label>--%>
 <%--                    </form>--%>
                     <form action="">
+<<<<<<< HEAD
                         <input type="checkbox" name="" checked>
                         <label>Tất cả</label><br>
                         <input type="checkbox" name="">
@@ -136,21 +106,31 @@
 <%--                </div>--%>
                 <div class="container-btn-filter">
                     <button class="btn-filter">LỌC</button>
+=======
+                        <input type="range" class="range-filter" min="100000" max="10000000" step="100000"
+                               value="10000000" oninput="FilterProductsByRange(this)">
+                        <label>Giá: <span class="show-range-value"></span>₫</label>
+                    </form>
+                </div>
+                <div class="filter-branch filter-container">
+                    <span class="title-dots" style="color: #000000"></span>
+                    <p class="title-filter">Danh mục</p>
+                    <a id="get-all-product"><p class="text-center">Tất cả</p></a>
+                    <% CategoryService categoryService = new CategoryService();
+                        List<Category> listCat = categoryService.getAllCategory();
+                        for (Category c : listCat) {
+                    %>
+                    <a id="<%=c.getCid()%>" class="list-category" style="color: #000000"><p class="text-center"><%=c.getCname()%></p></a>
+                    <%}%>
+>>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
                 </div>
             </div>
             <div class="product-filter">
                 <form class="woocommerce-ordering" action="">
-                    <select class="order-by">
-                        <option value="menu_order" selected="selected">Thứ tự mặc định</option>
-                        <option value="date">Mới nhất</option>
-                        <option value="popularity">Thứ tự theo mức độ phổ biến</option>
-                        <option value="price">Thứ tự theo giá: thấp đến cao</option>
-                        <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
-                    </select>
+                    <input id="search-by-name" placeholder="Tìm kiếm sản phẩm" oninput="searchNameProduct(this)">
 
                 </form>
                 <div class="product-filter-container">
-<%--                    <% List<Product> list = (List<Product>) request.getAttribute("listP");--%>
                     <% ProductService productService = new ProductService();
                         List<Product> list = productService.getProduct();
                         for (Product p : list) {%>
@@ -161,26 +141,20 @@
                         <p class="product-type"><%= p.getBranch()%>
                         </p>
                         <a href="detail.jsp?pid=<%=p.getId()%>"><p class="product-name"><%= p.getName()%></p></a>
-                        <div class="product-star text-center">
-                            <span class="number-of-stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </span>
-                        </div>
                         <div class="product-price">
                             <del class="product-old-price"><%=p.getOldPrice()%><span class="currency">₫</span></del>
                             <span class="product-new-price"><%=p.getPrice()%><span class="currency">₫</span></span>
                         </div>
                         <div class="product-choose">
-                            <button class="add-to-cart">
-                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
-                            </button>
+                                <button class="add-to-cart">
+                                <a href="AddToCart?id=<%= p.getId()%>">
+                                    <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
+                                </a>
+                                </button>
                         </div>
                     </div>
                     <%}%>
+<<<<<<< HEAD
                     <div class="product-item">
                         <a href="detail.jsp">
                             <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png"
@@ -212,6 +186,8 @@
                     <button class="btn-number-pages" aria-checked="">1</button>
                     <button class="btn-number-pages">2</button>
                     <button class="btn-number-pages">></button>
+=======
+>>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
                 </div>
             </div>
 
@@ -219,56 +195,7 @@
     </div>
     <!--    End Content-->
     <!--    Begin Footer-->
-    <div id="footer">
-        <div class="container footer-main">
-            <div class="footer-left footer-column">
-                <div class="footer-logo ">
-                    <a href="index.jsp">
-                        <img src="image/logoShopKey.png" alt="">
-                    </a>
-                </div>
-                <div class="text-intro">
-                    <p>Đăng kí ngay để nhận được các thông tin ưu đãi,
-                        khuyến mãi đến từ cửa hàng và cũng như cập nhật các tin tức thông tin
-                        về sản phẩm.
-                    </p>
-                </div>
-                <div class="newsletter-sign-up">
-                    <h2 class="newsletter-title">Đăng kí bản tin</h2>
-                    <input class="newsletter-input" type="text" name="" id="" placeholder="Email">
-                    <button class="newsletter-button">Gửi</button>
-                </div>
-            </div>
-            <div class="footer-center footer-column">
-                <div class="footer-space"></div>
-                <h4 class="footer-title">Sản Phẩm</h4>
-                <div class="footer-list-product">
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Windows</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Office</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Adobe</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Anti Virus</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Google</a>
-                    <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Khác</a>
-                </div>
-            </div>
-            <div class="footer-right footer-column">
-                <div class="footer-space"></div>
-                <h4 class="footer-title">Liên Hệ</h4>
-                <div class="footer-contact">
-                    <p class="footer-information"><i class="fa-solid fa-location-dot"></i>Đại học Nông Lâm TpHCM</p>
-                    <p class="footer-information"><i class="fa-solid fa-phone"></i>(+84) 852995378</p>
-                    <p class="footer-information"><i class="fa-solid fa-envelope"></i>20130260@st.hcmuaf.edu.vn</p>
-                </div>
-                <div class="footer-social">
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                    <a href=""><i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="footer.jsp"></jsp:include>
     <!--    End Footer-->
     <!--    Begin Back to top-->
     <div id="back-to-top">
@@ -281,6 +208,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/range-filter.js"></script>
+<<<<<<< HEAD
 <script>type="text/javascript"
     function setCheck(obj) {
         var fries = document.getElementsByName('cid');
@@ -296,6 +224,73 @@
             }
         }
         document.getElementById('f1').submit();
+=======
+
+<script>
+    $('#get-all-product').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/Project_Web_war/filterAllProduct',
+            type: 'post',
+            success: function (response){
+                $('.product-filter-container').html(response)
+            },
+            error: function (){
+                alert("Lỗi")
+            }
+        })
+    })
+    $('.list-category').each(function () {
+        $(this).click(function (e) {
+            e.preventDefault();
+            let cid = $(this).attr("id");
+            $.ajax({
+                url: '/Project_Web_war/filterProductsByCategory',
+                type: 'post',
+                data: {
+                    cid : cid
+                },
+                success: function (response){
+                    $('.product-filter-container').html(response)
+                },
+                error: function (){
+                    alert("Lỗi")
+                }
+            })
+        })
+    })
+    function FilterProductsByRange(para) {
+        let val = $(para).val();
+        $.ajax({
+            url: '/Project_Web_war/filterProductsByRange',
+            type: 'post',
+            data: {
+                val : val
+            },
+            success: function (response){
+                $('.product-filter-container').html(response)
+            },
+            error: function (){
+                alert("Lỗi")
+            }
+        })
+    }
+    function searchNameProduct(para) {
+        let val = $(para).val();
+        $.ajax({
+            url: '/Project_Web_war/filterProductsBySearch',
+            type: 'post',
+            data: {
+                val : val
+            },
+            success: function (response){
+                $('.product-filter-container').html(response)
+            },
+            error: function (){
+                alert("Lỗi")
+            }
+        })
+>>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
     }
 </script>
 </body>
