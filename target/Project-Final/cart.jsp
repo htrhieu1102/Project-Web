@@ -2,7 +2,6 @@
 <%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
-<%@ page import="vn.edu.hcmuaf.fit.Database.DbCon" %>
 <%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
@@ -22,12 +21,9 @@
 
 </head>
 <body>
-
-
+<!--    Begin Header-->
 <jsp:include page="header.jsp"></jsp:include>
-
-
-
+<!--    End Header-->
 <!--Begin Content-->
 <div id="wrapper">
     <div class="container">

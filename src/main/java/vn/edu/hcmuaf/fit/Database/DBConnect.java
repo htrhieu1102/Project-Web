@@ -3,7 +3,7 @@ package vn.edu.hcmuaf.fit.Database;
 import java.sql.*;
 
 public class DBConnect {
-    private String url = "jdbc:mysql://localhost:3306/hac_key";
+    private String url = "jdbc:mysql://localhost:3306/shopkey";
     private String user = "root";
     private String pass = "";
     Connection connection;

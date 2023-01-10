@@ -20,8 +20,8 @@ public class SearchByNameProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String text = request.getParameter("text");
         ProductService productService = new ProductService();
-//        List<Product> list = productService.searchNameProduct(text);
-//        request.setAttribute("delete",list);
+        List<Product> list = productService.searchNameProduct(text);
+        request.setAttribute("delete",list);
         request.getRequestDispatcher("/Admin/template/ajax/ajax-delete.jsp").forward(request,response);
     }
 }

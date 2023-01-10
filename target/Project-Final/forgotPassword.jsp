@@ -24,8 +24,6 @@
                 <div class="title-login"><h3>Quên mật khẩu</h3></div>
                 <div class="sign-in-container">
                     <form action="" class="form-forgot">
-<%--                        <%String error = (String) request.getAttribute("error");%>--%>
-<%--                        <%=error == null ? "" : error%>--%>
                         <p>Vui lòng nhập email để tiến hành quên mật khẩu</p>
                         <div class="input-information">
                             <i class="fa-solid fa-user"></i>

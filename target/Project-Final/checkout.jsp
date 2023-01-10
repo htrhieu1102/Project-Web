@@ -244,19 +244,6 @@
                                         } else {
                                             totalPDisplay = totalS.substring(0, totalS.length() - 6) + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
                                         }
-//                                    totalS = String.valueOf(totalP);
-////                                    if (totalS.length() > 6){
-////                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + "." + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
-////                                    } else {
-////                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
-////                                    }
-//
-//                                    if (totalS.length() > 6){
-//                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + "." + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
-//                                    } else {
-//                                        totalPDisplay = totalS.substring(0, totalS.length() - 6) + totalS.substring(totalS.length() - 6, totalS.length() - 3) + "." + totalS.substring(totalS.length() - 3);
-//                                    }
-//
                                         vat = (int) (totalP * 0.1);
                                         vatS = String.valueOf(vat);
                                         if (vatS.length() > 6) {

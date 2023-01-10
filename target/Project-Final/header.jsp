@@ -2,7 +2,6 @@
 <%@ page import="vn.edu.hcmuaf.fit.Model.User" %>
 <%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!-- Begin Header-->

@@ -17,6 +17,9 @@
 <body>
 <div id="main">
 
+
+    <!-- Begin Header-->
+
     <jsp:include page="header.jsp"></jsp:include>
 
     <!--    Begin SlideShow-->
