@@ -16,7 +16,6 @@
 <body>
 <div id="main">
     <!--    Begin Header-->
-<<<<<<< HEAD
     <div id="header">
         <div class="config-top-banner">
             <p class="slogan">
