@@ -88,6 +88,8 @@
 <%--                    </form>--%>
                     <form action="">
                         <input type="checkbox" name="" checked>
+                        <label>Tất cả</label><br>
+                        <input type="checkbox" name="">
                         <label>Dưới 1 triệu</label><br>
                         <input type="checkbox" name="">
                         <label>Từ 1-3 triệu</label><br>
@@ -282,7 +284,7 @@
 <script>type="text/javascript"
     function setCheck(obj) {
         var fries = document.getElementsByName('cid');
-        if ((obj.id == 'c0') && (fries[0].checked == true)) {
+        if ((obj.id == '') && (fries[0].checked == true)) {
             for (var i = 1; i < fries.length; i++)
                 fries[i].check = false;
         } else {
