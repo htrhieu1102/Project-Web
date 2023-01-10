@@ -34,7 +34,7 @@ public class CheckoutService {
 
     public int addCheckout(int user,String card, String bank) {
 
-        String order_query = "INSERT INTO `order`(user_id,o_date, o_status, o_cardnumber, o_bank) VALUES (?,CURRENT_DATE, 'Dang xac nhan',  ?, ?)";
+        String order_query = "INSERT INTO `order`(user_id, o_date, o_status, o_cardnumber, o_bank) VALUES (?,CURRENT_DATE, '0',  ?, ?)";
         try {
             statement = DBConnect.getInstall().get();
 

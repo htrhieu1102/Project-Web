@@ -48,17 +48,6 @@
             <div id="products">
             </div>
             <div class="total_price">
-<%--                <div class="discount_code">--%>
-<%--                    <div class="discount_contain">--%>
-<%--                        <p>Nhập mã giảm giá tại đây:</p>--%>
-<%--                        <form action="discount" method="post">--%>
-<%--                            <input type="text" id="discount" placeholder="Mã giảm giá" name="discount_name">--%>
-<%--                            <button><i class="fas fa-chevron-right"></i></button>--%>
-<%--                            <%String error_discount = (String) request.getAttribute("error_discount");%>--%>
-<%--                            <%=error_discount == null ? "" : error_discount%>--%>
-<%--                        </form>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
                 <div id="total_contain" class="subtotal cf">
                     <div class="total_contain">
                         <ul>
@@ -91,57 +80,6 @@
 </style>
 <!--    Begin Footer-->
 <jsp:include page="footer.jsp"></jsp:include>
-
-<%--<div id="footer">--%>
-<%--    <div class="container footer-main">--%>
-<%--        <div class="footer-left footer-column">--%>
-<%--            <div class="footer-logo ">--%>
-<%--                <a href="index.jsp">--%>
-<%--                    <img src="image/logoShopKey.png" alt="">--%>
-<%--                </a>--%>
-<%--            </div>--%>
-<%--            <div class="text-intro">--%>
-<%--                <p>Đăng kí ngay để nhận được các thông tin ưu đãi,--%>
-<%--                    khuyến mãi đến từ cửa hàng và cũng như cập nhật các tin tức thông tin--%>
-<%--                    về sản phẩm.--%>
-<%--                </p>--%>
-<%--            </div>--%>
-<%--            <div class="newsletter-sign-up">--%>
-<%--                <h2 class="newsletter-title">Đăng kí bản tin</h2>--%>
-<%--                <input class="newsletter-input" type="text" name="" id="" placeholder="Email">--%>
-<%--                <button class="newsletter-button">Gửi</button>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="footer-center footer-column">--%>
-<%--            <div class="footer-space"></div>--%>
-<%--            <h4 class="footer-title">Sản Phẩm</h4>--%>
-<%--            <div class="footer-list-product">--%>
-<%--                <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Windows</a>--%>
-<%--                <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Office</a>--%>
-<%--                <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Adobe</a>--%>
-<%--                <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Anti Virus</a>--%>
-<%--                <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Google</a>--%>
-<%--                <a class="footer-product-item" href=""><i class="fa-solid fa-chevron-right"></i>Khác</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="footer-right footer-column">--%>
-<%--            <div class="footer-space"></div>--%>
-<%--            <h4 class="footer-title">Liên Hệ</h4>--%>
-<%--            <div class="footer-contact">--%>
-<%--                <p class="footer-information"><i class="fa-solid fa-location-dot"></i>Đại học Nông Lâm TpHCM</p>--%>
-<%--                <p class="footer-information"><i class="fa-solid fa-phone"></i>(+84) 852995378</p>--%>
-<%--                <p class="footer-information"><i class="fa-solid fa-envelope"></i>20130260@st.hcmuaf.edu.vn</p>--%>
-<%--            </div>--%>
-<%--            <div class="footer-social">--%>
-<%--                <a href=""><i class="fa-brands fa-facebook"></i></a>--%>
-<%--                <a href=""><i class="fa-brands fa-twitter"></i></a>--%>
-<%--                <a href=""><i class="fa-brands fa-instagram"></i></a>--%>
-<%--                <a href=""><i class="fa-brands fa-linkedin"></i></a>--%>
-<%--                <a href=""><i class="fa-brands fa-github"></i></a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
 
 <!--    End Footer-->
 <!--    Begin Back to top-->

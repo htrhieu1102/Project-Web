@@ -123,7 +123,7 @@
                             </p>
                         </div>
                         <form class="detail-add-product-to-cart">
-                            <input type="number" name="quantity" min="1" step="1" value="1">
+                            <input type="number" name="quantity" min="1" step="1" value="1" readonly="readonly">
                             <button><a href="AddToCart?id=<%= product.getId()%>">Thêm vào giỏ hàng</a></button>
                         </form>
                         <style>
