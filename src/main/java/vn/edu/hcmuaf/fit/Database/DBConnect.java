@@ -3,32 +3,31 @@ package vn.edu.hcmuaf.fit.Database;
 import java.sql.*;
 
 public class DBConnect {
-    private String url = "jdbc:mysql://localhost:3306/shopkey";
-    private String user = "root";
-    private String pass = "";
-    Connection connection;
-     private  static DBConnect install;
+    String url = "jdbc:mysql://localhost:3306/shopkey";
+    String user = "root";
+    String pass = "";
+    Connection conn;
 
-    private  DBConnect() {
+    static DBConnect install;
+
+    private DBConnect() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(this.url, this.user, this.pass);
+            conn = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     public static DBConnect getInstall() {
-        if (install == null)
-            install = new DBConnect();
+        if (install == null) install = new DBConnect();
         return install;
     }
 
     public Statement get() {
+        if (conn == null) return null;
         try {
-            if(connection == null)
-                return null;
-            return connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            return conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         } catch (SQLException e) {
             return null;
         }
@@ -36,8 +35,16 @@ public class DBConnect {
 
     public static void main(String[] args) {
         Statement statement = DBConnect.getInstall().get();
-        if (statement != null) {
+        if (statement != null)
             try {
+<<<<<<< HEAD
+                ResultSet rs = statement.executeQuery("select * from product");
+                rs.last();
+                System.out.println(rs.getRow());
+                rs.beforeFirst();
+                while (rs.next()){
+                    System.out.println(rs.getString(1)+ " -- "+ rs.getString(2));
+=======
                 ResultSet resultSet = statement.executeQuery("select  * from product");
 //                resultSet.last();
 //                System.out.println(resultSet.getRow());
@@ -45,10 +52,13 @@ public class DBConnect {
                     System.out.print(resultSet.getString(1) + "--");
                     System.out.print(resultSet.getString(2) + "  ");
                     System.out.println(resultSet.getString(3));
+>>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+        else{
+            System.out.println("Không có kết nối");
         }
     }
 }

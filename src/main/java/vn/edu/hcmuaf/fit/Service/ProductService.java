@@ -68,6 +68,73 @@ public class ProductService {
         }
         return null;
     }
+<<<<<<< HEAD
+    public List<Product> getCheapProducts() {
+        List<Product> list = new ArrayList<>();
+        String query = "Select product.pid, product.pimage, product.pname, product.pprice_old, " +
+                "product.pprice, product.pbranch, product.pstatus, product.pdevice, product.pnumber_device, " +
+                "product.pdesciption, product.pamount, category.cname\n" +
+                "     \n" +
+                " from product join category" +
+                "where product.cid = category.cid\n" +
+                " order by price esc";
+        try {
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(query);
+//            preparedStatement.setInt(1, cid);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                list.add( new Product(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getInt(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8),
+                        resultSet.getInt(9),
+                        resultSet.getString(10),
+                        resultSet.getInt(11),
+                        resultSet.getString(12)));
+
+            }
+        } catch(SQLException e){
+            throw new RuntimeException();
+        }
+        return list;
+    }
+    public List<Product> getExpensiveProducts() {
+        List<Product> list = new ArrayList<>();
+        String sql = "Select product.pid, product.pimage, product.pname, product.pprice_old, " +
+                "product.pprice, product.pbranch, product.pstatus, product.pdevice, product.pnumber_device, " +
+                "product.pdesciption, product.pamount, category.cname\\n\" +\n" +
+                "     \n" +
+                " from product join category" +
+                "where product.cid = category.cid\n" +
+                " order by price esc";
+        try {
+            statement = DBConnect.getInstall().get();
+            preparedStatement = statement.getConnection().prepareStatement(sql);
+//            preparedStatement.setInt(1, pid);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                return (List<Product>) new Product(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getInt(4),
+                        resultSet.getInt(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8),
+                        resultSet.getInt(9),
+                        resultSet.getString(10),
+                        resultSet.getInt(11),
+                        resultSet.getString(12));
+
+            }
+        } catch(SQLException e){
+            throw new RuntimeException();
+=======
     public void deleteProduct(int pid) {
         String query = "DELETE FROM product WHERE product.pid = ?";
         try {
@@ -246,10 +313,15 @@ public class ProductService {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+>>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
         }
         return list;
     }
 
+<<<<<<< HEAD
+    public List<Product> getAll() {
+        return null;
+=======
     public static void main(String[] args) {
         ProductService ps = new ProductService();
         ArrayList<Cart> products = new ArrayList<Cart>();
@@ -257,5 +329,6 @@ public class ProductService {
         System.out.println(ps.getProduct().toString());
 //        System.out.println((ps.getProduct().toString()));
 //        System.out.println(ps.getCartProducts(products));
+>>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
     }
 }

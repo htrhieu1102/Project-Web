@@ -45,10 +45,68 @@
     <div id="content">
         <div class="container d-flex">
             <div class="filter w-25">
-                <div class="price-filter filter-container">
+                <div class="filter-duration filter-container">
                     <span class="title-dots"></span>
+<%--                <div class="price-filter filter-container">--%>
+<%--                    <span class="title-dots"></span>--%>
                     <p class="title-filter">Lọc theo giá</p>
+<%--                    <form action="">--%>
+<%--                        <input type="range" class="range-filter" min="100000" max="10000000" step="100000"--%>
+<%--                               value="100000">--%>
+<%--                        <label>Giá: <span class="show-range-value"></span>₫</label>--%>
+<%--                    </form>--%>
                     <form action="">
+<<<<<<< HEAD
+                        <input type="checkbox" name="" checked>
+                        <label>Tất cả</label><br>
+                        <input type="checkbox" name="">
+                        <label>Dưới 1 triệu</label><br>
+                        <input type="checkbox" name="">
+                        <label>Từ 1-3 triệu</label><br>
+                        <input type="checkbox" name="">
+                        <label>Từ 3-5 triệu</label><br>
+                        <input type="checkbox" name="">
+                        <label>Trên 5 triệu</label><br>
+                    </form>
+                </div>
+                <div class="filter-branch filter-container">
+                    <span class="title-dots"></span>
+                    <c:set var="checkId" value="${requestScope.checkId}"/>
+                    <p class="title-filter">Lọc theo sản phẩm</p>
+                    <form action="">
+                        <input type="checkbox" name="" checked>
+                        <label>Tất cả</label><br>
+                        <input type="checkbox" name="">
+                        <label>Windows</label><br>
+                        <input type="checkbox" name="">
+                        <label>Adobe</label><br>
+                        <input type="checkbox" name="">
+                        <label>Microsoft</label><br>
+                        <input type="checkbox" name="">
+                        <label>Anti Virus</label><br>
+                    </form>
+                </div>
+<%--                <div class="filter-duration filter-container">--%>
+<%--                    <span class="title-dots"></span>--%>
+<%--                    <p class="title-filter">Lọc theo thời hạn</p>--%>
+<%--                    <form action="">--%>
+<%--                        <input type="checkbox" name="" checked>--%>
+<%--                        <label>Tất cả</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>30 Ngày</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>3 Tháng</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>6 Tháng</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>1 Năm</label><br>--%>
+<%--                        <input type="checkbox" name="">--%>
+<%--                        <label>Vĩnh viễn</label><br>--%>
+<%--                    </form>--%>
+<%--                </div>--%>
+                <div class="container-btn-filter">
+                    <button class="btn-filter">LỌC</button>
+=======
                         <input type="range" class="range-filter" min="100000" max="10000000" step="100000"
                                value="10000000" oninput="FilterProductsByRange(this)">
                         <label>Giá: <span class="show-range-value"></span>₫</label>
@@ -64,6 +122,7 @@
                     %>
                     <a id="<%=c.getCid()%>" class="list-category" style="color: #000000"><p class="text-center"><%=c.getCname()%></p></a>
                     <%}%>
+>>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
                 </div>
             </div>
             <div class="product-filter">
@@ -95,6 +154,40 @@
                         </div>
                     </div>
                     <%}%>
+<<<<<<< HEAD
+                    <div class="product-item">
+                        <a href="detail.jsp">
+                            <img class="product-image" src="image/product-image/windows/windows-11-pro-mak-510x510.png"
+                                 alt="">
+                        </a>
+                        <p class="product-type">Windows</p>
+                        <a href="detail.jsp"><p class="product-name">Windows 10 (Home/Edu/Pro)</p></a>
+                        <div class="product-star text-center">
+                            <span class="number-of-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                        </div>
+                        <div class="product-price">
+                            <del class="product-old-price">100.000<span class="currency">₫</span></del>
+                            <span class="product-new-price">100.000<span class="currency">₫</span></span>
+                        </div>
+                        <div class="product-choose">
+                            <button class="add-to-cart">
+                                <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-numbers mt-4">
+                    <button class="btn-number-pages" aria-checked="">1</button>
+                    <button class="btn-number-pages">2</button>
+                    <button class="btn-number-pages">></button>
+=======
+>>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
                 </div>
             </div>
 
@@ -115,6 +208,23 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/range-filter.js"></script>
+<<<<<<< HEAD
+<script>type="text/javascript"
+    function setCheck(obj) {
+        var fries = document.getElementsByName('cid');
+        if ((obj.id == '') && (fries[0].checked == true)) {
+            for (var i = 1; i < fries.length; i++)
+                fries[i].check = false;
+        } else {
+            for (var i = 1; i < fries.length; i++) {
+                if (fries[i].checked == true) {
+                    fries[0].check = false;
+                    break;
+                }
+            }
+        }
+        document.getElementById('f1').submit();
+=======
 
 <script>
     $('#get-all-product').click(function (e) {
@@ -180,6 +290,7 @@
                 alert("Lỗi")
             }
         })
+>>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
     }
 </script>
 </body>
