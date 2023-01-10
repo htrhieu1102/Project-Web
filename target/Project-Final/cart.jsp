@@ -22,69 +22,11 @@
 
 </head>
 <body>
-<!--    Begin Header-->
-<<<<<<< HEAD
-<jsp:include page="header.jsp"></jsp:include>
-=======
+
 
 <jsp:include page="header.jsp"></jsp:include>
 
-<div id="header">
-    <div class="config-top-banner">
-        <p class="slogan">
-            Xài Key bản quyền
-            <span class="icon-slogan mr-1 ml-1">
-                            <i class="fa-sharp fa-solid fa-key"></i>
-                        </span>, nói không với crack!
-        </p>
-    </div>
-    <div class="container pt-3">
-        <div class="menu row">
-            <div class="col-2">
-                <img src="image/logoShopKey.png" alt="logo">
-            </div>
-            <div class="col-8">
-                <ul class="drop-menu">
-                    <li class="menu-item"><a class="p-3" href="index.jsp">Trang Chủ</a></li>
-                    <li class="menu-item"><a class="p-3" href="product.jsp">Sản Phẩm</a></li>
-                    <li class="menu-item"><a class="p-3" href="about-us.jsp">Giới Thiệu</a></li>
-                    <li class="menu-item"><a class="p-3" href="contact.jsp">Liên Hệ</a></li>
-                </ul>
-            </div>
-            <div class="menu-right col-2">
-                    <span class="icon-item search">
-                        <span id="icon-search"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <div id="search-container">
-                            <div class="arrow-search"></div>
-                            <p class="title-in-search text-center">TÌM KIẾM</p>
-                            <div class="box-search d-flex">
-                                <input type="search" placeholder="Nhập tìm kiếm ở đây">
-                                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
-                            </div>
-                        </div>
-                    </span>
-                <span class="icon-item">
-                        <a href="cart.jsp">
-                            <span class="icon-cart">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                            <span class="amount-cart"><%=AddToCart.carts.size()%></span>
-                        </span>
-                        </a>
-                    </span>
-                <span class="icon-item">
-                        <span>
-                            <a href="login.jsp">
-                                <i class="fa-regular fa-user" class="btn btn-primary"></i>
-                            </a>
-                        </span>
-                    </span>
-            </div>
-        </div>
-    </div>
-</div>
->>>>>>> 6c46f449f722194b2e5270bc008db56e54741ecf
-<!--    End Header-->
+
 
 <!--Begin Content-->
 <div id="wrapper">
@@ -106,17 +48,17 @@
             <div id="products">
             </div>
             <div class="total_price">
-                <div class="discount_code">
-                    <div class="discount_contain">
-                        <p>Nhập mã giảm giá tại đây:</p>
-                        <form action="discount" method="post">
-                            <input type="text" id="discount" placeholder="Mã giảm giá" name="discount_name">
-                            <button><i class="fas fa-chevron-right"></i></button>
-                            <%String error_discount = (String) request.getAttribute("error_discount");%>
-                            <%=error_discount == null ? "" : error_discount%>
-                        </form>
-                    </div>
-                </div>
+<%--                <div class="discount_code">--%>
+<%--                    <div class="discount_contain">--%>
+<%--                        <p>Nhập mã giảm giá tại đây:</p>--%>
+<%--                        <form action="discount" method="post">--%>
+<%--                            <input type="text" id="discount" placeholder="Mã giảm giá" name="discount_name">--%>
+<%--                            <button><i class="fas fa-chevron-right"></i></button>--%>
+<%--                            <%String error_discount = (String) request.getAttribute("error_discount");%>--%>
+<%--                            <%=error_discount == null ? "" : error_discount%>--%>
+<%--                        </form>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
                 <div id="total_contain" class="subtotal cf">
                     <div class="total_contain">
                         <ul>
@@ -139,11 +81,17 @@
     </div>
 </div>
 <!--End Content-->
-
+<style>
+    #wrapper .container .cart .total_price div{
+        flex-basis: 100%;
+    }
+    #wrapper .container .cart .total_price .subtotal{
+        padding-left: 700px;
+    }
+</style>
 <!--    Begin Footer-->
 <jsp:include page="footer.jsp"></jsp:include>
-<<<<<<< HEAD
-=======
+
 <%--<div id="footer">--%>
 <%--    <div class="container footer-main">--%>
 <%--        <div class="footer-left footer-column">--%>
@@ -195,7 +143,6 @@
 <%--    </div>--%>
 <%--</div>--%>
 
->>>>>>> 6c46f449f722194b2e5270bc008db56e54741ecf
 <!--    End Footer-->
 <!--    Begin Back to top-->
 <div id="back-to-top">

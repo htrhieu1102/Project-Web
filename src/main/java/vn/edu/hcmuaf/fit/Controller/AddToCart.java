@@ -21,7 +21,6 @@ public class AddToCart extends HttpServlet {
         System.out.println(id);
         ProductService productService = new ProductService();
         Product pro = productService.findById(id);
-
             if (pro != null) {
                 boolean check = false;
                     for(Cart tmp : carts){
@@ -37,7 +36,6 @@ public class AddToCart extends HttpServlet {
                         cart.setQuantity(1);
                         carts.add(cart);
                     }
-
 
             }
 

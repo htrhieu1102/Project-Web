@@ -2,22 +2,20 @@ package vn.edu.hcmuaf.fit.Service;
 
 import vn.edu.hcmuaf.fit.Database.DBConnect;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Date;
+import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CheckoutService {
     Statement statement = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
 
-    public void addOrderDetails(int order_id, int product_id, int price, int quantity) {
+    public int addOrderDetails(int order_id, int product_id, int price, int quantity) {
         try {
             statement = DBConnect.getInstall().get();
             if (statement != null) {
-                String query = "INSERT INTO order_details(o_id, p_id, pprice, od_quantity, od_total) VALUES (?, ?, ?, ?, ?) ";
+                String query = "INSERT INTO `order_details`(o_id, p_id, pprice, od_quantity, od_total) VALUES (?, ?, ?, ?, ?) ";
                 preparedStatement = statement.getConnection().prepareStatement(query);
                 preparedStatement.setInt(1, order_id);
                 preparedStatement.setInt(2, product_id);
@@ -25,36 +23,53 @@ public class CheckoutService {
                 preparedStatement.setInt(4, quantity);
                 preparedStatement.setInt(5, price * quantity);
 
-                preparedStatement.executeUpdate();
-                statement.close();
+                return preparedStatement.executeUpdate();
             }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return order_id;
     }
 
-    public void addCheckout(String card, String bank) {
-        String order_query = "INSERT INTO order(o_date, o_cardnumber, o_bank) VALUES (CURRENT_DATE, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public int addCheckout(int user,String card, String bank) {
+
+        String order_query = "INSERT INTO `order`(user_id,o_date, o_status, o_cardnumber, o_bank) VALUES (?,CURRENT_DATE, 'Dang xac nhan',  ?, ?)";
         try {
             statement = DBConnect.getInstall().get();
 
             preparedStatement = statement.getConnection().prepareStatement(order_query);
-//            preparedStatement.setString(1, name);
-//            preparedStatement.setString(2, phone);
-//            preparedStatement.setString(3, email);
-//            preparedStatement.setString(4, street);
-//            preparedStatement.setString(5, district);
-//            preparedStatement.setString(6, city);
-            preparedStatement.setString(1, card);
-            preparedStatement.setString(2, bank);
+            preparedStatement.setInt(1, user);
+            preparedStatement.setString(2, card);
+            preparedStatement.setString(3, bank);
 
-            preparedStatement.executeUpdate();
+            int rs=    preparedStatement.executeUpdate();
+            System.out.println(user + "-"+ card + "-"+bank + "-" + rs);
+
+            return rs;
 //                statement.close();
 
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public int getOrderNew() {
+        String order_query = "SELECT max(o_id) FROM `order`";
+        try {
+            statement = DBConnect.getInstall().get();
+
+            preparedStatement = statement.getConnection().prepareStatement(order_query);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                return resultSet.getInt(1);
+            }
+            return -1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void main(String[] args) {
     }
 }

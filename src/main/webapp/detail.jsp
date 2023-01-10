@@ -1,11 +1,9 @@
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
 <%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
-<<<<<<< HEAD
 <%@ page import="vn.edu.hcmuaf.fit.Model.User" %>
-=======
+
 <%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
->>>>>>> 6c46f449f722194b2e5270bc008db56e54741ecf
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -100,7 +98,15 @@
                         </span>
                         <span class="review-rating">(36 đánh giá từ khách hàng)</span>
                     </div>
-                    <p class="entry-price"><%=product.getPrice()%> <span class="entry-currency">VND</span></p>
+                    <%  String price = String.valueOf(product.getPrice());
+                        String priceDisplay = "";
+                        if (price.length() >6){
+                            priceDisplay = price.substring(0, price.length() - 6) + "." + price.substring(price.length() - 6, price.length() - 3) + "." + price.substring(price.length() - 3);
+                        }else {
+                            priceDisplay = price.substring(0, price.length() - 6)  + price.substring(price.length() - 6, price.length() - 3) + "." + price.substring(price.length() - 3);
+                        }
+                    %>
+                    <p class="entry-price"><%=priceDisplay%> <span class="entry-currency">VND</span></p>
                     <div class="product-details-short-description">
                         <h3>Thông tin chi tiết sản phẩm</h3>
                         <p>
@@ -118,8 +124,14 @@
                         </div>
                         <form class="detail-add-product-to-cart">
                             <input type="number" name="quantity" min="1" step="1" value="1">
-                            <button>Thêm vào giỏ hàng</button>
+                            <button><a href="AddToCart?id=<%= product.getId()%>">Thêm vào giỏ hàng</a></button>
                         </form>
+                        <style>
+                            #content .entry-summary .detail-add-product-to-cart button a{
+                                text-decoration: none;
+                                color: white;
+                            }
+                        </style>
                     </div>
                 </div>
                 <div class="description">

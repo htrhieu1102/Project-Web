@@ -1,10 +1,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.Service.ProductService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
-<<<<<<< HEAD
-=======
 <%@ page import="vn.edu.hcmuaf.fit.Database.DbCon" %>
->>>>>>> 6c46f449f722194b2e5270bc008db56e54741ecf
 <%@ page import="vn.edu.hcmuaf.fit.Controller.ListProduct" %>
 <%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
@@ -187,8 +184,8 @@
 
 
                             %>
-                            <del class="product-old-price"><%=oldPriceDisplay%><span class="currency">₫</span></del>
-                            <span class="product-new-price"><%=priceDisplay%><span class="currency">₫</span></span>
+                            <del class="product-old-price"><%=oldPriceDisplay%><span class="currency"> VND</span></del>
+                            <span class="product-new-price"><%=priceDisplay%><span class="currency"> VND</span></span>
                         </div>
                         <div class="product-choose">
                                 <button class="add-to-cart">
