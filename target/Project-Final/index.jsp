@@ -17,9 +17,10 @@
 <body>
 <div id="main">
 
+
     <!-- Begin Header-->
+
     <jsp:include page="header.jsp"></jsp:include>
-    <!-- End Header-->
 
     <!--    Begin SlideShow-->
     <div id="slideShow">

@@ -49,7 +49,7 @@ const render = (arr)=>{
                     </p>
                 </div>
                 <div class="remove">
-                    <button onclick="removeItem(${tmp.pro.id})"  id="remove_button"><a><i class="fas fa-trash-alt"></i></a></button>
+                    <button   id="remove_button"><a href="RemoveCart?id=${tmp.pro.id}"><i class="fas fa-trash-alt"></i></a></button>
                     <style>
                         #wrapper .container .cart .product_contain .remove button a{
                             color: black;
@@ -64,18 +64,6 @@ const render = (arr)=>{
     document.querySelector("#vatBill").innerHTML = cd((total*10)/100);
     document.querySelector("#sumBill").innerHTML = cd(total + (total*10)/100);
 
-}
-
-const removeItem = (idproduct)=>{
-    var request = new XMLHttpRequest();
-    request.open("POST", "cart?action=del&id=" + idproduct);
-    request.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status ===200){
-
-        }
-    };
-
-    request.send();
 }
 
 const inc = (idproduct)=>{
@@ -125,5 +113,5 @@ const cd = (total)=>{
     } else {
         totalPriceDisplay = totalPrice.substring(0, totalPrice.length - 6) + totalPrice.substring(totalPrice.length - 6, totalPrice.length - 3) + "." + totalPrice.substring(totalPrice.length - 3);
     }
-    return totalPriceDisplay + "d";
+    return totalPriceDisplay + " VND";
 }

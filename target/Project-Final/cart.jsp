@@ -5,19 +5,8 @@
 <%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
-<%
-//    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-//	List<Cart> cartProduct = null;
-//	if (cart_list != null) {
-//		ProductService ps = new ProductService();
-//		cartProduct = ps.getProduct();
-////		double total = pDao.getTotalCartPrice(cart_list);
-////		request.setAttribute("total", total);
-//		request.setAttribute("cart_list", cart_list);
-//	}
-//
 
-%>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,7 +24,6 @@
 <!--    Begin Header-->
 <jsp:include page="header.jsp"></jsp:include>
 <!--    End Header-->
-
 <!--Begin Content-->
 <div id="wrapper">
     <div class="container">
@@ -54,16 +42,8 @@
                 <div class="remove_button">&nbsp;</div>
             </div>
             <div id="products">
-
             </div>
             <div class="total_price">
-                <div class="discount_code">
-                    <div class="discount_contain">
-                        <p>Nhập mã giảm giá tại đây:</p>
-                        <input type="text" id="discount" placeholder="Mã giảm giá">
-                        <button><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                </div>
                 <div id="total_contain" class="subtotal cf">
                     <div class="total_contain">
                         <ul>
@@ -75,13 +55,9 @@
                             </li>
                             <li class="totalRow_V"><span class="label">Thuế VAT (10%):</span><span class="value" id="vatBill"></span>
                             </li>
-
                             <li class="totalRow_final"><span class="label">Thành tiền:</span><span class="value" id="sumBill"></span>
                             </li>
                             <li class="totalRow_button"><a href="checkout.jsp" class="btn_payment">Thanh toán</a></li>
-                            <%
-
-                            %>
                         </ul>
                     </div>
                 </div>
@@ -90,7 +66,14 @@
     </div>
 </div>
 <!--End Content-->
-
+<style>
+    #wrapper .container .cart .total_price div{
+        flex-basis: 100%;
+    }
+    #wrapper .container .cart .total_price .subtotal{
+        padding-left: 700px;
+    }
+</style>
 <!--    Begin Footer-->
 <jsp:include page="footer.jsp"></jsp:include>
 

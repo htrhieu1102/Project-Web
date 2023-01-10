@@ -16,7 +16,6 @@ public class ProductService {
 
     public List<Product> getProduct() {
         List<Product> productList = new ArrayList<>();
-
         String query = "SELECT product.pid, category.cname, product.pimage, product.pname, product.pprice_old, product.pprice, product.pamount, product.pbranch, product.pnumber_device, product.pdesciption " +
                 "FROM product JOIN category ON product.cid = category.cid";
 
