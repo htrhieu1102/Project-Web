@@ -2,6 +2,7 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <%@ page import="vn.edu.hcmuaf.fit.Controller.AddToCart" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Cart" %>
+<%@ page import="vn.edu.hcmuaf.fit.Model.User" %>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,70 +17,9 @@
 </head>
 <body>
 <!--    Begin Header-->
-<<<<<<< HEAD
-<div id="header">
-  <div class="config-top-banner">
-    <p class="slogan">
-      Xài Key bản quyền
-      <span class="icon-slogan mr-1 ml-1">
-                            <i class="fa-sharp fa-solid fa-key"></i>
-                        </span>, nói không với crack!
-    </p>
-  </div>
-  <div class="container pt-3">
-    <div class="menu row">
-      <div class="col-2">
-        <img src="image/logoShopKey.png" alt="logo">
-      </div>
-      <div class="col-8">
-        <ul class="drop-menu">
-          <li class="menu-item"><a class="p-3" href="index.jsp">Trang Chủ</a></li>
-          <li class="menu-item"><a class="p-3" href="product.jsp">Sản Phẩm</a></li>
-          <li class="menu-item"><a class="p-3" href="about-us.jsp">Giới Thiệu</a></li>
-          <li class="menu-item"><a class="p-3" href="contact.jsp">Liên Hệ</a></li>
-        </ul>
-      </div>
-      <div class="menu-right col-2">
-                    <span class="icon-item search">
-                        <span id="icon-search"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <div id="search-container">
-                            <div class="arrow-search"></div>
-                            <p class="title-in-search text-center">TÌM KIẾM</p>
-                            <div class="box-search d-flex">
-                                <input type="search" placeholder="Nhập tìm kiếm ở đây">
-                                <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                <button class="btn-close"><i class="fa-solid fa-xmark"></i></button>
-                            </div>
-                        </div>
-                    </span>
-        <span class="icon-item">
-                        <a href="cart.jsp">
-                            <span class="icon-cart">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                            <%
-                              int number =0;
-                              for (int i=0; i<AddToCart.carts.size(); i++){
-                                Cart c = AddToCart.carts.get(i);
-                                number += c.getQuantity();
-                              }
-                            %>
-                            <span class="amount-cart"><%=number%></span>
-                        </span>
-                        </a>
-                    </span>
-        <span class="icon-item">
-                        <span>
-                            <a href="login.jsp">
-                                <i class="fa-regular fa-user" class="btn btn-primary"></i>
-                            </a>
-                        </span>
-                    </span>
-      </div>
-    </div>
-  </div>
-</div>
+
 <jsp:include page="header.jsp"></jsp:include>
-<!--    End Header-->
+
 
 <!--Begin Content-->
 <div id="checkout_content">
@@ -133,7 +73,10 @@
 <%--          </div>--%>
 <%--        </div>--%>
         <div class="form_element">
-          <label for="form_card">Mã số thẻ ngân hàng:</label>
+<%--          <label for="form_card">Mã số thẻ ngân hàng:</label>--%>
+  <% User user = (User) request.getSession().getAttribute("user");%>
+  <input value="<%=user.getId()%>" id="idUser" hidden />
+  <label for="form_card">Mã số thẻ ngân hàng:</label>
           <input type="text" id="form_card" name="card">
         </div>
         <div class="card_details">
@@ -153,7 +96,7 @@
         </style>
         <div class="button_section">
           <ul>
-            <li><a href="Checkout" class="payment_button">Thanh toán</a></li>
+            <li><a  onclick="checkout()" class="payment_button">Thanh toán</a></li>
             <li><a href="cart.jsp" class="return_cart">Quay lại giỏ hàng</a></li>
           </ul>
         </div>
@@ -206,6 +149,8 @@
           Cart c = AddToCart.carts.get(i);
       %>
       <div class="product_contain">
+        <input hidden id="valueCart" value="<%=c.getPro().getId()%>-<%=c.getPro().getPrice()%>-<%=c.getQuantity()%>-<%=c.getQuantity()*c.getPro().getPrice()%>"/>
+
         <div class="image">
           <img src="<%= c.getPro().getImg()%>">
         </div>
@@ -223,12 +168,12 @@
           %>
           <%=priceDisplay%>đ</p></div>
         <div class="quantity">
-          <a href="" class="dec_button"><i class="fa-solid fa-minus"></i></a>
+<%--          <a href="" class="dec_button"><i class="fa-solid fa-minus"></i></a>--%>
           <input type="number" value="<%= c.getQuantity()%>" min="1">
-          <a href="" class="inc_button"><i class="fa-solid fa-plus"></i></a>
+<%--          <a href="" class="inc_button"><i class="fa-solid fa-plus"></i></a>--%>
           <style>
             #checkout_content .container .checkout_cart{
-              height: auto;
+              height: 900px;
             }
             #checkout_content .container .checkout_cart .product_contain .price {
               margin-left: 70px;
@@ -261,7 +206,7 @@
                 totalPriceDisplay = totalPrice.substring(0, totalPrice.length() - 6) + totalPrice.substring(totalPrice.length() - 6, totalPrice.length() - 3) + "." + totalPrice.substring(totalPrice.length() - 3);
               }
             %>
-            <%=totalPriceDisplay%>đ</p>
+            <%=totalPriceDisplay%> VND</p>
         </div>
         <!--        <div class="remove">-->
         <!--          <button><i class="fas fa-trash-alt"></i></button>-->
@@ -288,13 +233,13 @@
 <%--        <!--        </div>-->--%>
 <%--      </div>--%>
       <div class="total_price">
-        <div class="discount_code">
-          <div class="discount_contain">
-            <p>Nhập mã giảm giá tại đây:</p>
-            <input type="text" id="discount" placeholder="Mã giảm giá">
-            <button><i class="fas fa-chevron-right"></i></button>
-          </div>
-        </div>
+<%--        <div class="discount_code">--%>
+<%--          <div class="discount_contain">--%>
+<%--            <p>Nhập mã giảm giá tại đây:</p>--%>
+<%--            <input type="text" id="discount" placeholder="Mã giảm giá">--%>
+<%--            <button><i class="fas fa-chevron-right"></i></button>--%>
+<%--          </div>--%>
+<%--        </div>--%>
         <div class="subtotal cf">
           <div class="total_contain">
             <ul>
@@ -352,11 +297,11 @@
 
                                   }
                                 %>
-                                <%=totalPDisplay%>đ
+                                <%=totalPDisplay%> VND
                             </span></li>
               <li class="totalRow"><span class="label">Chi phí vận chuyển:</span><span class="value">Miễn phí</span></li>
-              <li class="totalRow"><span class="label">Thuế VAT (10%):</span><span class="value"><%= vatDisplay%>đ</span></li>
-              <li class="totalRow final"><span class="label">Thành tiền:</span><span class="value"><%=totalAllDisplay%>đ</span></li>
+              <li class="totalRow"><span class="label">Thuế VAT (10%):</span><span class="value"><%= vatDisplay%> VND</span></li>
+              <li class="totalRow final"><span class="label">Thành tiền:</span><span class="value"><%=totalAllDisplay%> VND</span></li>
             </ul>
           </div>
         </div>
@@ -365,9 +310,17 @@
   </div>
 </div>
 <!--End Content-->
-
+<style>
+    #checkout_content .container .checkout_cart .total_price .subtotal{
+        padding-left: 280px;
+    }
+    #checkout_content .container .checkout_cart .product_contain .quantity input{
+        margin-left: 30px;
+    }
+</style>
 <!--    Begin Footer-->
 <jsp:include page="footer.jsp"></jsp:include>
+
 <!--    End Footer-->
 <!--    Begin Back to top-->
 <div id="back-to-top">
@@ -375,10 +328,13 @@
 </div>
 <!--    End Back to top-->
 <!--    Script-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script src="js/jquery-3.6.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/slideShow.js"></script>
+<script src="js/checkout.js"></script>
 
 </body>
 </html>

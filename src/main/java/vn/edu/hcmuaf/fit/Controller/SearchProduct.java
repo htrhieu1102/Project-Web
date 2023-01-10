@@ -20,8 +20,8 @@ public class SearchProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String search = request.getParameter("search");
         ProductService productService = new ProductService();
-        List<Product> list = productService.searchNameProduct(search);
-        request.setAttribute("searchProduct", list);
+//        List<Product> list = productService.searchNameProduct(search);
+//        request.setAttribute("searchProduct", list);
         request.getRequestDispatcher("searchProduct.jsp").forward(request, response);
     }
 }
