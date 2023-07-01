@@ -17,9 +17,6 @@
 <body>
 <div id="main">
 
-
-    <!-- Begin Header-->
-
     <jsp:include page="header.jsp"></jsp:include>
 
     <!--    Begin SlideShow-->
@@ -74,7 +71,6 @@
             <div class="products-new">
                 <div class="product-title">
                     <h3 class="section-title"><i class="fa-solid fa-bolt"></i>Sản Phẩm Mới</h3>
-
                     <a class="more-product" href="">Xem thêm</a>
                 </div>
                 <span class="heading_divider"></span>

@@ -49,7 +49,9 @@ const render = (arr)=>{
                     </p>
                 </div>
                 <div class="remove">
+
                     <button   id="remove_button"><a href="RemoveCart?id=${tmp.pro.id}"><i class="fas fa-trash-alt"></i></a></button>
+
                     <style>
                         #wrapper .container .cart .product_contain .remove button a{
                             color: black;
@@ -65,6 +67,7 @@ const render = (arr)=>{
     document.querySelector("#sumBill").innerHTML = cd(total + (total*10)/100);
 
 }
+
 
 const inc = (idproduct)=>{
     var request = new XMLHttpRequest();
@@ -113,5 +116,7 @@ const cd = (total)=>{
     } else {
         totalPriceDisplay = totalPrice.substring(0, totalPrice.length - 6) + totalPrice.substring(totalPrice.length - 6, totalPrice.length - 3) + "." + totalPrice.substring(totalPrice.length - 3);
     }
+
     return totalPriceDisplay + " VND";
+
 }

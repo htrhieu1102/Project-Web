@@ -31,7 +31,7 @@ public class LoginService {
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
-                        resultSet.getInt(5),
+                        resultSet.getString(5),
                         resultSet.getDate(6),
                         resultSet.getInt(7));
             }
@@ -53,7 +53,7 @@ public class LoginService {
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
-                        resultSet.getInt(5),
+                        resultSet.getString(5),
                         resultSet.getDate(6),
                         resultSet.getInt(7)));
             }
@@ -87,7 +87,7 @@ public class LoginService {
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
-                        resultSet.getInt(5),
+                        resultSet.getString(5),
                         resultSet.getDate(6),
                         resultSet.getInt(7)));
             }

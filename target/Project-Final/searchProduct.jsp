@@ -2,8 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.Model.Product" %>
 <%@ page import="vn.edu.hcmuaf.fit.Controller.ListProduct" %>
-<%@ page import="vn.edu.hcmuaf.fit.Model.Category" %>
-<%@ page import="vn.edu.hcmuaf.fit.Service.CategoryService" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="utf-8" %>
 <html lang="en">
@@ -16,23 +14,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <style>
-        .list-category:hover,
-        #get-all-product:hover{
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .list-category:hover p,
-        #get-all-product:hover p{
-            color: #2dd100;
-        }
-        #search-by-name {
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #c0c0c0;
-        }
-    </style>
 </head>
 <body>
 <div id="main">
@@ -48,20 +29,43 @@
                     <p class="title-filter">Lọc theo giá</p>
                     <form action="">
                         <input type="range" class="range-filter" min="100000" max="10000000" step="100000"
-                               value="10000000" oninput="FilterProductsByRange(this)">
+                               value="100000">
                         <label>Giá: <span class="show-range-value"></span>₫</label>
                     </form>
                 </div>
                 <div class="filter-branch filter-container">
-                    <span class="title-dots" style="color: #000000"></span>
-                    <p class="title-filter">Danh mục</p>
-                    <a id="get-all-product"><p class="text-center">Tất cả</p></a>
-                    <% CategoryService categoryService = new CategoryService();
-                        List<Category> listCat = categoryService.getAllCategory();
-                        for (Category c : listCat) {
-                    %>
-                    <a id="<%=c.getCid()%>" class="list-category" style="color: #000000"><p class="text-center"><%=c.getCname()%></p></a>
-                    <%}%>
+                    <span class="title-dots"></span>
+                    <p class="title-filter">Lọc theo sản phẩm</p>
+                    <form action="">
+                        <input type="checkbox" name="" checked>
+                        <label>Tất cả</label><br>
+                        <input type="checkbox" name="">
+                        <label>Windows</label><br>
+                        <input type="checkbox" name="">
+                        <label>Adobe</label><br>
+                        <input type="checkbox" name="">
+                        <label>Microsoft</label><br>
+                        <input type="checkbox" name="">
+                        <label>Anti Virus</label><br>
+                    </form>
+                </div>
+                <div class="filter-duration filter-container">
+                    <span class="title-dots"></span>
+                    <p class="title-filter">Lọc theo thời hạn</p>
+                    <form action="">
+                        <input type="checkbox" name="" checked>
+                        <label>Tất cả</label><br>
+                        <input type="checkbox" name="">
+                        <label>30 Ngày</label><br>
+                        <input type="checkbox" name="">
+                        <label>3 Tháng</label><br>
+                        <input type="checkbox" name="">
+                        <label>6 Tháng</label><br>
+                        <input type="checkbox" name="">
+                        <label>1 Năm</label><br>
+                        <input type="checkbox" name="">
+                        <label>Vĩnh viễn</label><br>
+                    </form>
                 </div>
                 <div class="container-btn-filter">
                     <button class="btn-filter">LỌC</button>
@@ -69,7 +73,13 @@
             </div>
             <div class="product-filter">
                 <form class="woocommerce-ordering" action="">
-                    <input id="search-by-name" placeholder="Tìm kiếm sản phẩm" oninput="searchNameProduct(this)">
+                    <select class="order-by">
+                        <option value="menu_order" selected="selected">Thứ tự mặc định</option>
+                        <option value="date">Mới nhất</option>
+                        <option value="popularity">Thứ tự theo mức độ phổ biến</option>
+                        <option value="price">Thứ tự theo giá: thấp đến cao</option>
+                        <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
+                    </select>
 
                 </form>
                 <div class="product-filter-container">
@@ -137,7 +147,11 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="page-numbers mt-4">
+                    <button class="btn-number-pages" aria-checked="">1</button>
+                    <button class="btn-number-pages">2</button>
+                    <button class="btn-number-pages">></button>
+                </div>
             </div>
 
         </div>
@@ -157,71 +171,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/range-filter.js"></script>
-<script>
-    $('#get-all-product').click(function (e) {
-        e.preventDefault();
-        $.ajax({
-            url: '/Project_Web_war/filterAllProduct',
-            type: 'post',
-            success: function (response){
-                $('.product-filter-container').html(response)
-            },
-            error: function (){
-                alert("Lỗi")
-            }
-        })
-    })
-    $('.list-category').each(function () {
-        $(this).click(function (e) {
-            e.preventDefault();
-            let cid = $(this).attr("id");
-            $.ajax({
-                url: '/Project_Web_war/filterProductsByCategory',
-                type: 'post',
-                data: {
-                    cid : cid
-                },
-                success: function (response){
-                    $('.product-filter-container').html(response)
-                },
-                error: function (){
-                    alert("Lỗi")
-                }
-            })
-        })
-    })
-    function FilterProductsByRange(para) {
-        let val = $(para).val();
-        $.ajax({
-            url: '/Project_Web_war/filterProductsByRange',
-            type: 'post',
-            data: {
-                val : val
-            },
-            success: function (response){
-                $('.product-filter-container').html(response)
-            },
-            error: function (){
-                alert("Lỗi")
-            }
-        })
-    }
-    function searchNameProduct(para) {
-        let val = $(para).val();
-        $.ajax({
-            url: '/Project_Web_war/filterProductsBySearch',
-            type: 'post',
-            data: {
-                val : val
-            },
-            success: function (response){
-                $('.product-filter-container').html(response)
-            },
-            error: function (){
-                alert("Lỗi")
-            }
-        })
-    }
-</script>
+
 </body>
 </html>

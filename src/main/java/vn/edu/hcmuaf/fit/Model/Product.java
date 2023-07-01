@@ -11,19 +11,12 @@ public class Product {
     private String branch;
     private int deviceNumber;
     private String description;
-<<<<<<< HEAD
-    private int amount;
-    private String category;
-    public Product(){}
-    public Product(int id, String img, String name, int oldPrice, int price, String branch, String status, String device, int deviceNumber, String description, int amount, String category) {
-=======
 
     public Product(){
 
     }
 
     public Product(int id, String category, String img, String name, int oldPrice, int price, int amount, String branch, int deviceNumber, String description) {
->>>>>>> 8df66b6f1f2bb1171f3f076c77faef235b058fe1
         this.id = id;
         this.category = category;
         this.img = img;

@@ -7,11 +7,11 @@ public class User {
     private String email;
     private String pass;
     private String name;
-    private int phone;
+    private String phone;
     private Date createdAt;
     private int isAdmin;
 
-    public User(int id, String email, String pass, String name, int phone, Date createdAt, int isAdmin) {
+    public User(int id, String email, String pass, String name, String phone, Date createdAt, int isAdmin) {
         this.id = id;
         this.email = email;
         this.pass = pass;
@@ -53,11 +53,11 @@ public class User {
         this.name = name;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
